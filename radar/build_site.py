@@ -326,7 +326,11 @@ def construire(base_fonts_preuves=FONTS):
 <p>{fr("Le Radar interroge les moteurs sans compte personnel ni historique, comme un nouvel internaute. Vos tests dans l'application, avec votre compte, peuvent donner d'autres sources. Seul le Radar fait foi pour le classement.")}</p>
 </div></main>"""
     open(os.path.join(DOCS, "regles.html"), "w", encoding="utf-8").write(page("Les règles, Radar GEO Influa", b))
-    open(os.path.join(DOCS, "CNAME"), "w").write("radar.influa.com\n")
+    cn = os.path.join(DOCS, "CNAME")
+    if CFG.get("domaine_perso"):
+        open(cn, "w").write(CFG["domaine_perso"] + "\n")
+    elif os.path.exists(cn):
+        os.remove(cn)
     open(os.path.join(DOCS, ".nojekyll"), "w").write("")
     print(f"Site construit, {n} captures nouvelles, {len(s['citations'])} citations au total")
     return s

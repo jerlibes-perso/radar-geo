@@ -26,7 +26,7 @@ def main():
     out += ["", "**Relevés du jour** : " + (", ".join(f"{MNOM[k]} {v}" for k, v in et.items()) or "aucun")]
     dep = charger(os.path.join(DATA, "depenses.json"), {}).get(d[:7], {})
     tot = sum(dep.values())
-    out += [f"**Dépense estimée du mois** : {tot:.2f} €".replace(".", ","), "", "https://radar.influa.com/"]
+    out += [f"**Dépense estimée du mois** : {tot:.2f} €".replace(".", ","), "", CFG.get("adresse_site", "https://radar.influa.com/")]
     print("\n".join(out))
 
 
