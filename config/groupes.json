@@ -1,0 +1,974 @@
+[
+ {
+  "u": "sport",
+  "domaine": "yeuxdusport.fr",
+  "theme": "Sport et vision",
+  "noms": [],
+  "questions": [
+   {
+    "id": "sport-01",
+    "texte": "Peut-on faire du sport avec des lunettes de vue ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-02",
+    "texte": "Quelles lunettes de sport choisir quand on est myope ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-03",
+    "texte": "Lentilles ou lunettes pour faire du sport ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-04",
+    "texte": "Comment choisir un masque de natation à la vue ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-05",
+    "texte": "Comment protéger ses yeux au ski ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-06",
+    "texte": "Quelle catégorie de verre solaire pour le ski ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-07",
+    "texte": "Comment éviter la buée sur les lunettes de sport ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-08",
+    "texte": "Que faire en cas de choc à l'oeil pendant un match ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-09",
+    "texte": "La vision influence-t-elle les performances sportives ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-10",
+    "texte": "Faut-il un examen de vue avant de reprendre le sport ?",
+    "type": "nationale"
+   },
+   {
+    "id": "sport-11",
+    "texte": "Quel opticien à Bordeaux pour des lunettes de sport à la vue ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-12",
+    "texte": "Où acheter des lunettes de vélo à la vue à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-13",
+    "texte": "Où trouver un masque de natation à la vue à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-14",
+    "texte": "Quel prix pour des lunettes de sport correctrices chez un opticien à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-15",
+    "texte": "Où faire adapter des lunettes de ski à ma vue à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-16",
+    "texte": "Quel opticien près du Lac de Bordeaux pour des lunettes de padel ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-17",
+    "texte": "Où essayer des lunettes de running à Bordeaux Nord ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-18",
+    "texte": "Quel magasin d'optique à Bordeaux vend des lunettes de sport pour enfant ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-19",
+    "texte": "Où acheter des lentilles pour le sport à Bordeaux sans rendez-vous ?",
+    "type": "locale"
+   },
+   {
+    "id": "sport-20",
+    "texte": "Quel opticien ouvert le samedi à Bordeaux Lac pour des lunettes de sport ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "enfants",
+  "domaine": "lesyeuxdesenfants.fr",
+  "theme": "La vue des enfants",
+  "noms": [],
+  "questions": [
+   {
+    "id": "enfants-01",
+    "texte": "À quel âge faire le premier examen de la vue d'un enfant ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-02",
+    "texte": "Comment savoir si mon enfant voit mal ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-03",
+    "texte": "Quels sont les signes de myopie chez l'enfant ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-04",
+    "texte": "Comment freiner la myopie de mon enfant ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-05",
+    "texte": "Les écrans rendent-ils les enfants myopes ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-06",
+    "texte": "Quelles lunettes choisir pour un enfant de 3 ans ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-07",
+    "texte": "Mon enfant doit-il porter ses lunettes en permanence ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-08",
+    "texte": "Qu'est-ce qu'un oeil paresseux chez l'enfant ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-09",
+    "texte": "La vue peut-elle expliquer des difficultés scolaires ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-10",
+    "texte": "Comment faire porter ses lunettes à un tout-petit ?",
+    "type": "nationale"
+   },
+   {
+    "id": "enfants-11",
+    "texte": "Quel opticien à Bordeaux pour les lunettes de mon enfant ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-12",
+    "texte": "Où acheter des lunettes incassables pour enfant à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-13",
+    "texte": "Quel opticien à Bordeaux Lac propose des verres freinateurs de myopie ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-14",
+    "texte": "Combien coûtent des lunettes enfant chez un opticien à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-15",
+    "texte": "Où trouver des lunettes 100 % Santé pour enfant à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-16",
+    "texte": "Quel opticien près de Bruges pour une première paire de lunettes enfant ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-17",
+    "texte": "Où faire ajuster les lunettes de mon enfant à Bordeaux Nord ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-18",
+    "texte": "Quel magasin d'optique à Bordeaux a un grand choix de montures enfant ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-19",
+    "texte": "Où acheter des lunettes de soleil pour bébé à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "enfants-20",
+    "texte": "Quel opticien à Bordeaux Lac fait le tiers payant pour les lunettes enfant ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "volant",
+  "domaine": "bienvoirauvolant.fr",
+  "theme": "Vision et conduite",
+  "noms": [],
+  "questions": [
+   {
+    "id": "volant-01",
+    "texte": "Quelle acuité visuelle faut-il pour le permis de conduire ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-02",
+    "texte": "Faut-il un test de vue pour passer le permis ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-03",
+    "texte": "Peut-on conduire sans ses lunettes si c'est noté sur le permis ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-04",
+    "texte": "Comment mieux voir la nuit en voiture ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-05",
+    "texte": "Les lunettes de conduite de nuit jaunes sont-elles efficaces ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-06",
+    "texte": "Quels verres choisir pour conduire ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-07",
+    "texte": "Peut-on conduire avec des verres progressifs ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-08",
+    "texte": "Comment réduire l'éblouissement des phares ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-09",
+    "texte": "Peut-on conduire avec une cataracte ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-10",
+    "texte": "Comment savoir si sa vue baisse au volant ?",
+    "type": "nationale"
+   },
+   {
+    "id": "volant-11",
+    "texte": "Où faire un test de vue pour le permis de conduire à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-12",
+    "texte": "Quel opticien à Bordeaux pour des verres de conduite de nuit ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-13",
+    "texte": "Où acheter des lunettes polarisantes pour conduire à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-14",
+    "texte": "Quel prix pour des verres antireflet conduite chez un opticien à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-15",
+    "texte": "Quel opticien près du Bouscat pour des lunettes de conduite ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-16",
+    "texte": "Où acheter une deuxième paire de lunettes pour la voiture à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-17",
+    "texte": "Quel opticien à Bordeaux Nord fait un contrôle de vue sans rendez-vous ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-18",
+    "texte": "Où trouver des lunettes de soleil à la vue pour conduire à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-19",
+    "texte": "Quel opticien à Bordeaux pour des lunettes de chauffeur professionnel ?",
+    "type": "locale"
+   },
+   {
+    "id": "volant-20",
+    "texte": "Où faire renouveler ses lunettes rapidement à Bordeaux Lac ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "ecrans",
+  "domaine": "ecransetyeux.fr",
+  "theme": "Écrans et fatigue visuelle",
+  "noms": [],
+  "questions": [
+   {
+    "id": "ecrans-01",
+    "texte": "Les écrans abîment-ils les yeux ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-02",
+    "texte": "Comment soulager la fatigue visuelle devant un ordinateur ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-03",
+    "texte": "Qu'est-ce que la règle 20-20-20 ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-04",
+    "texte": "Les lunettes anti lumière bleue sont-elles efficaces ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-05",
+    "texte": "La lumière bleue des écrans est-elle dangereuse ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-06",
+    "texte": "À quelle distance placer son écran d'ordinateur ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-07",
+    "texte": "Pourquoi j'ai les yeux secs devant l'écran ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-08",
+    "texte": "Quels verres choisir pour travailler sur ordinateur ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-09",
+    "texte": "Le mode sombre est-il meilleur pour les yeux ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-10",
+    "texte": "Que faire quand on voit flou après une journée sur écran ?",
+    "type": "nationale"
+   },
+   {
+    "id": "ecrans-11",
+    "texte": "Où acheter des lunettes pour écran à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-12",
+    "texte": "Quel opticien à Bordeaux pour des verres de bureau ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-13",
+    "texte": "Combien coûtent des lunettes anti lumière bleue chez un opticien à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-14",
+    "texte": "Où faire un bilan de fatigue visuelle à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-15",
+    "texte": "Quel opticien près de Bordeaux Nord pour des verres de télétravail ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-16",
+    "texte": "Où acheter des lunettes gaming à la vue à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-17",
+    "texte": "Quel opticien à Bordeaux pour des verres progressifs d'ordinateur ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-18",
+    "texte": "Où trouver des lunettes de repos à Bordeaux sans ordonnance ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-19",
+    "texte": "Quel magasin d'optique à Bordeaux Lac ouvert entre midi et deux ?",
+    "type": "locale"
+   },
+   {
+    "id": "ecrans-20",
+    "texte": "Où acheter des gouttes pour yeux secs conseillées par un opticien à Bordeaux ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "senior",
+  "domaine": "bienvoirapres60.fr",
+  "theme": "Bien voir après 60 ans",
+  "noms": [],
+  "questions": [
+   {
+    "id": "senior-01",
+    "texte": "Pourquoi la vue baisse-t-elle après 60 ans ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-02",
+    "texte": "Tous les combien faire un examen de vue après 60 ans ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-03",
+    "texte": "Combien de temps pour s'habituer à des verres progressifs ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-04",
+    "texte": "Quels sont les premiers signes de la cataracte ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-05",
+    "texte": "Quand faut-il opérer la cataracte ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-06",
+    "texte": "Qu'est-ce que la DMLA ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-07",
+    "texte": "Quels sont les symptômes du glaucome ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-08",
+    "texte": "Que contient l'offre 100 % Santé en optique ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-09",
+    "texte": "Quelles lunettes pour lire après 60 ans ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-10",
+    "texte": "Pourquoi voit-on moins bien la nuit en vieillissant ?",
+    "type": "nationale"
+   },
+   {
+    "id": "senior-11",
+    "texte": "Quel opticien à Bordeaux pour des verres progressifs ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-12",
+    "texte": "Combien coûtent des verres progressifs à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-13",
+    "texte": "Où trouver des lunettes 100 % Santé à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-14",
+    "texte": "Quel opticien à Bordeaux fait le tiers payant mutuelle ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-15",
+    "texte": "Quel opticien à Bordeaux Nord accessible en fauteuil roulant ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-16",
+    "texte": "Où acheter des loupes de basse vision à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-17",
+    "texte": "Quel opticien à Bordeaux après une opération de la cataracte ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-18",
+    "texte": "Où faire un contrôle de vue sans ordonnance à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-19",
+    "texte": "Quel opticien près d'Aushopping Bordeaux Lac avec parking gratuit ?",
+    "type": "locale"
+   },
+   {
+    "id": "senior-20",
+    "texte": "Où faire réparer ses lunettes rapidement à Bordeaux ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "style",
+  "domaine": "styleetlunettes.fr",
+  "theme": "Mode et choix des montures",
+  "noms": [],
+  "questions": [
+   {
+    "id": "style-01",
+    "texte": "Quelle monture choisir pour un visage rond ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-02",
+    "texte": "Quelles lunettes pour un visage carré ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-03",
+    "texte": "Quelle forme de lunettes pour un visage ovale ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-04",
+    "texte": "Comment choisir la couleur de ses lunettes ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-05",
+    "texte": "Quelles sont les tendances lunettes de l'année ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-06",
+    "texte": "Acétate ou métal, quelle monture choisir ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-07",
+    "texte": "Quelles lunettes pour un petit visage ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-08",
+    "texte": "Comment savoir si une monture est à la bonne taille ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-09",
+    "texte": "Comment nettoyer ses lunettes sans les rayer ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-10",
+    "texte": "Les lunettes oversize sont-elles adaptées aux verres forts ?",
+    "type": "nationale"
+   },
+   {
+    "id": "style-11",
+    "texte": "Où acheter des lunettes tendance à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-12",
+    "texte": "Quel opticien à Bordeaux pour des montures de créateur ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-13",
+    "texte": "Où trouver des lunettes de marque à la vue à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-14",
+    "texte": "Quel magasin de lunettes à Bordeaux pour un conseil de style ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-15",
+    "texte": "Où acheter des lunettes en acétate à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-16",
+    "texte": "Quel opticien à Bordeaux Nord propose deux paires de lunettes ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-17",
+    "texte": "Où acheter des lunettes de soleil de marque à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-18",
+    "texte": "Quel opticien à Bordeaux pour essayer beaucoup de montures ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-19",
+    "texte": "Où trouver des montures écoresponsables à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "style-20",
+    "texte": "Quel opticien ouvert le samedi à Aushopping Bordeaux Lac ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "soins",
+  "domaine": "prendresoindesesyeux.fr",
+  "theme": "Santé et prévention des yeux",
+  "noms": [],
+  "questions": [
+   {
+    "id": "soins-01",
+    "texte": "Tous les combien faire contrôler sa vue ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-02",
+    "texte": "Quelle différence entre un ophtalmologiste et un opticien ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-03",
+    "texte": "Pourquoi ai-je les yeux secs ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-04",
+    "texte": "Que faire en cas d'oeil rouge ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-05",
+    "texte": "Quels aliments sont bons pour la vue ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-06",
+    "texte": "Quand faut-il consulter en urgence pour un oeil ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-07",
+    "texte": "Que faire si on voit des mouches volantes ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-08",
+    "texte": "Le diabète peut-il abîmer les yeux ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-09",
+    "texte": "Peut-on prévenir le glaucome ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-10",
+    "texte": "Que faire après un produit chimique dans l'oeil ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soins-11",
+    "texte": "Où faire un contrôle de la vue à Bordeaux sans attendre ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-12",
+    "texte": "Quel opticien à Bordeaux fait un examen de vue ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-13",
+    "texte": "Où trouver un opticien ouvert jusqu'à 20 h à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-14",
+    "texte": "Quel opticien à Bordeaux Lac pour renouveler mes lunettes sans ophtalmologiste ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-15",
+    "texte": "Où acheter des lunettes de protection à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-16",
+    "texte": "Quel opticien à Bordeaux Nord accepte ma mutuelle ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-17",
+    "texte": "Où faire un dépistage de la vue gratuit à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-18",
+    "texte": "Quel opticien près du tram C à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-19",
+    "texte": "Où faire remplacer un verre de lunettes cassé à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soins-20",
+    "texte": "Quel opticien à Bordeaux conseille pour la sécheresse oculaire ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "lentilles",
+  "domaine": "guidelentilles.fr",
+  "theme": "Les lentilles de contact",
+  "noms": [],
+  "questions": [
+   {
+    "id": "lentilles-01",
+    "texte": "Quelle différence entre lentilles journalières et mensuelles ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-02",
+    "texte": "Peut-on dormir avec des lentilles de contact ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-03",
+    "texte": "Comment mettre des lentilles pour la première fois ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-04",
+    "texte": "Combien de temps peut-on garder ses lentilles par jour ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-05",
+    "texte": "Quels sont les risques des lentilles mal entretenues ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-06",
+    "texte": "Pourquoi mes lentilles me font mal aux yeux ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-07",
+    "texte": "Existe-t-il des lentilles pour la presbytie ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-08",
+    "texte": "Les lentilles de couleur sont-elles dangereuses ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-09",
+    "texte": "Peut-on porter des lentilles avec les yeux secs ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-10",
+    "texte": "Qu'est-ce que l'orthokératologie ?",
+    "type": "nationale"
+   },
+   {
+    "id": "lentilles-11",
+    "texte": "Où acheter des lentilles de contact à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-12",
+    "texte": "Quel opticien à Bordeaux pour une première adaptation de lentilles ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-13",
+    "texte": "Combien coûtent des lentilles journalières chez un opticien à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-14",
+    "texte": "Où essayer des lentilles de contact à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-15",
+    "texte": "Quel opticien à Bordeaux pour des lentilles progressives ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-16",
+    "texte": "Où acheter du produit pour lentilles à Bordeaux Nord ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-17",
+    "texte": "Quel opticien à Bordeaux pour des lentilles toriques ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-18",
+    "texte": "Où acheter des lentilles de contact sans ordonnance récente à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-19",
+    "texte": "Quel opticien près de Blanquefort pour des lentilles de couleur ?",
+    "type": "locale"
+   },
+   {
+    "id": "lentilles-20",
+    "texte": "Où commander des lentilles et les retirer à Bordeaux Lac ?",
+    "type": "locale"
+   }
+  ]
+ },
+ {
+  "u": "soleil",
+  "domaine": "yeuxausoleil.fr",
+  "theme": "Protection solaire des yeux",
+  "noms": [],
+  "questions": [
+   {
+    "id": "soleil-01",
+    "texte": "Le soleil abîme-t-il les yeux ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-02",
+    "texte": "Comment choisir de bonnes lunettes de soleil ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-03",
+    "texte": "Que signifient les catégories de lunettes de soleil ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-04",
+    "texte": "Quelle différence entre filtre UV400 et catégorie 3 ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-05",
+    "texte": "Les lunettes de soleil bon marché sont-elles dangereuses ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-06",
+    "texte": "Faut-il porter des lunettes de soleil en hiver ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-07",
+    "texte": "Qu'est-ce qu'une ophtalmie des neiges ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-08",
+    "texte": "Les verres photochromiques sont-ils efficaces ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-09",
+    "texte": "Quelle couleur de verre solaire choisir ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-10",
+    "texte": "Comment vérifier qu'une paire de lunettes de soleil protège ?",
+    "type": "nationale"
+   },
+   {
+    "id": "soleil-11",
+    "texte": "Où acheter des lunettes de soleil à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-12",
+    "texte": "Quel opticien à Bordeaux pour des lunettes de soleil à la vue ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-13",
+    "texte": "Où trouver des lunettes de soleil polarisantes à Bordeaux Lac ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-14",
+    "texte": "Combien coûtent des lunettes de soleil correctrices à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-15",
+    "texte": "Où acheter des lunettes de soleil pour enfant à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-16",
+    "texte": "Quel opticien à Bordeaux Nord pour des verres photochromiques ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-17",
+    "texte": "Où acheter des lunettes de glacier à Bordeaux avant le ski ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-18",
+    "texte": "Quel magasin à Bordeaux Lac vend des lunettes de soleil de marque ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-19",
+    "texte": "Où faire vérifier la protection UV de mes lunettes de soleil à Bordeaux ?",
+    "type": "locale"
+   },
+   {
+    "id": "soleil-20",
+    "texte": "Quel opticien à Bordeaux pour des lunettes de soleil pour la plage du bassin ?",
+    "type": "locale"
+   }
+  ]
+ }
+]

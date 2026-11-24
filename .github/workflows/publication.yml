@@ -1,0 +1,56 @@
+name: Publication du classement
+# 8 h heure de Paris : 7 h UTC en hiver, 6 h UTC en été.
+on:
+  schedule:
+    - cron: "0 6,7 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: radar
+  cancel-in-progress: false
+jobs:
+  publication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Heure de publication
+        id: h
+        run: |
+          H=$(TZ=Europe/Paris date +%-H)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$H" = "8" ]; then echo "go=1" >> $GITHUB_OUTPUT; else echo "Heure locale $H h : rien à faire"; fi
+      - name: Outils de capture
+        if: steps.h.outputs.go == '1'
+        run: |
+          pip install playwright==1.48.0
+          python -m playwright install --with-deps chromium
+          mkdir -p .fonts
+          for f in Light Regular Medium SemiBold; do curl -fsSL -o .fonts/Hellix-$f.woff2 "https://www.influa.com/k-custom/assets/fonts/Hellix-$f.woff2" || true; done
+      - name: Classement, pages et captures
+        if: steps.h.outputs.go == '1'
+        run: python -m radar.build_site "file://$PWD/.fonts/"
+      - name: Mise en ligne
+        if: steps.h.outputs.go == '1'
+        run: |
+          git config user.name "Radar GEO Influa"
+          git config user.email "radar@users.noreply.github.com"
+          git add docs data/scores.json
+          git diff --cached --quiet || git commit -m "Classement du $(TZ=Europe/Paris date +%F)"
+          git pull --rebase && git push
+      - name: Message du jour
+        if: steps.h.outputs.go == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python -m radar.rapport > rapport.md
+          N=$(gh issue list --label radar-quotidien --state open --json number -q '.[0].number')
+          if [ -z "$N" ]; then
+            gh label create radar-quotidien --color C1C600 || true
+            N=$(gh issue create --title "Radar GEO Influa : classement du jour" --label radar-quotidien --assignee "${{ github.repository_owner }}" --body "Chaque matin, le classement du jour arrive en commentaire de ce ticket." | grep -o '[0-9]*$')
+          fi
+          gh issue comment "$N" --body-file rapport.md

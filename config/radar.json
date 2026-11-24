@@ -1,0 +1,67 @@
+{
+ "debut": "2026-11-24",
+ "fin": "2027-06-01",
+ "fuseau": "Europe/Paris",
+ "heure_collecte": 5,
+ "heure_publication": 8,
+ "localisation": {
+  "ville": "Bordeaux",
+  "region": "Nouvelle-Aquitaine",
+  "pays": "FR",
+  "fuseau": "Europe/Paris"
+ },
+ "moteurs": [
+  {
+   "id": "gemini",
+   "nom": "Gemini",
+   "cadence": "quotidien",
+   "poids": 1,
+   "modele": "gemini-2.5-flash",
+   "plafond_mensuel_eur": 6
+  },
+  {
+   "id": "mistral",
+   "nom": "Le Chat",
+   "cadence": "quotidien",
+   "poids": 1,
+   "modele": "mistral-medium-latest",
+   "plafond_mensuel_eur": 2
+  },
+  {
+   "id": "perplexity",
+   "nom": "Perplexity",
+   "cadence": "hebdomadaire",
+   "jour": "lundi",
+   "poids": 7,
+   "modele": "sonar",
+   "plafond_mensuel_eur": 5
+  },
+  {
+   "id": "openai",
+   "nom": "ChatGPT",
+   "cadence": "bimensuel",
+   "jour": "lundi",
+   "semaines": "paires",
+   "poids": 14,
+   "modele": "gpt-5-mini",
+   "plafond_mensuel_eur": 4
+  },
+  {
+   "id": "anthropic",
+   "nom": "Claude",
+   "cadence": "bimensuel",
+   "jour": "lundi",
+   "semaines": "impaires",
+   "poids": 14,
+   "modele": "claude-haiku-4-5",
+   "plafond_mensuel_eur": 6
+  }
+ ],
+ "cout_estime_eur_par_reponse": {
+  "gemini": 0.0,
+  "mistral": 0.0,
+  "perplexity": 0.006,
+  "openai": 0.012,
+  "anthropic": 0.022
+ }
+}
