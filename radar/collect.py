@@ -65,11 +65,11 @@ def main():
     ap.add_argument("--date")
     ap.add_argument("--moteurs")
     ap.add_argument("--force", action="store_true")
-    ap.add_argument("--heure", type=int, help="ne collecte que si l'heure locale vaut cette valeur")
+    ap.add_argument("--apres", type=int, help="ne collecte qu'à partir de cette heure locale")
     a = ap.parse_args()
     now = maintenant()
-    if a.heure is not None and now.hour != a.heure:
-        print(f"Heure locale {now.hour} h : collecte prévue à {a.heure} h, rien à faire")
+    if a.apres is not None and now.hour < a.apres:
+        print(f"Heure locale {now.hour} h : collecte à partir de {a.apres} h, rien à faire")
         return
     jour = dt.date.fromisoformat(a.date) if a.date else now.date()
     fin = dt.date.fromisoformat(CFG["fin"])

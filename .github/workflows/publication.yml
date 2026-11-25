@@ -1,8 +1,8 @@
 name: Publication du classement
-# 8 h heure de Paris : 7 h UTC en hiver, 6 h UTC en été.
+# Passage chaque heure : la publication du jour part au premier passage après 8 h (heure de Paris), une fois par jour.
 on:
   schedule:
-    - cron: "0 6,7 * * *"
+    - cron: "37 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
@@ -22,8 +22,8 @@ jobs:
       - name: Heure de publication
         id: h
         run: |
-          H=$(TZ=Europe/Paris date +%-H)
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$H" = "8" ]; then echo "go=1" >> $GITHUB_OUTPUT; else echo "Heure locale $H h : rien à faire"; fi
+          H=$(TZ=Europe/Paris date +%-H); J=$(TZ=Europe/Paris date +%F); P=$(cat data/publie.txt 2>/dev/null || true)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || { [ "$H" -ge 8 ] && [ "$P" != "$J" ]; }; then echo "go=1" >> $GITHUB_OUTPUT; else echo "Heure locale $H h, dernière publication $P : rien à faire"; fi
       - name: Outils de capture
         if: steps.h.outputs.go == '1'
         run: |
@@ -39,7 +39,8 @@ jobs:
         run: |
           git config user.name "Radar GEO Influa"
           git config user.email "radar@users.noreply.github.com"
-          git add docs data/scores.json
+          TZ=Europe/Paris date +%F > data/publie.txt
+          git add docs data/scores.json data/publie.txt
           git diff --cached --quiet || git commit -m "Classement du $(TZ=Europe/Paris date +%F)"
           git pull --rebase && git push
       - name: Message du jour

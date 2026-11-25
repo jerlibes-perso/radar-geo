@@ -1,8 +1,8 @@
 name: Collecte quotidienne
-# 5 h heure de Paris : 4 h UTC en hiver, 3 h UTC en été. Le script vérifie l'heure locale.
+# Passage chaque heure : la collecte du jour part au premier passage après 5 h (heure de Paris), puis chaque moteur déjà relevé est ignoré.
 on:
   schedule:
-    - cron: "0 3,4 * * *"
+    - cron: "7 * * * *"
   workflow_dispatch:
     inputs:
       force:
@@ -34,7 +34,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             python -m radar.collect
           else
-            python -m radar.collect --heure 5
+            python -m radar.collect --apres 5
           fi
       - name: Archive
         run: |
