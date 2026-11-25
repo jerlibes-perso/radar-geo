@@ -56,6 +56,6 @@
   "openai": 0.012,
   "anthropic": 0.022
  },
- "domaine_perso": "",
- "adresse_site": "https://jerlibes-perso.github.io/radar-geo/"
+ "domaine_perso": "radar.influa.com",
+ "adresse_site": "https://radar.influa.com/"
 }
