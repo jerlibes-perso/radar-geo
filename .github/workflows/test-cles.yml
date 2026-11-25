@@ -1,0 +1,24 @@
+name: Test des clés
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/test-cles.yml"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Un appel par moteur
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+        run: python -m radar.test_cles | tee resultat.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: resultat
+          path: resultat.txt
