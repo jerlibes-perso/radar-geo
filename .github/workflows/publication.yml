@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  issues: write
 concurrency:
   group: radar
   cancel-in-progress: false
@@ -43,15 +42,3 @@ jobs:
           git add docs data/scores.json data/publie.txt
           git diff --cached --quiet || git commit -m "Classement du $(TZ=Europe/Paris date +%F)"
           git pull --rebase && git push
-      - name: Message du jour
-        if: steps.h.outputs.go == '1'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          python -m radar.rapport > rapport.md
-          N=$(gh issue list --label radar-quotidien --state open --json number -q '.[0].number')
-          if [ -z "$N" ]; then
-            gh label create radar-quotidien --color C1C600 || true
-            N=$(gh issue create --title "Radar GEO Influa : classement du jour" --label radar-quotidien --assignee "${{ github.repository_owner }}" --body "Chaque matin, le classement du jour arrive en commentaire de ce ticket." | grep -o '[0-9]*$')
-          fi
-          gh issue comment "$N" --body-file rapport.md
