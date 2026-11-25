@@ -96,7 +96,7 @@ def perplexity(q, cfg, loc):
 
 
 def mistral(q, cfg, loc):
-    key = os.environ["MISTRAL_API_KEY"]
+    key = os.environ.get("MISTRAL_API_KEY") or os.environ["MISTRAL_KEY"]
     d = _post("https://api.mistral.ai/v1/conversations", {"Authorization": f"Bearer {key}"}, {
         "model": cfg["modele"], "instructions": SYSTEME + f" L'internaute se trouve à {loc['ville']}, en France.",
         "inputs": q, "tools": [{"type": "web_search"}], "store": False})

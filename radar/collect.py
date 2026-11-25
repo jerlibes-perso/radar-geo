@@ -28,7 +28,7 @@ def relever(m, jour, force=False):
     if os.path.exists(sortie) and not force:
         print(f"{mid} : déjà relevé le {jour}")
         return
-    if not os.environ.get(CLES[mid]):
+    if not (os.environ.get(CLES[mid]) or (mid == "mistral" and os.environ.get("MISTRAL_KEY"))):
         print(f"{mid} : clé {CLES[mid]} absente, moteur ignoré")
         sauver(sortie.replace(".json", ".absent.json"), {"raison": "clé absente"})
         return
