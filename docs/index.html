@@ -1,5 +1,5 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
-<title>Radar GEO Influa</title><meta name="description" content="Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini, Perplexity et Le Chat.">
+<title>Radar GEO Influa, classement du challenge GEO Inseec</title><meta name="description" content="Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini et Perplexity.">
 <link rel="icon" href="assets/favicon.ico"><link rel="apple-touch-icon" href="assets/favicon-180.png">
 <style>@font-face{font-family:Hellix;font-weight:300;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-Light.woff2) format('woff2')}@font-face{font-family:Hellix;font-weight:400;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-Regular.woff2) format('woff2')}@font-face{font-family:Hellix;font-weight:500;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-Medium.woff2) format('woff2')}@font-face{font-family:Hellix;font-weight:600;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-SemiBold.woff2) format('woff2')}
 :root{--anthracite:#0E0E10;--blanc:#FFFFFF;--lime:#C1C600;--magenta:#DE007E;--ink900:#1C1C1F;--ink700:#34343A;--ink600:#5E5E66;--ink500:#76767E;--ink300:#C8C8CC;--ink100:#EFEFF1;color-scheme:light}
@@ -47,11 +47,82 @@ td.rank{font-weight:600;font-size:22px;width:52px}
 .cell-wait{color:var(--ink500)}
 .flag{display:inline-block;background:var(--magenta);color:var(--blanc);font-weight:600;font-size:12px;padding:2px 8px}
 svg.chart text{font-family:Hellix,Arial,sans-serif;font-size:12px;fill:var(--ink700)}
-.rules ol{padding-left:22px}
+.rules ol,ol.todo{padding-left:22px}ol.todo li{margin-bottom:6px}
 .rules li{margin-bottom:8px}
 footer{background:var(--anthracite);color:var(--blanc)}
 footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
 footer svg{height:26px;width:auto}
+
+.score{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:end;margin-top:26px}
+.score .giant{font-weight:600;font-size:clamp(150px,22vw,300px);line-height:.74;letter-spacing:-.05em;margin-bottom:-64px;white-space:nowrap}
+.score .giant small{font-size:.16em;letter-spacing:0;font-weight:600;margin-left:10px;vertical-align:top;display:inline-block;margin-top:.5em}
+.facts{display:grid;grid-template-columns:1fr 1fr;border-top:3px solid var(--anthracite)}
+.fact{padding:14px 14px 14px 0;border-bottom:1px solid rgba(14,14,16,.35)}
+.fact .v{font-weight:600;font-size:34px;line-height:1.05}
+.fact .l{font-size:14px;margin-top:2px}
+.fact.mag .v{color:var(--magenta)}
+.ticker{background:var(--anthracite);color:var(--blanc);overflow:hidden;white-space:nowrap;position:relative}
+.ticker .lab{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 18px;background:var(--magenta);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.1em;z-index:2}
+.ticker .rail{display:inline-flex;gap:46px;padding:16px 0 16px 230px;animation:defile var(--duree,40s) linear infinite}
+.ticker:hover .rail{animation-play-state:paused}
+.ticker .it{font-size:16px}.ticker .it b{font-weight:600;color:var(--lime)}.ticker .it .p{color:var(--blanc);font-weight:600;margin-left:6px}
+@keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end;margin-top:10px}
+.step{display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;overflow:hidden;position:relative;padding:18px 18px 16px}
+.step .r{font-weight:600;line-height:.8;letter-spacing:-.05em;position:absolute;right:-6px;bottom:-14px;opacity:1}
+.step .d{font-weight:600;font-size:20px;line-height:1.15;position:relative}
+.step .t{font-size:14px;position:relative}
+.step .pts{font-weight:600;font-size:44px;line-height:1;margin-top:10px;position:relative}
+.step .ev{font-size:14px;font-weight:600;margin-top:4px;position:relative}
+.step.s1{background:var(--lime);height:330px}.step.s1 .r{font-size:300px;color:rgba(14,14,16,.12)}
+.step.s2{background:var(--anthracite);color:var(--blanc);height:270px}.step.s2 .r{font-size:240px;color:rgba(255,255,255,.1)}
+.step.s3{background:var(--ink100);height:225px}.step.s3 .r{font-size:200px;color:rgba(14,14,16,.08)}
+.step.vide .d{color:inherit;opacity:.7}
+.step .go{position:relative;font-size:14px;font-weight:600;text-decoration:underline;margin-top:8px}
+.race{margin-top:6px;border-top:3px solid var(--anthracite)}
+.lane{display:grid;grid-template-columns:64px minmax(0,1.6fr) minmax(0,2.4fr) 130px 120px;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--ink300);text-decoration:none;position:relative;background:var(--blanc)}
+.lane:hover{background:var(--ink100)}
+.lane .rk{font-weight:600;font-size:40px;line-height:1;letter-spacing:-.03em}
+.lane .nm b{font-weight:600;font-size:18px;display:block}.lane .nm span{font-size:14px;color:var(--ink600)}
+.br{display:block}.bar{display:block;height:14px;background:var(--ink100);position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--anthracite);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.lane.first .bar i{background:var(--lime)}
+.gap{font-size:13px;color:var(--ink600);margin-top:6px}
+.lane .pt{text-align:right}.lane .pt b{font-weight:600;font-size:30px;line-height:1;display:block}
+.lane .pt .td{color:var(--magenta);font-weight:600;font-size:14px}
+.lane .sp svg{width:120px;height:36px;display:block}
+.lane .mv{font-size:13px;font-weight:600}
+.lane .mv.up{color:var(--anthracite)}.lane .mv.down{color:var(--magenta)}
+.lane .lk{font-size:13px;font-weight:600;text-decoration:underline;display:block;margin-top:4px}
+.defis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--anthracite)}
+.defi{padding:16px 16px 18px 0;border-bottom:1px solid var(--ink300)}
+.defi .k{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--ink600)}
+.defi .v{font-weight:600;font-size:22px;line-height:1.2;margin-top:6px}
+.defi .v.libre{color:var(--magenta)}
+.defi .x{font-size:14px;margin-top:4px}
+.engines{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.eng{border:1px solid var(--ink300);padding:16px}
+.eng .n{font-weight:600;font-size:20px}.eng .w{font-weight:600;font-size:56px;line-height:1;letter-spacing:-.03em;margin-top:8px}
+.eng .w small{display:block;font-size:15px;letter-spacing:0;margin-top:6px}
+.eng .c{font-size:14px;margin-top:6px}.eng .s{font-size:14px;margin-top:8px;font-weight:600}
+.eng.today{background:var(--lime);border-color:var(--lime)}
+.fact .v.cd{font-variant-numeric:tabular-nums;font-size:28px}
+.chart polyline{stroke-dasharray:var(--len,3000);stroke-dashoffset:var(--len,3000);animation:trace 1.8s ease-out forwards}
+@keyframes trace{to{stroke-dashoffset:0}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ticker .rail{animation:none}.chart polyline{animation:none;stroke-dashoffset:0}.reveal{opacity:1;transform:none;transition:none}.bar i{transition:none}}
+@media (max-width:900px){
+ .score{grid-template-columns:1fr}.score .giant{margin-bottom:-38px}
+ .podium{grid-template-columns:1fr;gap:10px}.step.s1,.step.s2,.step.s3{height:auto;min-height:150px}
+ .step.s1 .r,.step.s2 .r,.step.s3 .r{font-size:170px}
+ .podium .step.s1{order:1}.podium .step.s2{order:2}.podium .step.s3{order:3}
+ .lane{grid-template-columns:48px minmax(0,1fr) auto;grid-template-areas:"rk nm pt" "rk br br" "rk sp mv";gap:8px 12px}
+ .lane .rk{grid-area:rk;font-size:30px}.lane .nm{grid-area:nm}.lane .pt{grid-area:pt}.lane .br{grid-area:br}.lane .sp{grid-area:sp}.lane .mvw{grid-area:mv;text-align:right}
+ .defis,.engines{grid-template-columns:1fr 1fr}
+ .ticker .rail{padding-left:180px}
+}
+
 @media (max-width:760px){
  h1{font-size:44px}.sub{font-size:18px}
  .lead{grid-template-columns:1fr}.lead .big{font-size:120px;margin-bottom:-34px}
@@ -63,42 +134,82 @@ footer svg{height:26px;width:auto}
 </style></head><body>
 <header class="band"><div class="wrap"><div class="top"><svg role="img" aria-label="Influa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.7 65.6"><g fill="#0E0E10"><polygon points="52.5 0 52.5 34 26 0 23.5 0 23.5 38 26 38 26 4 52.5 38 54.9 38 54.9 0 52.5 0"/><polygon points="213 0 197.3 38 199.8 38 213 6.4 226.2 38 228.7 38 213 0"/><polygon fill="#0E0E10" points="105.6 0 79.1 0 79.1 0 76.6 0 74.2 0 74.2 16.5 79.1 16.5 79.1 4.9 101.5 4.9 105.6 0"/><polygon fill="#0E0E10" points="74.2 21.5 74.2 38 76.6 38 79.1 38 79.1 21.5 74.2 21.5"/><path d="M186.3,21.2V0h-2.5v23.4c-.5,6.8-6.2,12.2-13.2,12.2s-13.1-5.8-13.2-12.9h0V0h-2.5v22.7h0c.2,8.5,7.1,15.4,15.7,15.4s15.1-6.4,15.7-14.6h0v-2.4h0v.1Z"/><path d="M1.8,38.1V0h2.7v38.1H1.8Z"/><polygon points="119.1 35.6 119.1 0 116.6 0 116.6 35.6 116.6 38 119.1 38 143.9 38 143.9 35.6 119.1 35.6"/></g><g fill="#0E0E10"><path d="M9.7,65.5h-.6l-2.4-8.4c-.2-.7-.3-1.300-.4-1.7,0,.4-.2.9-.3,1.5s-.9,3.4-2.4,8.6h-.6l-3-10.9h.8l1.9,7c0,.3,0,.5.2.8,0,.2,0,.5.2.7v1.2c0-.7.4-1.7.8-3.1l1.9-6.6h.8l2.2,7.6c.3.9.4,1.6.5,2.1,0-.4,0-.7.2-1.1,0-.4.9-3.3,2.3-8.6h.8l-3,10.9h.1Z"/><path d="M32.9,65.5h-6v-10.9h6v.7h-5.2v4.1h4.9v.7h-4.9v4.7h5.2v.7h0Z"/><path d="M47.7,54.6h3c1.3,0,2.3.2,3,.7.6.5.9,1.1.9,2.1s-.2,1.2-.6,1.6-.9.7-1.7.8h0c.9.2,1.5.4,1.9.9.4.4.6,1,.6,1.8s-.3,1.8-1,2.3-1.6.8-2.8.8h-3.3v-10.9h0v-.1ZM48.5,59.4h2.4c1,0,1.8-.2,2.2-.5.5-.3.7-.9.7-1.6s-.3-1.3-.8-1.6c-.5-.3-1.3-.5-2.3-.5h-2.2s0,4.2,0,4.2ZM48.5,60.1v4.7h2.6c2,0,3-.8,3-2.5s-1.1-2.2-3.2-2.2h-2.4Z"/><path d="M90.5,55.1c-1.4,0-2.4.4-3.2,1.3s-1.2,2.1-1.2,3.6.4,2.8,1.1,3.6c.7.9,1.8,1.3,3.2,1.3s1.8,0,2.5-.4v.7c-.7.3-1.6.4-2.7.4s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.2-2.1.6-2.9,1-1.5,1.8-2,1.7-.7,2.7-.7,2,.2,2.9.6l-.3.7c-.8-.4-1.6-.6-2.5-.6Z"/><path d="M116.8,60c0,1.7-.4,3.1-1.3,4.1-.9,1-2.1,1.5-3.6,1.5s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.4-3.1,1.3-4.1c.9-1,2.1-1.5,3.6-1.5s2.7.5,3.6,1.5c.9,1,1.3,2.4,1.3,4.1ZM107.9,60c0,1.6.3,2.8,1,3.6.7.9,1.7,1.3,3,1.3s2.300-.4,3-1.3c.7-.8,1-2.1,1-3.6s-.3-2.8-1-3.6c-.7-.8-1.7-1.3-3-1.3s-2.3.4-3,1.3c-.7.8-1.1,2-1.1,3.6h.1Z"/><path d="M136.4,65.5l-4.1-10.1h0v10.1h-.7v-10.9h1.2l3.9,9.6h0l3.9-9.6h1.1v10.9h-.8v-10.1h0l-4.1,10.1h-.5.1Z"/><path d="M163.7,57.7c0,1.1-.4,1.9-1.1,2.4-.7.6-1.7.8-3,.8h-1.7v4.5h-.8v-10.9h2.7c2.6,0,3.9,1,3.9,3.1h0v.1ZM157.9,60.3h1.5c1.2,0,2.1-.2,2.7-.6.5-.4.8-1.1.8-2s-.3-1.5-.8-1.9-1.3-.6-2.4-.6h-1.8v5.1Z"/><path d="M183.6,61.6h-4.4l-1.5,3.8h-.8l4.4-11h.5l4.3,11h-.9l-1.5-3.8h-.1ZM179.5,61h3.9l-1.5-3.9c-.1-.3-.3-.7-.4-1.3-.1.5-.3.9-.4,1.3l-1.5,3.9h-.1Z"/><path d="M207.8,65.5h-.8l-6.5-9.7h0v9.7h-.7v-10.9h.8l6.5,9.7h0v-9.7h.7v10.9Z"/><path d="M225.7,60.5l3.2-6h.8l-3.6,6.7v4.2h-.8v-4.2l-3.6-6.8h.9l3.2,6h-.1v.1Z"/></g></svg>
 <nav><a href="index.html">Classement</a><a href="jours.html">Journées</a><a href="regles.html">Règles</a></nav></div>
-<p class="kicker">Challenge GEO Inseec 2026-2027</p><h1>Radar GEO Influa</h1><p class="sub">Classement du jour : 9 sites face à 5 IA</p><p class="stamp">Classement arrêté au 24 novembre 2026 à 8 h. Mesure officielle jusqu'au 1er juin 2027 à 23 h 59.</p></div></header><main><div class="wrap">
-<h2>Qui mène le challenge ?</h2>
-<div class="scroll"><table><thead><tr><th>Rang</th><th>Évolution</th><th>Site</th><th class="n">Points</th><th class="n">Aujourd'hui</th><th class="n">Questions citées</th><th>Moteurs qui citent</th><th>Distinctions</th></tr></thead><tbody><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/ecrans.html"><b>ecransetyeux.fr</b></a><br><span class="muted">Écrans et fatigue visuelle</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/enfants.html"><b>lesyeuxdesenfants.fr</b></a><br><span class="muted">La vue des enfants</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/lentilles.html"><b>guidelentilles.fr</b></a><br><span class="muted">Les lentilles de contact</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/senior.html"><b>bienvoirapres60.fr</b></a><br><span class="muted">Bien voir après 60 ans</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/soins.html"><b>prendresoindesesyeux.fr</b></a><br><span class="muted">Santé et prévention des yeux</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/soleil.html"><b>yeuxausoleil.fr</b></a><br><span class="muted">Protection solaire des yeux</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/sport.html"><b>yeuxdusport.fr</b></a><br><span class="muted">Sport et vision</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/style.html"><b>styleetlunettes.fr</b></a><br><span class="muted">Mode et choix des montures</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr><tr class=""><td class="rank">1</td><td>=</td>
-<td><a href="groupe/volant.html"><b>bienvoirauvolant.fr</b></a><br><span class="muted">Vision et conduite</span></td>
-<td class="n"><b>0</b></td><td class="n">+0</td><td class="n">0/20</td>
-<td>Aucun</td><td>Aucune pour l'instant</td></tr></tbody></table></div>
-<p class="muted">Évolution : places gagnées ou perdues depuis la veille. Égalité de points : le site cité sur le plus de questions différentes passe devant. Cliquez un site pour voir ses 20 questions et ses captures.</p>
-<h2>Comment les points avancent-ils ?</h2><p class="muted">La courbe apparaît après deux journées de relevé.</p>
-<h2>Quels moteurs ont été interrogés aujourd'hui ?</h2>
-<div class="scroll"><table><thead><tr><th>Moteur</th><th>Relevé</th><th class="n">Points par citation</th><th>État du jour</th><th>Prochain relevé</th></tr></thead><tbody><tr><td><b>Gemini</b></td><td>chaque jour</td><td class='n'>1</td><td>Prévu aujourd'hui</td><td>25 novembre 2026</td></tr><tr><td><b>Le Chat</b></td><td>chaque jour</td><td class='n'>1</td><td>Prévu aujourd'hui</td><td>25 novembre 2026</td></tr><tr><td><b>Perplexity</b></td><td>chaque lundi</td><td class='n'>7</td><td>Pas de relevé aujourd'hui</td><td>30 novembre 2026</td></tr><tr><td><b>ChatGPT</b></td><td>un lundi sur deux</td><td class='n'>14</td><td>Pas de relevé aujourd'hui</td><td>7 décembre 2026</td></tr><tr><td><b>Claude</b></td><td>un lundi sur deux</td><td class='n'>14</td><td>Pas de relevé aujourd'hui</td><td>30 novembre 2026</td></tr></tbody></table></div>
-<p class="muted">Chaque moteur pèse autant chaque jour. Un moteur relevé une fois par semaine compte 7 points par citation, ceux de ses 7 jours. Un moteur relevé tous les 15 jours compte 14 points.</p>
-<h2>Quelles réponses citent vos sites ?</h2><p>Aucune citation relevée pour le moment. Les premières arrivent après l'indexation des sites par Google et Bing.</p><p style="margin-top:14px"><a href="jours.html"><b>Toutes les journées et leurs captures</b></a></p></div></main>
+<p class="kicker">Radar GEO Influa, challenge GEO Inseec 2026-2027</p><h1>Qui sera cité le premier ?</h1><p class="sub">9 sites face à 4 IA. Classement chaque matin à 8 h.</p><p class="stamp">Classement arrêté au 25 novembre 2026 à 8 h. Fin du challenge le 1er juin 2027 à 23 h 59.</p><div class="score"><div class="giant">0<small>point</small></div><div class="facts">
+<div class="fact"><div class="v">0</div><div class="l">point d'écart entre les 9 sites</div></div>
+<div class="fact mag"><div class="v">+<span data-n="0">0</span></div><div class="l">points distribués ce matin</div></div>
+<div class="fact"><div class="v cd" data-cible="2026-11-26T08:00:00+01:00" data-fin="Publication en cours">...</div><div class="l">avant le prochain classement, à 8 h</div></div>
+<div class="fact"><div class="v"><span data-n="0">0</span></div><div class="l">citations depuis le 24 novembre 2026</div></div>
+</div></div></div></header><div class="ticker" aria-label="Fil des citations"><span class="lab">En jeu</span><div class="rail"><span class="it">Première citation : à prendre</span><span class="it">Le premier site cité gagne la distinction Première citation</span><span class="it">Gemini relève les 9 sites chaque matin</span><span class="it">Lundi 30 novembre 2026 : Perplexity (7 points par citation) et Claude (14 points par citation)</span><span class="it">Une citation de ChatGPT ou de Claude vaut 14 points</span></div></div><main><div class="wrap"><h2 class="reveal">Le podium du jour</h2><div class="podium reveal"><div class="step s2 vide"><span class="r" aria-hidden="true">2</span><span class="d">2e place : à prendre</span>
+<span class="t">Le premier site cité monte ici</span></div><div class="step s1 vide"><span class="r" aria-hidden="true">1</span><span class="d">1re place : à prendre</span>
+<span class="t">Le premier site cité monte ici</span></div><div class="step s3 vide"><span class="r" aria-hidden="true">3</span><span class="d">3e place : à prendre</span>
+<span class="t">Le premier site cité monte ici</span></div></div><h2 class="reveal">La course des 9 sites</h2><div class="race"><a class="lane" href="groupe/ecrans.html" data-prev="1" data-now="1">
+<span class="rk">1</span>
+<span class="nm"><b>ecransetyeux.fr</b><span>Écrans et fatigue visuelle</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/enfants.html" data-prev="1" data-now="2">
+<span class="rk">1</span>
+<span class="nm"><b>lesyeuxdesenfants.fr</b><span>La vue des enfants</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/lentilles.html" data-prev="1" data-now="3">
+<span class="rk">1</span>
+<span class="nm"><b>guidelentilles.fr</b><span>Les lentilles de contact</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/senior.html" data-prev="1" data-now="4">
+<span class="rk">1</span>
+<span class="nm"><b>bienvoirapres60.fr</b><span>Bien voir après 60 ans</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/soins.html" data-prev="1" data-now="5">
+<span class="rk">1</span>
+<span class="nm"><b>prendresoindesesyeux.fr</b><span>Santé et prévention des yeux</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/soleil.html" data-prev="1" data-now="6">
+<span class="rk">1</span>
+<span class="nm"><b>yeuxausoleil.fr</b><span>Protection solaire des yeux</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/sport.html" data-prev="1" data-now="7">
+<span class="rk">1</span>
+<span class="nm"><b>yeuxdusport.fr</b><span>Sport et vision</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/style.html" data-prev="1" data-now="8">
+<span class="rk">1</span>
+<span class="nm"><b>styleetlunettes.fr</b><span>Mode et choix des montures</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a><a class="lane" href="groupe/volant.html" data-prev="1" data-now="9">
+<span class="rk">1</span>
+<span class="nm"><b>bienvoirauvolant.fr</b><span>Vision et conduite</span></span>
+<span class="br"><span class="bar"><i data-w="0"></i></span><span class="gap">Une citation suffit pour prendre la tête</span></span>
+<span class="pt"><b data-n="0">0</b><span class="td" style="color:#76767E">+0 ce matin</span></span>
+<span class="mvw"><span class="sp"><svg viewBox="0 0 120 36" aria-hidden="true"><line x1="0" y1="34" x2="120" y2="34" stroke="#C8C8CC" stroke-width="2"/></svg></span><span class="mv">Rang stable</span><span class="lk">Voir la fiche</span></span></a></div><p class="muted" style="margin-top:10px">Égalité de points : le site cité sur le plus de questions différentes passe devant. La courbe montre les points gagnés chaque jour sur les 14 derniers jours.</p><h2 class="reveal">Défis et records</h2><div class="defis reveal"><div class="defi"><div class="k">Première citation</div><div class="v libre">À prendre</div><div class="x">Le premier site cité la remporte</div></div><div class="defi"><div class="k">Cité par les 4 moteurs</div><div class="v libre">À prendre</div><div class="x">Gemini, Perplexity, ChatGPT et Claude</div></div><div class="defi"><div class="k">Record d'un matin</div><div class="v libre">À établir</div><div class="x">Un lundi peut rapporter jusqu'à 700 points</div></div><div class="defi"><div class="k">Plus longue série</div><div class="v libre">À lancer</div><div class="x">7 jours de suite donnent une distinction</div></div></div><h2 class="reveal">Comment les points avancent-ils ?</h2><p class="muted">La courbe démarre avec la première citation.</p><h2 class="reveal">Les 4 moteurs et leur prochain passage</h2><div class="engines reveal"><div class="eng today"><div class="n">Gemini</div><div class="w">1<small>point par citation</small></div><div class="c">Chaque jour</div><div class="s">Relevé ce matin : 180/180 réponses</div></div><div class="eng"><div class="n">Perplexity</div><div class="w">7<small>points par citation</small></div><div class="c">Chaque lundi</div><div class="s">Prochain passage : lundi 30 novembre 2026</div></div><div class="eng"><div class="n">ChatGPT</div><div class="w">14<small>points par citation</small></div><div class="c">Un lundi sur deux</div><div class="s">Prochain passage : lundi 7 décembre 2026</div></div><div class="eng"><div class="n">Claude</div><div class="w">14<small>points par citation</small></div><div class="c">Un lundi sur deux</div><div class="s">Prochain passage : lundi 30 novembre 2026</div></div></div><p class="muted" style="margin-top:10px">Chaque moteur pèse autant : une citation de Perplexity vaut les 7 jours de son relevé, une citation de ChatGPT ou de Claude les 14 jours du sien.</p><h2 class="reveal">Le mur des preuves</h2><p>Chaque citation affichera ici la capture de la réponse du moteur. Les premières arrivent après l'indexation des sites par Google et Bing.</p><p style="margin-top:14px"><a href="jours.html"><b>Toutes les journées et leurs captures</b></a></p></div></main>
 <footer><div class="wrap"><div><svg role="img" aria-label="Influa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.7 65.6"><g fill="#FFFFFF"><polygon points="52.5 0 52.5 34 26 0 23.5 0 23.5 38 26 38 26 4 52.5 38 54.9 38 54.9 0 52.5 0"/><polygon points="213 0 197.3 38 199.8 38 213 6.4 226.2 38 228.7 38 213 0"/><polygon fill="#FFFFFF" points="105.6 0 79.1 0 79.1 0 76.6 0 74.2 0 74.2 16.5 79.1 16.5 79.1 4.9 101.5 4.9 105.6 0"/><polygon fill="#FFFFFF" points="74.2 21.5 74.2 38 76.6 38 79.1 38 79.1 21.5 74.2 21.5"/><path d="M186.3,21.2V0h-2.5v23.4c-.5,6.8-6.2,12.2-13.2,12.2s-13.1-5.8-13.2-12.9h0V0h-2.5v22.7h0c.2,8.5,7.1,15.4,15.7,15.4s15.1-6.4,15.7-14.6h0v-2.4h0v.1Z"/><path d="M1.8,38.1V0h2.7v38.1H1.8Z"/><polygon points="119.1 35.6 119.1 0 116.6 0 116.6 35.6 116.6 38 119.1 38 143.9 38 143.9 35.6 119.1 35.6"/></g><g fill="#FFFFFF"><path d="M9.7,65.5h-.6l-2.4-8.4c-.2-.7-.3-1.300-.4-1.7,0,.4-.2.9-.3,1.5s-.9,3.4-2.4,8.6h-.6l-3-10.9h.8l1.9,7c0,.3,0,.5.2.8,0,.2,0,.5.2.7v1.2c0-.7.4-1.7.8-3.1l1.9-6.6h.8l2.2,7.6c.3.9.4,1.6.5,2.1,0-.4,0-.7.2-1.1,0-.4.9-3.3,2.3-8.6h.8l-3,10.9h.1Z"/><path d="M32.9,65.5h-6v-10.9h6v.7h-5.2v4.1h4.9v.7h-4.9v4.7h5.2v.7h0Z"/><path d="M47.7,54.6h3c1.3,0,2.3.2,3,.7.6.5.9,1.1.9,2.1s-.2,1.2-.6,1.6-.9.7-1.7.8h0c.9.2,1.5.4,1.9.9.4.4.6,1,.6,1.8s-.3,1.8-1,2.3-1.6.8-2.8.8h-3.3v-10.9h0v-.1ZM48.5,59.4h2.4c1,0,1.8-.2,2.2-.5.5-.3.7-.9.7-1.6s-.3-1.3-.8-1.6c-.5-.3-1.3-.5-2.3-.5h-2.2s0,4.2,0,4.2ZM48.5,60.1v4.7h2.6c2,0,3-.8,3-2.5s-1.1-2.2-3.2-2.2h-2.4Z"/><path d="M90.5,55.1c-1.4,0-2.4.4-3.2,1.3s-1.2,2.1-1.2,3.6.4,2.8,1.1,3.6c.7.9,1.8,1.3,3.2,1.3s1.8,0,2.5-.4v.7c-.7.3-1.6.4-2.7.4s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.2-2.1.6-2.9,1-1.5,1.8-2,1.7-.7,2.7-.7,2,.2,2.9.6l-.3.7c-.8-.4-1.6-.6-2.5-.6Z"/><path d="M116.8,60c0,1.7-.4,3.1-1.3,4.1-.9,1-2.1,1.5-3.6,1.5s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.4-3.1,1.3-4.1c.9-1,2.1-1.5,3.6-1.5s2.7.5,3.6,1.5c.9,1,1.3,2.4,1.3,4.1ZM107.9,60c0,1.6.3,2.8,1,3.6.7.9,1.7,1.3,3,1.3s2.300-.4,3-1.3c.7-.8,1-2.1,1-3.6s-.3-2.8-1-3.6c-.7-.8-1.7-1.3-3-1.3s-2.3.4-3,1.3c-.7.8-1.1,2-1.1,3.6h.1Z"/><path d="M136.4,65.5l-4.1-10.1h0v10.1h-.7v-10.9h1.2l3.9,9.6h0l3.9-9.6h1.1v10.9h-.8v-10.1h0l-4.1,10.1h-.5.1Z"/><path d="M163.7,57.7c0,1.1-.4,1.9-1.1,2.4-.7.6-1.7.8-3,.8h-1.7v4.5h-.8v-10.9h2.7c2.6,0,3.9,1,3.9,3.1h0v.1ZM157.9,60.3h1.5c1.2,0,2.1-.2,2.7-.6.5-.4.8-1.1.8-2s-.3-1.5-.8-1.9-1.3-.6-2.4-.6h-1.8v5.1Z"/><path d="M183.6,61.6h-4.4l-1.5,3.8h-.8l4.4-11h.5l4.3,11h-.9l-1.5-3.8h-.1ZM179.5,61h3.9l-1.5-3.9c-.1-.3-.3-.7-.4-1.3-.1.5-.3.9-.4,1.3l-1.5,3.9h-.1Z"/><path d="M207.8,65.5h-.8l-6.5-9.7h0v9.7h-.7v-10.9h.8l6.5,9.7h0v-9.7h.7v10.9Z"/><path d="M225.7,60.5l3.2-6h.8l-3.6,6.7v4.2h-.8v-4.2l-3.6-6.8h.9l3.2,6h-.1v.1Z"/></g></svg>
 </div><div>Radar GEO Influa pour le challenge GEO Inseec 2026-2027. INFLUA, marque d'IA GROUP. Web company.</div></div></footer>
-</body></html>
+<script>
+(function(){
+var calme=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0');}
+function compte(el){var fin=parseInt(el.getAttribute('data-n'),10)||0;if(calme||fin===0){el.textContent=fmt(fin);return;}
+ var t0=null,d=1300;function pas(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/d);var v=Math.round(fin*(1-Math.pow(1-k,3)));el.textContent=fmt(v);if(k<1)requestAnimationFrame(pas);}
+ el.textContent='0';requestAnimationFrame(pas);}
+document.querySelectorAll('[data-n]').forEach(compte);
+setTimeout(function(){document.querySelectorAll('.bar i[data-w]').forEach(function(b){b.style.width=b.getAttribute('data-w')+'%';});},calme?0:250);
+var lanes=[].slice.call(document.querySelectorAll('.lane[data-prev]'));
+if(!calme&&lanes.length){var h=lanes[0].offsetHeight;lanes.forEach(function(l){var dlt=(parseInt(l.getAttribute('data-prev'),10)-parseInt(l.getAttribute('data-now'),10))*h;
+ if(dlt){l.style.transform='translateY('+dlt+'px)';l.style.zIndex=5;}});
+ requestAnimationFrame(function(){requestAnimationFrame(function(){lanes.forEach(function(l){l.style.transition='transform 1.1s cubic-bezier(.2,.8,.2,1) .5s';l.style.transform='none';});});});}
+document.querySelectorAll('.chart polyline').forEach(function(p){try{p.style.setProperty('--len',Math.ceil(p.getTotalLength()));}catch(e){}});
+var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12}):null;
+document.querySelectorAll('.reveal').forEach(function(r){if(io&&!calme)io.observe(r);else r.classList.add('on');});
+var rail=document.querySelector('.ticker .rail');if(rail){rail.innerHTML+=rail.innerHTML;rail.style.setProperty('--duree',Math.max(25,rail.children.length*4)+'s');}
+function cd(){document.querySelectorAll('[data-cible]').forEach(function(el){var ms=new Date(el.getAttribute('data-cible'))-new Date();
+ if(ms<=0){el.textContent=el.getAttribute('data-fin');return;}var s=Math.floor(ms/1000),hh=Math.floor(s/3600),mm=Math.floor(s%3600/60),ss=s%60;
+ var j=Math.floor(hh/24);el.textContent=(j>0?j+'\u00a0j ':'')+(hh%24)+'\u00a0h '+(mm<10?'0':'')+mm+'\u00a0min '+(ss<10?'0':'')+ss+'\u00a0s';});}
+cd();setInterval(cd,1000);
+})();
+</script></body></html>

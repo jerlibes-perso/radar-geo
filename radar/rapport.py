@@ -23,7 +23,7 @@ def main():
     for c in cj[:15]:
         out.append(f"- {GIDX[c['groupe']]['domaine']}, {MNOM[c['moteur']]}, +{c['points']} : {c['question']}")
     et = s["etats"].get(d, {})
-    out += ["", "**Relevés du jour** : " + (", ".join(f"{MNOM[k]} {v}" for k, v in et.items()) or "aucun")]
+    out += ["", "**Relevés du jour** : " + (", ".join(f"{MNOM[k]} {v}" for k, v in et.items() if k in MNOM) or "aucun")]
     dep = charger(os.path.join(DATA, "depenses.json"), {}).get(d[:7], {})
     tot = sum(dep.values())
     out += [f"**Dépense estimée du mois** : {tot:.2f} €".replace(".", ","), "", CFG.get("adresse_site", "https://radar.influa.com/")]

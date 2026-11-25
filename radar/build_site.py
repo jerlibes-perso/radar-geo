@@ -3,6 +3,7 @@ et les captures de preuve de chaque citation (PNG)."""
 import os, re, json, html, shutil, datetime as dt
 from .common import CFG, GROUPES, DATA, DOCS, RACINE, NB, date_fr, heure_fr, maintenant, moteurs_du_jour, prochain_releve, hote, charger
 from .score import calculer
+from .vitrine import vitrine, CSS_JEU, JS
 
 MNOM = {m["id"]: m["nom"] for m in CFG["moteurs"]}
 MORDRE = [m["id"] for m in CFG["moteurs"]]
@@ -80,11 +81,12 @@ td.rank{font-weight:600;font-size:22px;width:52px}
 .cell-wait{color:var(--ink500)}
 .flag{display:inline-block;background:var(--magenta);color:var(--blanc);font-weight:600;font-size:12px;padding:2px 8px}
 svg.chart text{font-family:Hellix,Arial,sans-serif;font-size:12px;fill:var(--ink700)}
-.rules ol{padding-left:22px}
+.rules ol,ol.todo{padding-left:22px}ol.todo li{margin-bottom:6px}
 .rules li{margin-bottom:8px}
 footer{background:var(--anthracite);color:var(--blanc)}
 footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
 footer svg{height:26px;width:auto}
+""" + CSS_JEU + """
 @media (max-width:760px){
  h1{font-size:44px}.sub{font-size:18px}
  .lead{grid-template-columns:1fr}.lead .big{font-size:120px;margin-bottom:-34px}
@@ -96,7 +98,7 @@ footer svg{height:26px;width:auto}
 """
 
 
-def page(titre, corps, chemin_racine="", desc=""):
+def page(titre, corps, chemin_racine="", desc="", js=False):
     nav = f'<nav><a href="{chemin_racine}index.html">Classement</a><a href="{chemin_racine}jours.html">Journées</a><a href="{chemin_racine}regles.html">Règles</a></nav>'
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <title>{fr(titre)}</title><meta name="description" content="{html.escape(desc)}">
@@ -104,7 +106,7 @@ def page(titre, corps, chemin_racine="", desc=""):
 <style>{css(FONTS)}</style></head><body>
 {corps.replace('%%NAV%%', nav)}
 <footer><div class="wrap"><div>{logo('#FFFFFF')}</div><div>{fr("Radar GEO Influa pour le challenge GEO Inseec 2026-2027. INFLUA, marque d'IA GROUP. Web company.")}</div></div></footer>
-</body></html>"""
+{('<script>' + JS + '</script>') if js else ''}</body></html>"""
 
 
 def entete(kicker, titre, sous, stamp, lead=""):
@@ -121,8 +123,8 @@ def evo(v):
 
 
 def chart(hist, us):
-    if len(hist) < 2:
-        return '<p class="muted">La courbe apparaît après deux journées de relevé.</p>'
+    if len(hist) < 2 or not any(h["cumul"][u] for h in hist for u in us):
+        return '<p class="muted">La courbe démarre avec la première citation.</p>'
     W, H, L, R, T, B = 1100, 340, 40, 170, 10, 30
     mx = max(1, max(h["cumul"][u] for h in hist for u in us))
     n = len(hist) - 1
@@ -216,51 +218,9 @@ def construire(base_fonts_preuves=FONTS):
     now = maintenant()
     jour = dt.date.fromisoformat(hist[-1]["date"]) if hist else now.date()
     h = hist[-1]
-    ordre = sorted(us, key=lambda u: (h["rang"][u], u))
-    tete = ordre[0]
-    lead = f'<div class="lead"><div class="who">{fr("En tête")}<b>{fr(GIDX[tete]["domaine"])}</b>{fr(GIDX[tete]["theme"])}</div><div class="big">{h["cumul"][tete]}</div></div>' if h["cumul"][tete] > 0 else ""
-    stamp = f"Classement arrêté au {date_fr(jour)} à {CFG['heure_publication']} h. Mesure officielle jusqu'au {date_fr(CFG['fin'])} à 23 h 59."
-    corps = entete("Challenge GEO Inseec 2026-2027", "Radar GEO Influa", f"Classement du jour : 9 sites face à 4 IA", stamp, lead)
-    rows = ""
-    for u in ordre:
-        g = GIDX[u]
-        dist = ", ".join(d["nom"] for d in s["distinctions"][u]) or "Aucune pour l'instant"
-        rows += f"""<tr class="{'hl' if u == tete and h['cumul'][u] > 0 else ''}"><td class="rank">{h['rang'][u]}</td><td>{evo(h['evolution'][u])}</td>
-<td><a href="groupe/{u}.html"><b>{fr(g['domaine'])}</b></a><br><span class="muted">{fr(g['theme'])}</span></td>
-<td class="n"><b>{h['cumul'][u]}</b></td><td class="n">+{h['points'][u]}</td><td class="n">{len(s['questions'][u])}/20</td>
-<td>{fr(', '.join(MNOM[m] for m in MORDRE if m in s['moteurs'][u]) or 'Aucun')}</td><td>{fr(dist)}</td></tr>"""
-    corps += f"""<main><div class="wrap">
-<h2>{fr("Qui mène le challenge ?")}</h2>
-<div class="scroll"><table><thead><tr><th>Rang</th><th>{fr("Évolution")}</th><th>Site</th><th class="n">Points</th><th class="n">{fr("Aujourd'hui")}</th><th class="n">{fr("Questions citées")}</th><th>Moteurs qui citent</th><th>Distinctions</th></tr></thead><tbody>{rows}</tbody></table></div>
-<p class="muted">{fr("Évolution : places gagnées ou perdues depuis la veille. Égalité de points : le site cité sur le plus de questions différentes passe devant. Cliquez un site pour voir ses 20 questions et ses captures.")}</p>
-<h2>{fr("Comment les points avancent-ils ?")}</h2>{chart(hist, us)}
-"""
-    # relevés du jour
-    et = s["etats"].get(jour.isoformat(), {})
-    rr = ""
-    for m in CFG["moteurs"]:
-        prevu = m in moteurs_du_jour(jour)
-        st = et.get(m["id"])
-        if st == "absent":
-            etat = "Clé d'accès à configurer"
-        elif st == "plafond":
-            etat = "Plafond de dépense du mois atteint"
-        elif st:
-            etat = f"Relevé : {st} réponses"
-        else:
-            etat = "Prévu aujourd'hui" if prevu else "Pas de relevé aujourd'hui"
-        pro = prochain_releve(m, jour + dt.timedelta(days=1))
-        cad = {"quotidien": "chaque jour", "hebdomadaire": f"chaque {m.get('jour')}", "bimensuel": f"un {m.get('jour')} sur deux"}[m["cadence"]]
-        rr += f"<tr><td><b>{fr(m['nom'])}</b></td><td>{fr(cad)}</td><td class='n'>{m['poids']}</td><td>{fr(etat)}</td><td>{fr(date_fr(pro)) if pro else ''}</td></tr>"
-    corps += f"""<h2>{fr("Quels moteurs ont été interrogés aujourd'hui ?")}</h2>
-<div class="scroll"><table><thead><tr><th>Moteur</th><th>Relevé</th><th class="n">{fr("Points par citation")}</th><th>{fr("État du jour")}</th><th>{fr("Prochain relevé")}</th></tr></thead><tbody>{rr}</tbody></table></div>
-<p class="muted">{fr("Chaque moteur pèse autant chaque jour. Un moteur relevé une fois par semaine compte 7 points par citation, ceux de ses 7 jours. Un moteur relevé tous les 15 jours compte 14 points.")}</p>
-"""
-    dern = sorted(s["citations"], key=lambda c: (c["date"], c.get("heure") or ""), reverse=True)[:12]
-    corps += f"<h2>{fr('Quelles réponses citent vos sites ?')}</h2>"
-    corps += ('<div class="cards">' + "".join(carte(c) for c in dern) + "</div>") if dern else f'<p>{fr("Aucune citation relevée pour le moment. Les premières arrivent après l'indexation des sites par Google et Bing.")}</p>'
-    corps += f'<p style="margin-top:14px"><a href="jours.html"><b>{fr("Toutes les journées et leurs captures")}</b></a></p></div></main>'
-    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini et Perplexity."))
+    ordre = sorted(us, key=lambda u: (h["rang"][u], -len(s["questions"][u]), u))
+    corps = vitrine(s, hist, us, ordre, jour, now)
+    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa, classement du challenge GEO Inseec", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini et Perplexity.", js=True))
 
     # fiches groupe
     os.makedirs(os.path.join(DOCS, "groupe"), exist_ok=True)
@@ -279,14 +239,26 @@ def construire(base_fonts_preuves=FONTS):
                     cells += f'<td class="cell-no">{fr("Non cité")}<br><span class="muted">{fr(date_fr(c["date"]))}</span></td>'
             lignes += f"<tr><td>{fr(q['texte'])}<br><span class='muted'>{fr('Question ' + q['type'])}</span></td>{cells}</tr>"
         cit = sorted([c for c in s["citations"] if c["groupe"] == u], key=lambda c: c["date"], reverse=True)
-        st = f"Rang {h['rang'][u]}, {h['cumul'][u]} points, {len(s['questions'][u])} questions citées sur 20."
-        b = entete(g["theme"], g["domaine"], st, f"Arrêté au {date_fr(jour)} à {CFG['heure_publication']} h.")
-        b += f"""<main><div class="wrap"><h2>{fr("Où en sont vos 20 questions ?")}</h2>
+        st = f"Rang {h['rang'][u]} sur 9, {h['cumul'][u]} points, {len(s['questions'][u])} questions citées sur 20."
+        i = ordre.index(u)
+        if i and h["cumul"][ordre[i - 1]] > h["cumul"][u]:
+            obj = f"Encore {h['cumul'][ordre[i - 1]] - h['cumul'][u] + 1} points pour passer devant {GIDX[ordre[i - 1]]['domaine']}."
+        elif i == 0 and h["cumul"][u] > 0:
+            obj = f"En tête du challenge, {h['cumul'][u] - h['cumul'][ordre[1]]} points d'avance sur {GIDX[ordre[1]]['domaine']}."
+        else:
+            obj = "Une seule citation suffit pour prendre la tête du classement."
+        libres = [q for q in g["questions"] if q["id"] not in s["questions"][u]]
+        lead_g = f'<div class="score"><div class="giant">{h["rang"][u]}<small>{"er" if h["rang"][u] == 1 else "e"} sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="{h["cumul"][u]}">{h["cumul"][u]}</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="{h["points"][u]}">{h["points"][u]}</span></div><div class="l">{fr("points ce matin")}</div></div><div class="fact"><div class="v">{len(s["questions"][u])}/20</div><div class="l">{fr("questions citées")}</div></div><div class="fact"><div class="v">{len(libres)}</div><div class="l">{fr("questions encore à prendre")}</div></div></div></div>'
+        b = entete(g["theme"], g["domaine"], st, obj, lead_g)
+        b += f"""<main><div class="wrap"><h2>{fr("Les questions encore à prendre")}</h2>
+<p>{fr("Une page par question, la réponse en 40 à 50 mots en tête, une source officielle : ce sont les pages que les moteurs citent.")}</p>
+<ol class="todo">{"".join(f"<li>{fr(q['texte'])} <span class='muted'>{fr('(question ' + q['type'] + ')')}</span></li>" for q in libres) or f"<li>{fr('Toutes vos questions ont déjà été citées au moins une fois.')}</li>"}</ol>
+<h2>{fr("Où en sont vos 20 questions ?")}</h2>
 <p class="muted">{fr("Dernier relevé de chaque moteur sur chaque question. Cité : le moteur a donné un lien vers votre site ou l'a nommé dans sa réponse.")}</p>
 <div class="scroll"><table><thead><tr><th>Question</th>{''.join(f'<th>{fr(MNOM[m])}</th>' for m in MORDRE)}</tr></thead><tbody>{lignes}</tbody></table></div>
 <h2>{fr("Distinctions")}</h2><p>{fr(', '.join(d['nom'] + ' (' + date_fr(d['date']) + ')' for d in s['distinctions'][u]) or "Aucune pour l'instant.")}</p>
 <h2>{fr("Les captures de vos citations")}</h2>""" + (('<div class="cards">' + "".join(carte(c, "../") for c in cit) + "</div>") if cit else f"<p>{fr('Aucune citation relevée pour le moment.')}</p>") + "</div></main>"
-        open(os.path.join(DOCS, "groupe", f"{u}.html"), "w", encoding="utf-8").write(page(f"{g['domaine']}, Radar GEO Influa", b.replace('href="groupe/', 'href="'), "../"))
+        open(os.path.join(DOCS, "groupe", f"{u}.html"), "w", encoding="utf-8").write(page(f"{g['domaine']}, Radar GEO Influa", b.replace('href="groupe/', 'href="'), "../", js=True))
 
     # journées
     os.makedirs(os.path.join(DOCS, "jour"), exist_ok=True)
@@ -297,7 +269,7 @@ def construire(base_fonts_preuves=FONTS):
         tot = sum(hh["points"].values())
         rows = "".join(f"<tr><td><a href='../groupe/{u}.html'>{fr(GIDX[u]['domaine'])}</a></td><td class='n'>+{hh['points'][u]}</td><td class='n'>{hh['cumul'][u]}</td><td class='n'>{hh['rang'][u]}</td></tr>" for u in sorted(us, key=lambda u: hh["rang"][u]))
         et = s["etats"].get(d, {})
-        mo = ", ".join(f"{MNOM[k]} ({v})" for k, v in et.items()) or "Aucun relevé"
+        mo = ", ".join(f"{MNOM.get(k, k)} ({v})" for k, v in et.items() if k in MNOM) or "Aucun relevé"
         b = entete("Journée du Radar", date_fr(d), f"{len(cj)} citations, {tot} points distribués", f"Moteurs relevés : {mo}.")
         b += f"""<main><div class="wrap"><h2>{fr("Points de la journée")}</h2><table><thead><tr><th>Site</th><th class="n">{fr("Points du jour")}</th><th class="n">Cumul</th><th class="n">Rang</th></tr></thead><tbody>{rows}</tbody></table>
 <h2>{fr("Captures de la journée")}</h2>""" + (('<div class="cards">' + "".join(carte(c, "../") for c in cj) + "</div>") if cj else f"<p>{fr('Aucune citation ce jour-là.')}</p>") + "</div></main>"

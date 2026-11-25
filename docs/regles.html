@@ -47,11 +47,82 @@ td.rank{font-weight:600;font-size:22px;width:52px}
 .cell-wait{color:var(--ink500)}
 .flag{display:inline-block;background:var(--magenta);color:var(--blanc);font-weight:600;font-size:12px;padding:2px 8px}
 svg.chart text{font-family:Hellix,Arial,sans-serif;font-size:12px;fill:var(--ink700)}
-.rules ol{padding-left:22px}
+.rules ol,ol.todo{padding-left:22px}ol.todo li{margin-bottom:6px}
 .rules li{margin-bottom:8px}
 footer{background:var(--anthracite);color:var(--blanc)}
 footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
 footer svg{height:26px;width:auto}
+
+.score{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:end;margin-top:26px}
+.score .giant{font-weight:600;font-size:clamp(150px,22vw,300px);line-height:.74;letter-spacing:-.05em;margin-bottom:-64px;white-space:nowrap}
+.score .giant small{font-size:.16em;letter-spacing:0;font-weight:600;margin-left:10px;vertical-align:top;display:inline-block;margin-top:.5em}
+.facts{display:grid;grid-template-columns:1fr 1fr;border-top:3px solid var(--anthracite)}
+.fact{padding:14px 14px 14px 0;border-bottom:1px solid rgba(14,14,16,.35)}
+.fact .v{font-weight:600;font-size:34px;line-height:1.05}
+.fact .l{font-size:14px;margin-top:2px}
+.fact.mag .v{color:var(--magenta)}
+.ticker{background:var(--anthracite);color:var(--blanc);overflow:hidden;white-space:nowrap;position:relative}
+.ticker .lab{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 18px;background:var(--magenta);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.1em;z-index:2}
+.ticker .rail{display:inline-flex;gap:46px;padding:16px 0 16px 230px;animation:defile var(--duree,40s) linear infinite}
+.ticker:hover .rail{animation-play-state:paused}
+.ticker .it{font-size:16px}.ticker .it b{font-weight:600;color:var(--lime)}.ticker .it .p{color:var(--blanc);font-weight:600;margin-left:6px}
+@keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end;margin-top:10px}
+.step{display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;overflow:hidden;position:relative;padding:18px 18px 16px}
+.step .r{font-weight:600;line-height:.8;letter-spacing:-.05em;position:absolute;right:-6px;bottom:-14px;opacity:1}
+.step .d{font-weight:600;font-size:20px;line-height:1.15;position:relative}
+.step .t{font-size:14px;position:relative}
+.step .pts{font-weight:600;font-size:44px;line-height:1;margin-top:10px;position:relative}
+.step .ev{font-size:14px;font-weight:600;margin-top:4px;position:relative}
+.step.s1{background:var(--lime);height:330px}.step.s1 .r{font-size:300px;color:rgba(14,14,16,.12)}
+.step.s2{background:var(--anthracite);color:var(--blanc);height:270px}.step.s2 .r{font-size:240px;color:rgba(255,255,255,.1)}
+.step.s3{background:var(--ink100);height:225px}.step.s3 .r{font-size:200px;color:rgba(14,14,16,.08)}
+.step.vide .d{color:inherit;opacity:.7}
+.step .go{position:relative;font-size:14px;font-weight:600;text-decoration:underline;margin-top:8px}
+.race{margin-top:6px;border-top:3px solid var(--anthracite)}
+.lane{display:grid;grid-template-columns:64px minmax(0,1.6fr) minmax(0,2.4fr) 130px 120px;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--ink300);text-decoration:none;position:relative;background:var(--blanc)}
+.lane:hover{background:var(--ink100)}
+.lane .rk{font-weight:600;font-size:40px;line-height:1;letter-spacing:-.03em}
+.lane .nm b{font-weight:600;font-size:18px;display:block}.lane .nm span{font-size:14px;color:var(--ink600)}
+.br{display:block}.bar{display:block;height:14px;background:var(--ink100);position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--anthracite);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.lane.first .bar i{background:var(--lime)}
+.gap{font-size:13px;color:var(--ink600);margin-top:6px}
+.lane .pt{text-align:right}.lane .pt b{font-weight:600;font-size:30px;line-height:1;display:block}
+.lane .pt .td{color:var(--magenta);font-weight:600;font-size:14px}
+.lane .sp svg{width:120px;height:36px;display:block}
+.lane .mv{font-size:13px;font-weight:600}
+.lane .mv.up{color:var(--anthracite)}.lane .mv.down{color:var(--magenta)}
+.lane .lk{font-size:13px;font-weight:600;text-decoration:underline;display:block;margin-top:4px}
+.defis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--anthracite)}
+.defi{padding:16px 16px 18px 0;border-bottom:1px solid var(--ink300)}
+.defi .k{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--ink600)}
+.defi .v{font-weight:600;font-size:22px;line-height:1.2;margin-top:6px}
+.defi .v.libre{color:var(--magenta)}
+.defi .x{font-size:14px;margin-top:4px}
+.engines{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.eng{border:1px solid var(--ink300);padding:16px}
+.eng .n{font-weight:600;font-size:20px}.eng .w{font-weight:600;font-size:56px;line-height:1;letter-spacing:-.03em;margin-top:8px}
+.eng .w small{display:block;font-size:15px;letter-spacing:0;margin-top:6px}
+.eng .c{font-size:14px;margin-top:6px}.eng .s{font-size:14px;margin-top:8px;font-weight:600}
+.eng.today{background:var(--lime);border-color:var(--lime)}
+.fact .v.cd{font-variant-numeric:tabular-nums;font-size:28px}
+.chart polyline{stroke-dasharray:var(--len,3000);stroke-dashoffset:var(--len,3000);animation:trace 1.8s ease-out forwards}
+@keyframes trace{to{stroke-dashoffset:0}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ticker .rail{animation:none}.chart polyline{animation:none;stroke-dashoffset:0}.reveal{opacity:1;transform:none;transition:none}.bar i{transition:none}}
+@media (max-width:900px){
+ .score{grid-template-columns:1fr}.score .giant{margin-bottom:-38px}
+ .podium{grid-template-columns:1fr;gap:10px}.step.s1,.step.s2,.step.s3{height:auto;min-height:150px}
+ .step.s1 .r,.step.s2 .r,.step.s3 .r{font-size:170px}
+ .podium .step.s1{order:1}.podium .step.s2{order:2}.podium .step.s3{order:3}
+ .lane{grid-template-columns:48px minmax(0,1fr) auto;grid-template-areas:"rk nm pt" "rk br br" "rk sp mv";gap:8px 12px}
+ .lane .rk{grid-area:rk;font-size:30px}.lane .nm{grid-area:nm}.lane .pt{grid-area:pt}.lane .br{grid-area:br}.lane .sp{grid-area:sp}.lane .mvw{grid-area:mv;text-align:right}
+ .defis,.engines{grid-template-columns:1fr 1fr}
+ .ticker .rail{padding-left:180px}
+}
+
 @media (max-width:760px){
  h1{font-size:44px}.sub{font-size:18px}
  .lead{grid-template-columns:1fr}.lead .big{font-size:120px;margin-bottom:-34px}
@@ -65,15 +136,15 @@ footer svg{height:26px;width:auto}
 <nav><a href="index.html">Classement</a><a href="jours.html">Journées</a><a href="regles.html">Règles</a></nav></div>
 <p class="kicker">Radar GEO Influa</p><h1>Les règles du Radar</h1><p class="sub">Points, cadences des moteurs et distinctions</p><p class="stamp">Le groupe qui totalise le plus de points le 1er juin 2027 à 23 h 59 gagne le challenge.</p></div></header><main><div class="wrap rules">
 <h2>Comment le Radar compte-t-il les points ?</h2><ol>
-<li>Le Radar pose les 20 questions du panel de chaque site à 5 moteurs, ChatGPT, Claude, Gemini, Perplexity et Le Chat, par leurs interfaces de programmation officielles, recherche web activée, avec une localisation à Bordeaux.</li>
+<li>Le Radar pose les 20 questions du panel de chaque site à 4 moteurs, ChatGPT, Claude, Gemini et Perplexity, par leurs interfaces de programmation officielles, recherche web activée, avec une localisation à Bordeaux.</li>
 <li>Une citation rapporte des points quand le moteur donne un lien vers votre site dans sa réponse, écrit votre domaine, ou nomme votre site par le nom déclaré par le groupe.</li>
-<li>Gemini et Le Chat sont relevés chaque jour : 1 point par citation. Perplexity est relevé chaque lundi : 7 points par citation. ChatGPT et Claude sont relevés un lundi sur deux : 14 points par citation. Chaque moteur pèse ainsi autant chaque jour, soit 100 points par jour au maximum.</li>
+<li>Gemini est relevé chaque jour : 1 point par citation. Perplexity est relevé chaque lundi : 7 points par citation. ChatGPT et Claude sont relevés un lundi sur deux : 14 points par citation. Chaque moteur pèse ainsi autant chaque jour, soit 80 points par jour au maximum.</li>
 <li>Seules les citations sur les questions de votre propre panel comptent.</li>
 <li>Égalité : le site cité sur le plus grand nombre de questions différentes passe devant.</li>
 <li>Collecte vers 5 h, classement publié à 8 h, heure de Paris. Chaque réponse est archivée en texte intégral ; chaque citation donne lieu à une capture.</li></ol>
 <h2>Les distinctions</h2><ol>
 <li>Première citation : le premier jour où un moteur cite votre site.</li>
-<li>Cité par les 5 moteurs : chacun des 5 moteurs a cité votre site au moins une fois.</li>
+<li>Cité par les 4 moteurs : chacun des 4 moteurs a cité votre site au moins une fois.</li>
 <li>10 questions citées : votre site est cité sur au moins 10 questions différentes de votre panel.</li>
 <li>7 jours de suite : votre site marque des points 7 jours consécutifs.</li></ol>
 <h2>Pourquoi les réponses peuvent-elles différer de l'application ?</h2>
