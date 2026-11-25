@@ -220,7 +220,7 @@ def construire(base_fonts_preuves=FONTS):
     tete = ordre[0]
     lead = f'<div class="lead"><div class="who">{fr("En tête")}<b>{fr(GIDX[tete]["domaine"])}</b>{fr(GIDX[tete]["theme"])}</div><div class="big">{h["cumul"][tete]}</div></div>' if h["cumul"][tete] > 0 else ""
     stamp = f"Classement arrêté au {date_fr(jour)} à {CFG['heure_publication']} h. Mesure officielle jusqu'au {date_fr(CFG['fin'])} à 23 h 59."
-    corps = entete("Challenge GEO Inseec 2026-2027", "Radar GEO Influa", f"Classement du jour : 9 sites face à 5 IA", stamp, lead)
+    corps = entete("Challenge GEO Inseec 2026-2027", "Radar GEO Influa", f"Classement du jour : 9 sites face à 4 IA", stamp, lead)
     rows = ""
     for u in ordre:
         g = GIDX[u]
@@ -260,7 +260,7 @@ def construire(base_fonts_preuves=FONTS):
     corps += f"<h2>{fr('Quelles réponses citent vos sites ?')}</h2>"
     corps += ('<div class="cards">' + "".join(carte(c) for c in dern) + "</div>") if dern else f'<p>{fr("Aucune citation relevée pour le moment. Les premières arrivent après l'indexation des sites par Google et Bing.")}</p>'
     corps += f'<p style="margin-top:14px"><a href="jours.html"><b>{fr("Toutes les journées et leurs captures")}</b></a></p></div></main>'
-    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini, Perplexity et Le Chat."))
+    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini et Perplexity."))
 
     # fiches groupe
     os.makedirs(os.path.join(DOCS, "groupe"), exist_ok=True)
@@ -311,15 +311,15 @@ def construire(base_fonts_preuves=FONTS):
     b = entete("Radar GEO Influa", "Les règles du Radar", "Points, cadences des moteurs et distinctions", "Le groupe qui totalise le plus de points le 1er juin 2027 à 23 h 59 gagne le challenge.")
     b += f"""<main><div class="wrap rules">
 <h2>{fr("Comment le Radar compte-t-il les points ?")}</h2><ol>
-<li>{fr("Le Radar pose les 20 questions du panel de chaque site à 5 moteurs, ChatGPT, Claude, Gemini, Perplexity et Le Chat, par leurs interfaces de programmation officielles, recherche web activée, avec une localisation à Bordeaux.")}</li>
+<li>{fr("Le Radar pose les 20 questions du panel de chaque site à 4 moteurs, ChatGPT, Claude, Gemini et Perplexity, par leurs interfaces de programmation officielles, recherche web activée, avec une localisation à Bordeaux.")}</li>
 <li>{fr("Une citation rapporte des points quand le moteur donne un lien vers votre site dans sa réponse, écrit votre domaine, ou nomme votre site par le nom déclaré par le groupe.")}</li>
-<li>{fr("Gemini et Le Chat sont relevés chaque jour : 1 point par citation. Perplexity est relevé chaque lundi : 7 points par citation. ChatGPT et Claude sont relevés un lundi sur deux : 14 points par citation. Chaque moteur pèse ainsi autant chaque jour, soit 100 points par jour au maximum.")}</li>
+<li>{fr("Gemini est relevé chaque jour : 1 point par citation. Perplexity est relevé chaque lundi : 7 points par citation. ChatGPT et Claude sont relevés un lundi sur deux : 14 points par citation. Chaque moteur pèse ainsi autant chaque jour, soit 80 points par jour au maximum.")}</li>
 <li>{fr("Seules les citations sur les questions de votre propre panel comptent.")}</li>
 <li>{fr("Égalité : le site cité sur le plus grand nombre de questions différentes passe devant.")}</li>
 <li>{fr("Collecte vers 5 h, classement publié à 8 h, heure de Paris. Chaque réponse est archivée en texte intégral ; chaque citation donne lieu à une capture.")}</li></ol>
 <h2>{fr("Les distinctions")}</h2><ol>
 <li>{fr("Première citation : le premier jour où un moteur cite votre site.")}</li>
-<li>{fr("Cité par les 5 moteurs : chacun des 5 moteurs a cité votre site au moins une fois.")}</li>
+<li>{fr("Cité par les 4 moteurs : chacun des 4 moteurs a cité votre site au moins une fois.")}</li>
 <li>{fr("10 questions citées : votre site est cité sur au moins 10 questions différentes de votre panel.")}</li>
 <li>{fr("7 jours de suite : votre site marque des points 7 jours consécutifs.")}</li></ol>
 <h2>{fr("Pourquoi les réponses peuvent-elles différer de l'application ?")}</h2>

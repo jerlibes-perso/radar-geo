@@ -20,14 +20,6 @@
    "plafond_mensuel_eur": 6
   },
   {
-   "id": "mistral",
-   "nom": "Le Chat",
-   "cadence": "quotidien",
-   "poids": 1,
-   "modele": "mistral-medium-latest",
-   "plafond_mensuel_eur": 2
-  },
-  {
    "id": "perplexity",
    "nom": "Perplexity",
    "cadence": "hebdomadaire",

@@ -1,4 +1,4 @@
-"""Appels aux 5 moteurs, recherche web activée. Chaque fonction renvoie
+"""Appels aux moteurs, recherche web activée. Chaque fonction renvoie
 {"texte": str, "sources": [{"url": str, "titre": str}], "modele": str}."""
 import json, os, time, urllib.request, urllib.error
 

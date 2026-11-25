@@ -74,8 +74,8 @@ def calculer(jusqu_au=None):
             noms = {x["nom"] for x in d}
             if cumul[u] > 0 and "Première citation" not in noms:
                 d.append({"nom": "Première citation", "date": js})
-            if len(moteurs[u]) >= 5 and "Cité par les 5 moteurs" not in noms:
-                d.append({"nom": "Cité par les 5 moteurs", "date": js})
+            if len(moteurs[u]) >= len(POIDS) and "Cité par les 4 moteurs" not in noms:
+                d.append({"nom": "Cité par les 4 moteurs", "date": js})
             if len(questions[u]) >= 10 and "10 questions citées" not in noms:
                 d.append({"nom": "10 questions citées", "date": js})
             jc = jours_cites[u]
