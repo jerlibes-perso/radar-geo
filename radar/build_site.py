@@ -98,7 +98,7 @@ footer svg{height:26px;width:auto}
 
 def page(titre, corps, chemin_racine="", desc=""):
     nav = f'<nav><a href="{chemin_racine}index.html">Classement</a><a href="{chemin_racine}jours.html">Journées</a><a href="{chemin_racine}regles.html">Règles</a></nav>'
-    return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <title>{fr(titre)}</title><meta name="description" content="{html.escape(desc)}">
 <link rel="icon" href="{chemin_racine}assets/favicon.ico"><link rel="apple-touch-icon" href="{chemin_racine}assets/favicon-180.png">
 <style>{css(FONTS)}</style></head><body>
@@ -332,6 +332,7 @@ def construire(base_fonts_preuves=FONTS):
     elif os.path.exists(cn):
         os.remove(cn)
     open(os.path.join(DOCS, ".nojekyll"), "w").write("")
+    open(os.path.join(DOCS, "robots.txt"), "w").write("User-agent: *\nDisallow: /\n")
     print(f"Site construit, {n} captures nouvelles, {len(s['citations'])} citations au total")
     return s
 
