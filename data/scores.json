@@ -1,5 +1,5 @@
 {
- "calcule_le": "2026-11-25T17:41+01:00",
+ "calcule_le": "2026-11-26T11:05+01:00",
  "debut": "2026-11-24",
  "fin": "2027-06-01",
  "historique": [
@@ -96,11 +96,61 @@
     "lentilles": 0,
     "soleil": 0
    }
+  },
+  {
+   "date": "2026-11-26",
+   "points": {
+    "sport": 0,
+    "enfants": 0,
+    "volant": 0,
+    "ecrans": 0,
+    "senior": 0,
+    "style": 0,
+    "soins": 0,
+    "lentilles": 0,
+    "soleil": 0
+   },
+   "cumul": {
+    "sport": 0,
+    "enfants": 0,
+    "volant": 0,
+    "ecrans": 0,
+    "senior": 0,
+    "style": 0,
+    "soins": 0,
+    "lentilles": 0,
+    "soleil": 0
+   },
+   "rang": {
+    "ecrans": 1,
+    "enfants": 1,
+    "lentilles": 1,
+    "senior": 1,
+    "soins": 1,
+    "soleil": 1,
+    "sport": 1,
+    "style": 1,
+    "volant": 1
+   },
+   "evolution": {
+    "sport": 0,
+    "enfants": 0,
+    "volant": 0,
+    "ecrans": 0,
+    "senior": 0,
+    "style": 0,
+    "soins": 0,
+    "lentilles": 0,
+    "soleil": 0
+   }
   }
  ],
  "citations": [],
  "etats": {
   "2026-11-25": {
+   "gemini": "180/180"
+  },
+  "2026-11-26": {
    "gemini": "180/180"
   }
  },
@@ -141,121 +191,121 @@
   "sport": {
    "sport-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "sport-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -263,121 +313,121 @@
   "enfants": {
    "enfants-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "enfants-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -385,121 +435,121 @@
   "volant": {
    "volant-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "volant-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -507,121 +557,121 @@
   "ecrans": {
    "ecrans-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "ecrans-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -629,121 +679,121 @@
   "senior": {
    "senior-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "senior-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -751,121 +801,121 @@
   "style": {
    "style-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "style-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -873,121 +923,121 @@
   "soins": {
    "soins-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soins-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -995,121 +1045,121 @@
   "lentilles": {
    "lentilles-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "lentilles-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
@@ -1117,121 +1167,121 @@
   "soleil": {
    "soleil-01": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-02": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-03": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-04": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-05": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-06": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-07": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-08": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-09": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-10": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-11": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-12": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-13": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-14": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-15": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-16": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-17": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-18": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-19": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    },
    "soleil-20": {
     "gemini": {
-     "date": "2026-11-25",
+     "date": "2026-11-26",
      "cite": false
     }
    }
