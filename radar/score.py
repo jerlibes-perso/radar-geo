@@ -1,7 +1,7 @@
 """Calcule les points, le classement jour par jour, la grille et les distinctions.
 Écrit data/scores.json."""
 import os, glob, json, datetime as dt
-from .common import CFG, GROUPES, DATA, cite_groupe, charger, sauver, maintenant
+from .common import CFG, GROUPES, REF, DATA, cite_groupe, charger, sauver, maintenant
 
 POIDS = {m["id"]: m["poids"] for m in CFG["moteurs"]}
 GIDX = {g["u"]: g for g in GROUPES}
@@ -45,11 +45,20 @@ def calculer(jusqu_au=None):
     citations, historique = [], []
     distinctions = {u: [] for u in us}
     rang_prec = None
+    ref = {"cumul": 0, "points": 0, "questions": set(), "moteurs": set(), "historique": [], "citations": []}
     j = debut
     while j <= fin:
         js = j.isoformat()
         pts = {u: 0 for u in us}
+        ref_pts = 0
         for r in recs_par_jour.get(js, []):
+            if REF and not r.get("erreur") and r["groupe"] in GIDX:
+                pr_ref = cite_groupe(r, REF)
+                if pr_ref:
+                    ref_pts += POIDS[r["moteur"]]
+                    ref["questions"].add(r["qid"])
+                    ref["moteurs"].add(r["moteur"])
+                    ref["citations"].append({"date": js, "qid": r["qid"], "question": r["question"], "moteur": r["moteur"], "points": POIDS[r["moteur"]], "preuves": pr_ref})
             g = GIDX.get(r["groupe"])
             if not g or r.get("erreur"):
                 continue
@@ -64,6 +73,9 @@ def calculer(jusqu_au=None):
                 citations.append({"date": js, "heure": r.get("heure"), "groupe": g["u"], "qid": r["qid"], "question": r["question"],
                                   "moteur": r["moteur"], "points": p, "preuves": pr,
                                   "image": f"preuves/{js}/{r['qid']}-{r['moteur']}.png"})
+        ref["cumul"] += ref_pts
+        ref["points"] = ref_pts
+        ref["historique"].append({"date": js, "points": ref_pts, "cumul": ref["cumul"]})
         for u in us:
             cumul[u] += pts[u]
             if pts[u]:
@@ -89,7 +101,8 @@ def calculer(jusqu_au=None):
     out = {"calcule_le": maintenant().isoformat(timespec="minutes"), "debut": CFG["debut"], "fin": CFG["fin"],
            "historique": historique, "citations": citations, "etats": etats,
            "questions": {u: sorted(questions[u]) for u in us}, "moteurs": {u: sorted(moteurs[u]) for u in us},
-           "distinctions": distinctions, "grille": grille}
+           "distinctions": distinctions, "grille": grille,
+           "reference": ({**REF, "cumul": ref["cumul"], "points": ref["points"], "questions": sorted(ref["questions"]), "moteurs": sorted(ref["moteurs"]), "historique": ref["historique"], "citations": ref["citations"]} if REF else None)}
     sauver(os.path.join(DATA, "scores.json"), out)
     return out
 

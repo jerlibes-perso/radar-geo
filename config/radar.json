@@ -57,5 +57,12 @@
   "anthropic": 0.022
  },
  "domaine_perso": "radar.influa.com",
- "adresse_site": "https://radar.influa.com/"
+ "adresse_site": "https://radar.influa.com/",
+ "reference": {
+  "u": "atol",
+  "domaine": "essaie-moi.fr",
+  "nom": "Atol Mon Opticien Bordeaux Lac",
+  "libelle": "Référence Atol Bordeaux Lac",
+  "noms": []
+ }
 }

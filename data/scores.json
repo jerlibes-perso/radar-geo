@@ -1,5 +1,5 @@
 {
- "calcule_le": "2026-11-27T13:05+01:00",
+ "calcule_le": "2026-11-27T13:27+01:00",
  "debut": "2026-11-24",
  "fin": "2027-06-01",
  "historique": [
@@ -8,9 +8,6 @@
    "points": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -19,31 +16,22 @@
    "cumul": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
     "soleil": 0
    },
    "rang": {
-    "ecrans": 1,
     "enfants": 1,
     "lentilles": 1,
-    "senior": 1,
     "soins": 1,
     "soleil": 1,
     "sport": 1,
-    "style": 1,
-    "volant": 1
+    "style": 1
    },
    "evolution": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -55,9 +43,6 @@
    "points": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -66,31 +51,22 @@
    "cumul": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
     "soleil": 0
    },
    "rang": {
-    "ecrans": 1,
     "enfants": 1,
     "lentilles": 1,
-    "senior": 1,
     "soins": 1,
     "soleil": 1,
     "sport": 1,
-    "style": 1,
-    "volant": 1
+    "style": 1
    },
    "evolution": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -102,9 +78,6 @@
    "points": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -113,31 +86,22 @@
    "cumul": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
     "soleil": 0
    },
    "rang": {
-    "ecrans": 1,
     "enfants": 1,
     "lentilles": 1,
-    "senior": 1,
     "soins": 1,
     "soleil": 1,
     "sport": 1,
-    "style": 1,
-    "volant": 1
+    "style": 1
    },
    "evolution": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -149,9 +113,6 @@
    "points": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -160,31 +121,22 @@
    "cumul": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
     "soleil": 0
    },
    "rang": {
-    "ecrans": 1,
     "enfants": 1,
     "lentilles": 1,
-    "senior": 1,
     "soins": 1,
     "soleil": 1,
     "sport": 1,
-    "style": 1,
-    "volant": 1
+    "style": 1
    },
    "evolution": {
     "sport": 0,
     "enfants": 0,
-    "volant": 0,
-    "ecrans": 0,
-    "senior": 0,
     "style": 0,
     "soins": 0,
     "lentilles": 0,
@@ -207,9 +159,6 @@
  "questions": {
   "sport": [],
   "enfants": [],
-  "volant": [],
-  "ecrans": [],
-  "senior": [],
   "style": [],
   "soins": [],
   "lentilles": [],
@@ -218,9 +167,6 @@
  "moteurs": {
   "sport": [],
   "enfants": [],
-  "volant": [],
-  "ecrans": [],
-  "senior": [],
   "style": [],
   "soins": [],
   "lentilles": [],
@@ -229,9 +175,6 @@
  "distinctions": {
   "sport": [],
   "enfants": [],
-  "volant": [],
-  "ecrans": [],
-  "senior": [],
   "style": [],
   "soins": [],
   "lentilles": [],
@@ -476,372 +419,6 @@
     }
    },
    "enfants-20": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   }
-  },
-  "volant": {
-   "volant-01": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-02": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-03": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-04": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-05": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-06": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-07": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-08": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-09": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-10": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-11": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-12": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-13": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-14": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-15": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-16": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-17": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-18": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-19": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "volant-20": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   }
-  },
-  "ecrans": {
-   "ecrans-01": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-02": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-03": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-04": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-05": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-06": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-07": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-08": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-09": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-10": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-11": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-12": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-13": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-14": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-15": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-16": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-17": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-18": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-19": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "ecrans-20": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   }
-  },
-  "senior": {
-   "senior-01": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-02": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-03": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-04": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-05": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-06": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-07": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-08": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-09": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-10": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-11": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-12": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-13": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-14": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-15": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-16": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-17": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-18": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-19": {
-    "gemini": {
-     "date": "2026-11-27",
-     "cite": false
-    }
-   },
-   "senior-20": {
     "gemini": {
      "date": "2026-11-27",
      "cite": false
@@ -1336,5 +913,39 @@
     }
    }
   }
+ },
+ "reference": {
+  "u": "atol",
+  "domaine": "essaie-moi.fr",
+  "nom": "Atol Mon Opticien Bordeaux Lac",
+  "libelle": "Référence Atol Bordeaux Lac",
+  "noms": [],
+  "cumul": 0,
+  "points": 0,
+  "questions": [],
+  "moteurs": [],
+  "historique": [
+   {
+    "date": "2026-11-24",
+    "points": 0,
+    "cumul": 0
+   },
+   {
+    "date": "2026-11-25",
+    "points": 0,
+    "cumul": 0
+   },
+   {
+    "date": "2026-11-26",
+    "points": 0,
+    "cumul": 0
+   },
+   {
+    "date": "2026-11-27",
+    "points": 0,
+    "cumul": 0
+   }
+  ],
+  "citations": []
  }
 }

@@ -1,7 +1,7 @@
-"""Page d'accueil du Radar : tableau de score, podium, course des 9 sites, fil des citations,
+"""Page d'accueil du Radar : tableau de score, podium, course des sites, fil des citations,
 défis et records, compte à rebours. Charte Influa Signal, animations à chaque visite."""
 import html, datetime as dt
-from .common import CFG, GROUPES, NB, date_fr, moteurs_du_jour
+from .common import CFG, GROUPES, NSITES, NQUESTIONS, NB, date_fr, moteurs_du_jour
 
 GIDX = {g["u"]: g for g in GROUPES}
 MNOM = {m["id"]: m["nom"] for m in CFG["moteurs"]}
@@ -209,7 +209,7 @@ def vitrine(s, hist, us, ordre, jour, now):
 <div class="fact mag"><div class="v">+<span data-n="{du_jour}">{du_jour}</span></div><div class="l">{e("points distribués ce matin")}</div></div>
 <div class="fact"><div class="v"><span data-n="{len(s['citations'])}">{len(s['citations'])}</span></div><div class="l">{e("citations depuis le " + date_fr(CFG['debut']))}</div></div>
 </div>"""
-    corps = entete("Challenge GEO Inseec MSC M1 Marketing Digital et Big Data", titre, "9 sites face à 4 IA. Nouveau classement chaque matin à 8 h.",
+    corps = entete("Challenge GEO Inseec MSC M1 Marketing Digital et Big Data", titre, f"{NSITES} sites face à 4 IA. Nouveau classement chaque matin à 8 h.",
                    f"Classement arrêté au {date_fr(jour)} à {CFG['heure_publication']} h. Fin du challenge le {date_fr(CFG['fin'])} à 23 h 59.",
                    f'<div class="score">{compte}{facts}</div>')
 
@@ -221,7 +221,7 @@ def vitrine(s, hist, us, ordre, jour, now):
     else:
         items = "".join(f'<span class="it">{e(t)}</span>' for t in [
             "Première citation : à prendre", "Le premier site cité gagne la distinction Première citation",
-            "Gemini relève les 9 sites chaque matin", f"{gros}" if gros else "Perplexity, ChatGPT et Claude passent le lundi",
+            f"Gemini relève les {NSITES} sites chaque matin", f"{gros}" if gros else "Perplexity, ChatGPT et Claude passent le lundi",
             "Une citation de ChatGPT ou de Claude vaut 14 points"])
         lab = "En jeu"
     corps += f'<div class="ticker" aria-label="{e("Fil des citations")}"><span class="lab">{e(lab)}</span><div class="rail">{items}</div></div>'
@@ -242,7 +242,7 @@ def vitrine(s, hist, us, ordre, jour, now):
     corps += "</div>"
 
     # course et carte
-    corps += f'<h2 class="reveal">{e("La course des 9 sites")}</h2><div class="jeu"><div class="race">'
+    corps += f'<h2 class="reveal">{e(f"La course des {NSITES} sites")}</h2><div class="jeu"><div class="race">'
     for i, u in enumerate(ordre):
         g = GIDX[u]
         devant = ordre[i - 1] if i else None
@@ -255,13 +255,21 @@ def vitrine(s, hist, us, ordre, jour, now):
         prev = h["rang"][u] + h["evolution"][u]
         vals = [x["points"][u] for x in hist[-14:]]
         n, nom = niveau(h["cumul"][u])
-        corps += f"""<a class="lane" href="groupe/{u}.html" data-prev="{min(max(prev, 1), 9)}" data-now="{i + 1}">
+        corps += f"""<a class="lane" href="groupe/{u}.html" data-prev="{min(max(prev, 1), NSITES)}" data-now="{i + 1}">
 <span class="rk">{h['rang'][u]}</span>
 <span class="nm"><b>{e(g['domaine'])}</b><span>{e(g['theme'])}</span></span>
 <span class="nvw"><span class="niv"><img loading="lazy" decoding="async" src="kit/rang-{n}-80.png" alt="{e('Niveau ' + str(n) + ', ' + nom)}" width="40" height="40"><span><span class="nn">{e('Niveau ' + str(n) + ' ' + nom)}</span><br>{jauge(n)}</span></span><span class="gap">{e(gp)}</span></span>
 <span class="pt"><b data-n="{h['cumul'][u]}">{h['cumul'][u]}</b><span class="td"{' style="color:#B9AED6"' if not h['points'][u] else ''}>+{h['points'][u]} {e("ce matin")}</span></span>
 <span class="mvw"><span class="sp">{sparkline(vals, '#FFD23F' if i == 0 else '#17E3FF')}</span>{mouvement(h['evolution'][u])}<span class="lk">{e("Voir la fiche")}</span></span></a>"""
-    corps += f"""</div><aside><picture><source srcset="kit/carte.webp" type="image/webp"><img loading="lazy" decoding="async" src="kit/carte.png" alt="{e('Carte de la Gironde, avec une loupe sur Bordeaux Lac : lac de Bordeaux, rocade et Garonne')}" width="600" height="600"></picture><p>{e("La Gironde, Bordeaux Lac en focus : le quartier du magasin Atol Mon Opticien Bordeaux Lac, client commun des 9 sites. Sources : IGN BD CARTO et BD TOPO.")}</p></aside></div>"""
+    corps += f"""</div><aside><picture><source srcset="kit/carte.webp" type="image/webp"><img loading="lazy" decoding="async" src="kit/carte.png" alt="{e('Carte de la Gironde, avec une loupe sur Bordeaux Lac : lac de Bordeaux, rocade et Garonne')}" width="600" height="600"></picture><p>{e("La Gironde, Bordeaux Lac en focus : le quartier du magasin Atol Mon Opticien Bordeaux Lac, client commun des " + str(NSITES) + " sites. Sources : IGN BD CARTO et BD TOPO.")}</p></aside></div>"""
+    ref = s.get("reference")
+    if ref:
+        corps += f"""<div class="jeu" style="margin-top:14px"><div class="race"><div class="lane" style="border:2px dashed #17E3FF">
+<span class="rk">HC</span>
+<span class="nm"><b>{e(ref['domaine'])}</b><span>{e(ref['libelle'] + ', hors concours')}</span></span>
+<span class="nvw"><span class="gap">{e(str(len(ref['questions'])) + ' questions citées sur ' + str(NQUESTIONS) + ', toutes thématiques confondues. Le site du magasin sert de niveau à battre et reste hors classement.')}</span></span>
+<span class="pt"><b data-n="{ref['cumul']}">{ref['cumul']}</b><span class="td"{' style="color:#B9AED6"' if not ref['points'] else ''}>+{ref['points']} {e("ce matin")}</span></span>
+</div></div></div>"""
     corps += f'<p class="muted" style="margin-top:10px">{e("Égalité de points : le site cité sur le plus de questions différentes passe devant. La courbe de chaque ligne montre les points gagnés sur les 14 derniers jours.")}</p>'
     corps += f'<p class="cta"><a class="bouton" href="regles.html">{e("Voir les règles du jeu")}</a></p>'
 

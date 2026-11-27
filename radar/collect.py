@@ -1,7 +1,7 @@
-"""Collecte du jour : interroge les moteurs prévus aujourd'hui sur les 180 questions.
+"""Collecte du jour : interroge les moteurs prévus aujourd'hui sur les questions des groupes.
 Usage : python -m radar.collect [--date AAAA-MM-JJ] [--moteurs gemini,mistral] [--force]"""
 import os, sys, json, time, argparse, threading, datetime as dt, concurrent.futures as cf
-from .common import CFG, GROUPES, DATA, maintenant, moteurs_du_jour, charger, sauver
+from .common import CFG, GROUPES, NQUESTIONS, DATA, maintenant, moteurs_du_jour, charger, sauver
 from .engines import MOTEURS, CLES
 
 
@@ -36,7 +36,7 @@ def relever(m, jour, force=False):
     unit = CFG["cout_estime_eur_par_reponse"].get(mid, 0.0)
     plafond = m.get("plafond_mensuel_eur", 0)
     deja = depense_du_mois(mois).get(mid, 0.0)
-    if unit and deja + unit * 180 > plafond:
+    if unit and deja + unit * NQUESTIONS > plafond:
         print(f"{mid} : plafond mensuel atteint ({deja:.2f} EUR sur {plafond})")
         sauver(sortie.replace(".json", ".plafond.json"), {"raison": "plafond mensuel", "depense": deja, "plafond": plafond})
         return

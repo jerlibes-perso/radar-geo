@@ -1,7 +1,7 @@
 """Construit le site du Radar dans docs/ : classement, fiches des groupes, journées, règles,
 et les captures de preuve de chaque citation (PNG)."""
 import os, re, json, html, shutil, datetime as dt
-from .common import CFG, GROUPES, DATA, DOCS, RACINE, NB, date_fr, heure_fr, maintenant, moteurs_du_jour, prochain_releve, hote, charger
+from .common import CFG, GROUPES, NSITES, NQUESTIONS, DATA, DOCS, RACINE, NB, date_fr, heure_fr, maintenant, moteurs_du_jour, prochain_releve, hote, charger
 from .score import calculer
 from .vitrine import vitrine, CSS_JEU, JS, niveau, jauge
 
@@ -97,7 +97,7 @@ footer svg{height:24px;width:auto}
 
 
 def page(titre, corps, chemin_racine="", desc="", js=False, url=""):
-    desc = desc or "Classement quotidien du Challenge GEO Inseec MSC M1 Marketing Digital et Big Data : 9 sites cités ou non par ChatGPT, Claude, Gemini et Perplexity."
+    desc = desc or "Classement quotidien du Challenge GEO Inseec MSC M1 Marketing Digital et Big Data : " + str(NSITES) + " sites cités ou non par ChatGPT, Claude, Gemini et Perplexity."
     canon = "https://radar.influa.com/" + url
     desc = re.sub(r" ([:;?!])", NB + r"\1", desc)
     nav = f'<nav><a href="{chemin_racine}index.html">Classement</a><a href="{chemin_racine}jours.html">Journées</a><a href="{chemin_racine}regles.html">Règles</a></nav>'
@@ -227,7 +227,7 @@ def construire(base_fonts_preuves=FONTS):
     h = hist[-1]
     ordre = sorted(us, key=lambda u: (h["rang"][u], -len(s["questions"][u]), u))
     corps = vitrine(s, hist, us, ordre, jour, now)
-    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa, classement du Challenge GEO Inseec", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini et Perplexity.", js=True))
+    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa, classement du Challenge GEO Inseec", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : " + str(NSITES) + " sites face à ChatGPT, Claude, Gemini et Perplexity.", js=True))
 
     # fiches groupe
     os.makedirs(os.path.join(DOCS, "groupe"), exist_ok=True)
@@ -246,7 +246,7 @@ def construire(base_fonts_preuves=FONTS):
                     cells += f'<td class="cell-no">{fr("Non cité")}<br><span class="muted">{fr(date_fr(c["date"]))}</span></td>'
             lignes += f"<tr><td>{fr(q['texte'])}<br><span class='muted'>{fr('Question ' + q['type'])}</span></td>{cells}</tr>"
         cit = sorted([c for c in s["citations"] if c["groupe"] == u], key=lambda c: c["date"], reverse=True)
-        st = f"Rang {h['rang'][u]} sur 9, {h['cumul'][u]} points, {len(s['questions'][u])} questions citées sur 20."
+        st = f"Rang {h['rang'][u]} sur {NSITES}, {h['cumul'][u]} points, {len(s['questions'][u])} questions citées sur 20."
         i = ordre.index(u)
         if i and h["cumul"][ordre[i - 1]] > h["cumul"][u]:
             obj = f"Encore {h['cumul'][ordre[i - 1]] - h['cumul'][u] + 1} points pour passer devant {GIDX[ordre[i - 1]]['domaine']}."
@@ -255,7 +255,7 @@ def construire(base_fonts_preuves=FONTS):
         else:
             obj = "Une seule citation suffit pour prendre la tête du classement."
         libres = [q for q in g["questions"] if q["id"] not in s["questions"][u]]
-        lead_g = f'<div class="score"><div class="giant">{h["rang"][u]}<small>{"er" if h["rang"][u] == 1 else "e"} sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="{h["cumul"][u]}">{h["cumul"][u]}</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="{h["points"][u]}">{h["points"][u]}</span></div><div class="l">{fr("points ce matin")}</div></div><div class="fact"><div class="v">{len(s["questions"][u])}/20</div><div class="l">{fr("questions citées")}</div></div><div class="fact"><div class="v">{len(libres)}</div><div class="l">{fr("questions encore à prendre")}</div></div><div class="fact ja" style="grid-column:1/-1;display:flex;align-items:center;gap:14px"><img loading="lazy" decoding="async" src="../kit/rang-{niveau(h["cumul"][u])[0]}.png" alt="" width="64" height="64"><div><div class="v">{fr("Niveau " + str(niveau(h["cumul"][u])[0]) + " " + niveau(h["cumul"][u])[1])}</div>{jauge(niveau(h["cumul"][u])[0])}</div></div></div></div>'
+        lead_g = f'<div class="score"><div class="giant">{h["rang"][u]}<small>{"er" if h["rang"][u] == 1 else "e"} sur {NSITES}</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="{h["cumul"][u]}">{h["cumul"][u]}</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="{h["points"][u]}">{h["points"][u]}</span></div><div class="l">{fr("points ce matin")}</div></div><div class="fact"><div class="v">{len(s["questions"][u])}/20</div><div class="l">{fr("questions citées")}</div></div><div class="fact"><div class="v">{len(libres)}</div><div class="l">{fr("questions encore à prendre")}</div></div><div class="fact ja" style="grid-column:1/-1;display:flex;align-items:center;gap:14px"><img loading="lazy" decoding="async" src="../kit/rang-{niveau(h["cumul"][u])[0]}.png" alt="" width="64" height="64"><div><div class="v">{fr("Niveau " + str(niveau(h["cumul"][u])[0]) + " " + niveau(h["cumul"][u])[1])}</div>{jauge(niveau(h["cumul"][u])[0])}</div></div></div></div>'
         b = entete(g["theme"], g["domaine"], st, obj, lead_g)
         b += f"""<main><div class="wrap"><h2>{fr("Les questions encore à prendre")}</h2>
 <p>{fr("Une page par question, la réponse en 40 à 50 mots en tête, une source officielle : ce sont les pages que les moteurs citent.")}</p>
@@ -294,6 +294,7 @@ def construire(base_fonts_preuves=FONTS):
 <li>{fr("Une citation rapporte des points quand le moteur donne un lien vers votre site dans sa réponse, écrit votre domaine, ou nomme votre site par le nom déclaré par le groupe.")}</li>
 <li>{fr("Gemini est relevé chaque jour : 1 point par citation. Perplexity est relevé chaque lundi : 7 points par citation. ChatGPT et Claude sont relevés un lundi sur deux : 14 points par citation. Chaque moteur pèse ainsi autant chaque jour, soit 80 points par jour au maximum.")}</li>
 <li>{fr("Seules les citations sur les questions de votre propre panel comptent.")}</li>
+<li>{fr("Le site du magasin, essaie-moi.fr, figure hors concours sur toutes les questions : il sert de niveau à battre et ne prend aucune place au classement.")}</li>
 <li>{fr("Égalité : le site cité sur le plus grand nombre de questions différentes passe devant.")}</li>
 <li>{fr("Collecte vers 5 h, classement publié à 8 h, heure de Paris. Chaque réponse est archivée en texte intégral ; chaque citation donne lieu à une capture.")}</li></ol>
 <h2>{fr("Les distinctions")}</h2><ol>
