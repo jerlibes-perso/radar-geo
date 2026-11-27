@@ -258,17 +258,17 @@ def vitrine(s, hist, us, ordre, jour, now):
         corps += f"""<a class="lane" href="groupe/{u}.html" data-prev="{min(max(prev, 1), 9)}" data-now="{i + 1}">
 <span class="rk">{h['rang'][u]}</span>
 <span class="nm"><b>{e(g['domaine'])}</b><span>{e(g['theme'])}</span></span>
-<span class="nvw"><span class="niv"><img src="kit/rang-{n}.png" alt="{e('Niveau ' + str(n) + ', ' + nom)}" width="40" height="40"><span><span class="nn">{e('Niveau ' + str(n) + ' ' + nom)}</span><br>{jauge(n)}</span></span><span class="gap">{e(gp)}</span></span>
+<span class="nvw"><span class="niv"><img loading="lazy" decoding="async" src="kit/rang-{n}-80.png" alt="{e('Niveau ' + str(n) + ', ' + nom)}" width="40" height="40"><span><span class="nn">{e('Niveau ' + str(n) + ' ' + nom)}</span><br>{jauge(n)}</span></span><span class="gap">{e(gp)}</span></span>
 <span class="pt"><b data-n="{h['cumul'][u]}">{h['cumul'][u]}</b><span class="td"{' style="color:#B9AED6"' if not h['points'][u] else ''}>+{h['points'][u]} {e("ce matin")}</span></span>
 <span class="mvw"><span class="sp">{sparkline(vals, '#FFD23F' if i == 0 else '#17E3FF')}</span>{mouvement(h['evolution'][u])}<span class="lk">{e("Voir la fiche")}</span></span></a>"""
-    corps += f"""</div><aside><img src="kit/carte.png" alt="{e('Carte radar de Bordeaux Lac, un point par site du challenge')}" width="600" height="600"><p>{e("Bordeaux Lac, terrain de jeu des 9 sites : chaque point est un site en course.")}</p></aside></div>"""
+    corps += f"""</div><aside><img loading="lazy" decoding="async" src="kit/carte.png" alt="{e('Carte radar de Bordeaux Lac, un point par site du challenge')}" width="600" height="600"><p>{e("Bordeaux Lac, terrain de jeu des 9 sites : chaque point est un site en course.")}</p></aside></div>"""
     corps += f'<p class="muted" style="margin-top:10px">{e("Égalité de points : le site cité sur le plus de questions différentes passe devant. La courbe de chaque ligne montre les points gagnés sur les 14 derniers jours.")}</p>'
     corps += f'<p class="cta"><a class="bouton" href="regles.html">{e("Voir les règles du jeu")}</a></p>'
 
     # niveaux
     corps += f'<h2 class="reveal">{e("Les 5 niveaux")}</h2><div class="niveaux reveal">'
     for seuil, n, nom in sorted(NIVEAUX, key=lambda x: x[1]):
-        corps += f'<div><img src="kit/rang-{n}.png" alt="" width="240" height="240"><b>{e(nom)}</b><span>{e("Dès " + pl(seuil, "point") if seuil else "Au départ")}</span></div>'
+        corps += f'<div><img loading="lazy" decoding="async" src="kit/rang-{n}.png" alt="" width="240" height="240"><b>{e(nom)}</b><span>{e("Dès " + pl(seuil, "point") if seuil else "Au départ")}</span></div>'
     corps += "</div>"
 
     # défis et records

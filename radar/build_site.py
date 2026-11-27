@@ -96,13 +96,19 @@ footer svg{height:24px;width:auto}
 """
 
 
-def page(titre, corps, chemin_racine="", desc="", js=False):
+def page(titre, corps, chemin_racine="", desc="", js=False, url=""):
+    desc = desc or "Classement quotidien du Challenge GEO Inseec MSC M1 Marketing Digital et Big Data : 9 sites cités ou non par ChatGPT, Claude, Gemini et Perplexity."
+    canon = "https://radar.influa.com/" + url
     desc = re.sub(r" ([:;?!])", NB + r"\1", desc)
     nav = f'<nav><a href="{chemin_racine}index.html">Classement</a><a href="{chemin_racine}jours.html">Journées</a><a href="{chemin_racine}regles.html">Règles</a></nav>'
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <title>{fr(titre)}</title><meta name="description" content="{html.escape(desc)}">
-<meta property="og:title" content="{html.escape(titre)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:image" content="https://radar.influa.com/kit/hero.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0B0618">
-<link rel="icon" href="{chemin_racine}assets/favicon.ico"><link rel="apple-touch-icon" href="{chemin_racine}assets/favicon-180.png">
+<link rel="canonical" href="{canon}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Radar GEO Influa"><meta property="og:locale" content="fr_FR"><meta property="og:url" content="{canon}">
+<meta property="og:title" content="{html.escape(titre)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:image" content="https://radar.influa.com/kit/hero.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Écran de chargement du classement, coucher de soleil sur Bordeaux Lac">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{html.escape(titre)}"><meta name="twitter:description" content="{html.escape(desc)}"><meta name="twitter:image" content="https://radar.influa.com/kit/hero.png">
+<meta name="theme-color" content="#0B0618">
+<link rel="icon" href="{chemin_racine}kit/favicon.svg" type="image/svg+xml"><link rel="icon" href="{chemin_racine}kit/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="{chemin_racine}kit/favicon-180.png"><link rel="manifest" href="{chemin_racine}kit/site.webmanifest">
 <style>{css(FONTS)}</style></head><body>
 {corps.replace('%%NAV%%', nav)}
 <footer><div class="wrap"><div>{logo('#FFFFFF')}</div><div>{fr("Radar GEO du Challenge GEO Inseec MSC M1 Marketing Digital et Big Data, 2026-2027. Influa, marque du groupe IA GROUP.")}</div></div></footer>
@@ -154,7 +160,7 @@ def chart(hist, us):
 
 def carte(c, racine=""):
     g = GIDX[c["groupe"]]
-    return f"""<a class="card" href="{racine}{c['image']}"><img loading="lazy" src="{racine}{c['image']}" alt="{html.escape('Capture de la réponse de ' + MNOM[c['moteur']] + ' citant ' + g['domaine'])}">
+    return f"""<a class="card" href="{racine}{c['image']}"><img loading="lazy" decoding="async" src="{racine}{c['image']}" alt="{html.escape('Capture de la réponse de ' + MNOM[c['moteur']] + ' citant ' + g['domaine'])}">
 <div class="t"><b>{fr(g['domaine'])}</b>, {fr(MNOM[c['moteur']])}, +{c['points']}{NB}point{'s' if c['points'] > 1 else ''}<br>{fr(c['question'])}<span class="go">{fr("Voir la capture")}</span></div></a>"""
 
 
@@ -221,7 +227,7 @@ def construire(base_fonts_preuves=FONTS):
     h = hist[-1]
     ordre = sorted(us, key=lambda u: (h["rang"][u], -len(s["questions"][u]), u))
     corps = vitrine(s, hist, us, ordre, jour, now)
-    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa, classement du challenge GEO Inseec", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini et Perplexity.", js=True))
+    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(page("Radar GEO Influa, classement du Challenge GEO Inseec", corps, "", "Classement quotidien du challenge GEO Inseec 2026-2027 : 9 sites face à ChatGPT, Claude, Gemini et Perplexity.", js=True))
 
     # fiches groupe
     os.makedirs(os.path.join(DOCS, "groupe"), exist_ok=True)
@@ -249,7 +255,7 @@ def construire(base_fonts_preuves=FONTS):
         else:
             obj = "Une seule citation suffit pour prendre la tête du classement."
         libres = [q for q in g["questions"] if q["id"] not in s["questions"][u]]
-        lead_g = f'<div class="score"><div class="giant">{h["rang"][u]}<small>{"er" if h["rang"][u] == 1 else "e"} sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="{h["cumul"][u]}">{h["cumul"][u]}</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="{h["points"][u]}">{h["points"][u]}</span></div><div class="l">{fr("points ce matin")}</div></div><div class="fact"><div class="v">{len(s["questions"][u])}/20</div><div class="l">{fr("questions citées")}</div></div><div class="fact"><div class="v">{len(libres)}</div><div class="l">{fr("questions encore à prendre")}</div></div><div class="fact ja" style="grid-column:1/-1;display:flex;align-items:center;gap:14px"><img src="../kit/rang-{niveau(h["cumul"][u])[0]}.png" alt="" width="64" height="64"><div><div class="v">{fr("Niveau " + str(niveau(h["cumul"][u])[0]) + " " + niveau(h["cumul"][u])[1])}</div>{jauge(niveau(h["cumul"][u])[0])}</div></div></div></div>'
+        lead_g = f'<div class="score"><div class="giant">{h["rang"][u]}<small>{"er" if h["rang"][u] == 1 else "e"} sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="{h["cumul"][u]}">{h["cumul"][u]}</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="{h["points"][u]}">{h["points"][u]}</span></div><div class="l">{fr("points ce matin")}</div></div><div class="fact"><div class="v">{len(s["questions"][u])}/20</div><div class="l">{fr("questions citées")}</div></div><div class="fact"><div class="v">{len(libres)}</div><div class="l">{fr("questions encore à prendre")}</div></div><div class="fact ja" style="grid-column:1/-1;display:flex;align-items:center;gap:14px"><img loading="lazy" decoding="async" src="../kit/rang-{niveau(h["cumul"][u])[0]}.png" alt="" width="64" height="64"><div><div class="v">{fr("Niveau " + str(niveau(h["cumul"][u])[0]) + " " + niveau(h["cumul"][u])[1])}</div>{jauge(niveau(h["cumul"][u])[0])}</div></div></div></div>'
         b = entete(g["theme"], g["domaine"], st, obj, lead_g)
         b += f"""<main><div class="wrap"><h2>{fr("Les questions encore à prendre")}</h2>
 <p>{fr("Une page par question, la réponse en 40 à 50 mots en tête, une source officielle : ce sont les pages que les moteurs citent.")}</p>
@@ -259,7 +265,7 @@ def construire(base_fonts_preuves=FONTS):
 <div class="scroll"><table><thead><tr><th>Question</th>{''.join(f'<th>{fr(MNOM[m])}</th>' for m in MORDRE)}</tr></thead><tbody>{lignes}</tbody></table></div>
 <h2>{fr("Distinctions")}</h2><p>{fr(', '.join(d['nom'] + ' (' + date_fr(d['date']) + ')' for d in s['distinctions'][u]) or "Aucune pour l'instant.")}</p>
 <h2>{fr("Les captures de vos citations")}</h2>""" + (('<div class="cards">' + "".join(carte(c, "../") for c in cit) + "</div>") if cit else f"<p>{fr('Aucune citation relevée pour le moment.')}</p>") + "</div></main>"
-        open(os.path.join(DOCS, "groupe", f"{u}.html"), "w", encoding="utf-8").write(page(f"{g['domaine']}, Radar GEO Influa", b.replace('href="groupe/', 'href="'), "../", js=True))
+        open(os.path.join(DOCS, "groupe", f"{u}.html"), "w", encoding="utf-8").write(page(f"{g['domaine']}, Radar GEO Influa", b.replace('href="groupe/', 'href="'), "../", f"Fiche de {g['domaine']} au Radar GEO : rang, points, niveau et état de ses 20 questions face à ChatGPT, Claude, Gemini et Perplexity.", js=True, url=f"groupe/{u}.html"))
 
     # journées
     os.makedirs(os.path.join(DOCS, "jour"), exist_ok=True)
@@ -274,11 +280,11 @@ def construire(base_fonts_preuves=FONTS):
         b = entete("Journée du Radar", date_fr(d), f"{len(cj)} citations, {tot} points distribués", f"Moteurs relevés : {mo}.")
         b += f"""<main><div class="wrap"><h2>{fr("Points de la journée")}</h2><table><thead><tr><th>Site</th><th class="n">{fr("Points du jour")}</th><th class="n">Cumul</th><th class="n">Rang</th></tr></thead><tbody>{rows}</tbody></table>
 <h2>{fr("Captures de la journée")}</h2>""" + (('<div class="cards">' + "".join(carte(c, "../") for c in cj) + "</div>") if cj else f"<p>{fr('Aucune citation ce jour-là.')}</p>") + "</div></main>"
-        open(os.path.join(DOCS, "jour", f"{d}.html"), "w", encoding="utf-8").write(page(f"Journée du {date_fr(d)}, Radar GEO Influa", b, "../"))
+        open(os.path.join(DOCS, "jour", f"{d}.html"), "w", encoding="utf-8").write(page(f"Journée du {date_fr(d)}, Radar GEO Influa", b, "../", f"Citations, points et relevés du {date_fr(d)} au Radar GEO du Challenge GEO Inseec.", url=f"jour/{d}.html"))
         lj += f"<tr><td><a href='jour/{d}.html'><b>{fr(date_fr(d))}</b></a></td><td class='n'>{len(cj)}</td><td class='n'>{tot}</td><td>{fr(mo)}</td></tr>"
     b = entete("Radar GEO Influa", "Les journées du challenge", "Chaque journée garde ses points et ses captures", f"Depuis le {date_fr(CFG['debut'])}.")
     b += f"<main><div class='wrap'><h2>{fr("Que s'est-il passé chaque jour ?")}</h2><div class='scroll'><table><thead><tr><th>Journée</th><th class='n'>Citations</th><th class='n'>Points</th><th>{fr('Moteurs relevés')}</th></tr></thead><tbody>{lj}</tbody></table></div></div></main>"
-    open(os.path.join(DOCS, "jours.html"), "w", encoding="utf-8").write(page("Les journées, Radar GEO Influa", b))
+    open(os.path.join(DOCS, "jours.html"), "w", encoding="utf-8").write(page("Les journées, Radar GEO Influa", b, "", "Toutes les journées du Radar GEO : relevés des moteurs, citations et captures de preuve, jour par jour.", url="jours.html"))
 
     # règles
     b = entete("Radar GEO Influa", "Les règles du Radar", "Points, cadences des moteurs et distinctions", "Le groupe qui totalise le plus de points le 1er juin 2027 à 23 h 59 gagne le challenge.")
@@ -298,7 +304,7 @@ def construire(base_fonts_preuves=FONTS):
 <h2>{fr("Pourquoi les réponses peuvent-elles différer de l'application ?")}</h2>
 <p>{fr("Le Radar interroge les moteurs sans compte personnel ni historique, comme un nouvel internaute. Vos tests dans l'application, avec votre compte, peuvent donner d'autres sources. Seul le Radar fait foi pour le classement.")}</p>
 </div></main>"""
-    open(os.path.join(DOCS, "regles.html"), "w", encoding="utf-8").write(page("Les règles, Radar GEO Influa", b))
+    open(os.path.join(DOCS, "regles.html"), "w", encoding="utf-8").write(page("Les règles, Radar GEO Influa", b, "", "Règles du Radar GEO : moteurs, cadences, barème de 1, 7 ou 14 points par citation, niveaux, distinctions et départage.", url="regles.html"))
     cn = os.path.join(DOCS, "CNAME")
     if CFG.get("domaine_perso"):
         open(cn, "w").write(CFG["domaine_perso"] + "\n")
