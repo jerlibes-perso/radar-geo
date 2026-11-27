@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="theme.css"><style>
+#hero{width:1200px;height:630px;background:var(--couchant);position:relative;overflow:hidden;padding:0}
+#hero .sun{position:absolute;left:350px;top:250px;width:500px;height:500px;border-radius:50%;background:linear-gradient(180deg,#FFD23F,#FF7A00 60%,#FF2E88);-webkit-mask:repeating-linear-gradient(180deg,#000 0 26px,transparent 26px 36px)}
+#hero .grid{position:absolute;left:-200px;right:-200px;bottom:0;height:210px;background:repeating-linear-gradient(90deg,rgba(23,227,255,.55) 0 2px,transparent 2px 80px),repeating-linear-gradient(180deg,rgba(23,227,255,.55) 0 2px,transparent 2px 30px),#0B0618;transform:perspective(300px) rotateX(55deg);transform-origin:bottom}
+#hero svg{position:absolute;bottom:170px;left:0}
+#hero .t{position:absolute;left:60px;top:46px;right:60px}
+#hero .t .hud{font-size:22px}
+#hero .t .big{font-family:var(--choc);font-weight:900;color:#fff;font-size:92px;line-height:.95;text-transform:uppercase;text-shadow:6px 6px 0 var(--magenta);margin-top:14px}
+#hero .load{position:absolute;left:60px;right:60px;bottom:40px;font-family:var(--choc);letter-spacing:4px;text-transform:uppercase;color:var(--cyan);font-size:18px}
+#hero .load b{display:block;height:10px;background:var(--ombre);margin-top:10px}#hero .load b i{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--cyan),var(--magenta))}
+.badge{width:240px;height:240px;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;background:var(--nuit);margin:0}
+.badge .hex{width:170px;height:170px;clip-path:polygon(50% 0,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%);display:flex;align-items:center;justify-content:center;font-family:var(--choc);font-weight:900;font-size:84px;color:var(--nuit)}
+.badge .n{font-family:var(--choc);font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#fff;font-size:20px;margin-top:8px}
+#carte{width:600px;height:600px;background:var(--nuit);display:flex;align-items:center;justify-content:center}
+</style></head><body>
+<div id="hero"><div class="sun"></div><div class="grid"></div>
+<svg width="1200" height="200" viewBox="0 0 1075 260" preserveAspectRatio="none"><path fill="#0B0618" d="M0 260V170h40v-30h30v50h40V90h20V60h30v130h40v-60h50v40h30V40h15V20h15v20h15v150h40v-70h60v80h30V100h50v90h40v-50h30v-40h20v90h40V70h25V50h20v20h25v120h40v-60h50v70h30V110h40v80h40v-40h60v40h40V80h30v110h40v70z"/></svg>
+<div class="t"><div class="hud">Challenge GEO Inseec MSC M1 Marketing Digital et Big Data</div><div class="big">Bordeaux Lac<br>Classement</div></div>
+<div class="load">Chargement du classement<b><i></i></b></div></div>
+<div id="badges" style="display:flex;width:1200px">
+<div class="badge" id="r1"><div class="hex" style="background:#B9AED6">1</div><div class="n">Éclaireur</div></div>
+<div class="badge" id="r2"><div class="hex" style="background:#17E3FF">2</div><div class="n">Repéré</div></div>
+<div class="badge" id="r3"><div class="hex" style="background:linear-gradient(135deg,#FF2E88,#FF7A00)">3</div><div class="n">Cité</div></div>
+<div class="badge" id="r4"><div class="hex" style="background:linear-gradient(135deg,#FFD23F,#FF7A00)">4</div><div class="n">Référence</div></div>
+<div class="badge" id="r5"><div class="hex" style="background:linear-gradient(135deg,#FFFFFF,#FFD23F 40%,#FF2E88)">5</div><div class="n">Autorité</div></div></div>
+<div id="carte"><svg width="560" height="560" viewBox="0 0 560 560">
+<defs><clipPath id="c"><circle cx="280" cy="280" r="250"/></clipPath><radialGradient id="g"><stop offset="0" stop-color="#21123F"/><stop offset="1" stop-color="#0B0618"/></radialGradient></defs>
+<circle cx="280" cy="280" r="256" fill="none" stroke="#17E3FF" stroke-width="6"/>
+<g clip-path="url(#c)"><rect width="560" height="560" fill="url(#g)"/>
+<g stroke="#3A2A5E" stroke-width="10"><path d="M0 200H560M0 380H560M150 0V560M420 0V560M0 520L560 60"/></g>
+<path d="M210 170c60-40 170-20 190 50s-30 150-110 160-140-40-140-100 10-80 60-110z" fill="#17E3FF" opacity=".35"/>
+<g stroke="#21123F" stroke-width="2" fill="none" opacity=".8"><circle cx="280" cy="280" r="80"/><circle cx="280" cy="280" r="160"/></g>
+<path d="M280 280L280 30A250 250 0 0 1 497 155Z" fill="#17E3FF" opacity=".18"/>
+<g font-family="Impact,Arial Black" font-size="22" fill="#fff">
+<circle cx="120" cy="150" r="12" fill="#FFD23F"/><circle cx="460" cy="250" r="12" fill="#FF2E88"/><circle cx="200" cy="450" r="12" fill="#17E3FF"/>
+<circle cx="390" cy="430" r="12" fill="#FF7A00"/><circle cx="90" cy="330" r="12" fill="#FFD23F"/><circle cx="350" cy="110" r="12" fill="#FF2E88"/></g></g>
+<path d="M280 262l14 30h-28z" fill="#fff"/>
+<text x="280" y="545" text-anchor="middle" font-family="Impact,Arial Black,DejaVu Sans" font-weight="900" font-size="26" letter-spacing="4" fill="#FFD23F">BORDEAUX LAC</text></svg></div>
+</body></html>

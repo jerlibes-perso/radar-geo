@@ -1,0 +1,25 @@
+/* Challenge GEO Inseec : theme commun du mail et de radar.influa.com
+   Jeu d'action urbain 2026, visuels originaux. Aucune ressource tierce. */
+:root{
+  --nuit:#0B0618; --panneau:#160C2E; --panneau2:#21123F; --ombre:#3A2A5E;
+  --magenta:#FF2E88; --orange:#FF7A00; --jaune:#FFD23F; --cyan:#17E3FF;
+  --blanc:#FFFFFF; --brume:#B9AED6;
+  --choc:Impact,"HelveticaNeue-CondensedBlack","Arial Narrow Bold","Arial Black",sans-serif;
+  --texte:Helvetica,Arial,sans-serif;
+  --couchant:linear-gradient(180deg,#140726 0%,#3A0F5C 38%,#B0197A 72%,#FF5A3C 100%);
+  --neon:linear-gradient(90deg,var(--magenta),var(--orange));
+}
+body{margin:0;background:var(--nuit);color:var(--blanc);font-family:var(--texte)}
+.hud{font-family:var(--choc);font-weight:900;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan)}
+.titre{font-family:var(--choc);font-weight:900;text-transform:uppercase;line-height:1.02;font-size:clamp(28px,5vw,44px);margin:0 0 14px}
+.ouverture{background:var(--couchant);padding:28px 26px 0;position:relative;overflow:hidden}
+.ouverture .compte{font-family:var(--choc);font-weight:900;color:var(--jaune);font-size:clamp(96px,20vw,180px);line-height:.92;text-shadow:5px 5px 0 var(--magenta)}
+.bandeau{background:var(--neon);font-family:var(--choc);font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:12px 28px;font-size:18px}
+.panneau{background:var(--panneau);padding:26px 28px}
+.ligne{background:var(--panneau2);display:grid;grid-template-columns:46px 1fr 70px;gap:8px;padding:12px 14px;margin-bottom:6px}
+.ligne .rang{font-family:var(--choc);font-weight:900;font-size:40px;color:var(--jaune)}
+.ligne .points{font-family:var(--choc);font-weight:900;font-size:34px;text-align:right}
+.jauge{display:flex;gap:4px}.jauge i{width:16px;height:10px;background:var(--ombre)}.jauge i.on{background:var(--jaune)}
+.mission{background:var(--nuit);padding:16px}
+.mission .etiquette{font-family:var(--choc);font-weight:900;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--magenta)}
+.bouton{display:inline-block;background:linear-gradient(90deg,var(--jaune),var(--orange));color:var(--nuit);font-family:var(--choc);font-weight:900;font-size:20px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:18px 22px}

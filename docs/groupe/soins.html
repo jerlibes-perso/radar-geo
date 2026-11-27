@@ -1,140 +1,181 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <title>prendresoindesesyeux.fr, Radar GEO Influa</title><meta name="description" content="">
+<meta property="og:title" content="prendresoindesesyeux.fr, Radar GEO Influa"><meta property="og:description" content=""><meta property="og:image" content="https://radar.influa.com/kit/hero.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0B0618">
 <link rel="icon" href="../assets/favicon.ico"><link rel="apple-touch-icon" href="../assets/favicon-180.png">
-<style>@font-face{font-family:Hellix;font-weight:300;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-Light.woff2) format('woff2')}@font-face{font-family:Hellix;font-weight:400;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-Regular.woff2) format('woff2')}@font-face{font-family:Hellix;font-weight:500;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-Medium.woff2) format('woff2')}@font-face{font-family:Hellix;font-weight:600;font-display:swap;src:url(https://www.influa.com/k-custom/assets/fonts/Hellix-SemiBold.woff2) format('woff2')}
-:root{--anthracite:#0E0E10;--blanc:#FFFFFF;--lime:#C1C600;--magenta:#DE007E;--ink900:#1C1C1F;--ink700:#34343A;--ink600:#5E5E66;--ink500:#76767E;--ink300:#C8C8CC;--ink100:#EFEFF1;color-scheme:light}
+<style>/* Challenge GEO Inseec : theme commun du mail et de radar.influa.com
+   Jeu d'action urbain 2026, visuels originaux. Aucune ressource tierce. */
+:root{
+  --nuit:#0B0618; --panneau:#160C2E; --panneau2:#21123F; --ombre:#3A2A5E;
+  --magenta:#FF2E88; --orange:#FF7A00; --jaune:#FFD23F; --cyan:#17E3FF;
+  --blanc:#FFFFFF; --brume:#B9AED6;
+  --choc:Impact,"HelveticaNeue-CondensedBlack","Arial Narrow Bold","Arial Black",sans-serif;
+  --texte:Helvetica,Arial,sans-serif;
+  --couchant:linear-gradient(180deg,#140726 0%,#3A0F5C 38%,#B0197A 72%,#FF5A3C 100%);
+  --neon:linear-gradient(90deg,var(--magenta),var(--orange));
+}
+body{margin:0;background:var(--nuit);color:var(--blanc);font-family:var(--texte)}
+.hud{font-family:var(--choc);font-weight:900;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan)}
+.titre{font-family:var(--choc);font-weight:900;text-transform:uppercase;line-height:1.02;font-size:clamp(28px,5vw,44px);margin:0 0 14px}
+.ouverture{background:var(--couchant);padding:28px 26px 0;position:relative;overflow:hidden}
+.ouverture .compte{font-family:var(--choc);font-weight:900;color:var(--jaune);font-size:clamp(96px,20vw,180px);line-height:.92;text-shadow:5px 5px 0 var(--magenta)}
+.bandeau{background:var(--neon);font-family:var(--choc);font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:12px 28px;font-size:18px}
+.panneau{background:var(--panneau);padding:26px 28px}
+.ligne{background:var(--panneau2);display:grid;grid-template-columns:46px 1fr 70px;gap:8px;padding:12px 14px;margin-bottom:6px}
+.ligne .rang{font-family:var(--choc);font-weight:900;font-size:40px;color:var(--jaune)}
+.ligne .points{font-family:var(--choc);font-weight:900;font-size:34px;text-align:right}
+.jauge{display:flex;gap:4px}.jauge i{width:16px;height:10px;background:var(--ombre)}.jauge i.on{background:var(--jaune)}
+.mission{background:var(--nuit);padding:16px}
+.mission .etiquette{font-family:var(--choc);font-weight:900;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--magenta)}
+.bouton{display:inline-block;background:linear-gradient(90deg,var(--jaune),var(--orange));color:var(--nuit);font-family:var(--choc);font-weight:900;font-size:20px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:18px 22px}
+
+:root{--choc:Impact,Anton,"HelveticaNeue-CondensedBlack","Arial Narrow Bold","Arial Black",sans-serif;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--blanc);color:var(--anthracite)}
-body{font-family:Hellix,Arial,sans-serif;font-size:16px;line-height:1.5}
+html,body{background:var(--nuit);color:var(--blanc)}
+body{font-family:var(--texte);font-size:16px;line-height:1.5}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-header.band{background:var(--lime);overflow:hidden}
-header.band .wrap{padding-top:28px;padding-bottom:36px;position:relative}
+header.band{background:var(--couchant);overflow:hidden;position:relative}
+header.band .wrap{padding-top:24px;padding-bottom:0;position:relative;z-index:2}
+header.band .ville{display:block;width:100%;height:120px;margin-top:-40px;position:relative;z-index:1}
 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.top svg{height:34px;width:auto}
-.top nav a{font-weight:600;text-decoration:none;margin-left:20px;border-bottom:2px solid var(--anthracite)}
-.kicker{font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin-top:34px}
-h1{font-weight:600;font-size:64px;line-height:1;margin-top:10px;letter-spacing:-.01em}
-.sub{font-size:22px;font-weight:500;margin-top:14px}
-.stamp{margin-top:10px;font-size:14px}
-.lead{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-top:30px}
-.lead .big{font-weight:600;font-size:200px;line-height:.78;letter-spacing:-.04em;margin-bottom:-58px}
-.lead .who{font-size:18px}
-.lead .who b{display:block;font-size:30px;font-weight:600}
-main .wrap{padding-top:40px;padding-bottom:60px}
-h2{font-weight:600;font-size:28px;line-height:1.15;margin:44px 0 14px}
-h3{font-weight:600;font-size:18px;margin:22px 0 8px}
+.top svg{height:30px;width:auto}
+.top nav a{font-family:var(--choc);font-weight:900;letter-spacing:2px;text-transform:uppercase;text-decoration:none;margin-left:20px;color:var(--cyan)}
+.top nav a:hover{color:var(--jaune)}
+.kicker{font-family:var(--choc);font-weight:900;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);margin-top:30px}
+h1{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:clamp(40px,6vw,72px);line-height:.98;margin-top:10px;text-shadow:4px 4px 0 var(--magenta)}
+.sub{font-size:20px;font-weight:700;margin-top:12px}
+.stamp{margin-top:8px;font-size:14px;color:var(--brume)}
+main{background:var(--nuit)}
+main .wrap{padding-top:34px;padding-bottom:60px}
+h2{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:clamp(26px,3.4vw,36px);line-height:1.05;margin:46px 0 16px;letter-spacing:.5px}
+h3{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:20px;margin:22px 0 8px}
 p{margin-bottom:10px}
-.muted{color:var(--ink600);font-size:14px}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th{text-align:left;font-weight:600;padding:10px 10px 10px 0;border-bottom:3px solid var(--anthracite);vertical-align:bottom;white-space:nowrap}
-td{padding:11px 10px 11px 0;border-bottom:1px solid var(--ink300);vertical-align:top}
+.muted{color:var(--brume);font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--panneau)}
+th{text-align:left;font-family:var(--choc);font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);padding:12px 10px;border-bottom:3px solid var(--cyan);vertical-align:bottom;white-space:nowrap}
+td{padding:11px 10px;border-bottom:1px solid var(--ombre);vertical-align:top}
 td.n,th.n{text-align:right}
-tr.hl td{background:var(--lime)}
-td.rank{font-weight:600;font-size:22px;width:52px}
-.up{font-weight:600}
-.down{color:var(--magenta);font-weight:600}
+tr.hl td{background:var(--panneau2)}
+td.rank{font-family:var(--choc);font-weight:900;font-size:26px;width:52px;color:var(--jaune)}
+.up{font-weight:700;color:var(--cyan)}
+.down{color:var(--magenta);font-weight:700}
 .scroll{overflow-x:auto}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
-.card{display:block;text-decoration:none;border:1px solid var(--ink300)}
-.card img{width:100%;display:block;border-bottom:1px solid var(--ink300)}
-.card .t{padding:10px 12px;font-size:14px}
-.card .t b{font-weight:600}
-.card .go{display:block;margin-top:6px;font-weight:600;text-decoration:underline}
-.cell-ok{background:var(--lime);font-weight:600}
-.cell-no{color:var(--ink600)}
-.cell-wait{color:var(--ink500)}
-.flag{display:inline-block;background:var(--magenta);color:var(--blanc);font-weight:600;font-size:12px;padding:2px 8px}
-svg.chart text{font-family:Hellix,Arial,sans-serif;font-size:12px;fill:var(--ink700)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:block;text-decoration:none;background:var(--panneau2)}
+.card img{width:100%;display:block}
+.card .t{padding:12px 14px;font-size:14px}
+.card .t b{font-weight:700;color:var(--jaune)}
+.card .go{display:block;margin-top:6px;font-weight:700;color:var(--cyan);text-decoration:underline}
+.cell-ok{background:var(--jaune);color:var(--nuit);font-weight:700}
+.cell-no{color:var(--brume)}
+.cell-wait{color:var(--ombre)}
+.flag{display:inline-block;background:var(--magenta);color:var(--blanc);font-weight:700;font-size:12px;padding:2px 8px}
+svg.chart text{font-family:var(--texte);font-size:12px;fill:var(--brume)}
+.rules{background:var(--panneau);padding:22px 26px}
 .rules ol,ol.todo{padding-left:22px}ol.todo li{margin-bottom:6px}
 .rules li{margin-bottom:8px}
-footer{background:var(--anthracite);color:var(--blanc)}
+footer{background:#06030D;color:var(--brume)}
 footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
-footer svg{height:26px;width:auto}
+footer svg{height:24px;width:auto}
 
-.score{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:end;margin-top:26px}
-.score .giant{font-weight:600;font-size:clamp(150px,22vw,300px);line-height:.74;letter-spacing:-.05em;margin-bottom:-64px;white-space:nowrap}
-.score .giant small{font-size:.16em;letter-spacing:0;font-weight:600;margin-left:10px;vertical-align:top;display:inline-block;margin-top:.5em}
-.facts{display:grid;grid-template-columns:1fr 1fr;border-top:3px solid var(--anthracite)}
-.fact{padding:14px 14px 14px 0;border-bottom:1px solid rgba(14,14,16,.35)}
-.fact .v{font-weight:600;font-size:34px;line-height:1.05}
-.fact .l{font-size:14px;margin-top:2px}
-.fact.mag .v{color:var(--magenta)}
-.ticker{background:var(--anthracite);color:var(--blanc);overflow:hidden;white-space:nowrap;position:relative}
-.ticker .lab{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 18px;background:var(--magenta);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.1em;z-index:2}
-.ticker .rail{display:inline-flex;gap:46px;padding:16px 0 16px 230px;animation:defile var(--duree,40s) linear infinite}
+.score{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:end;margin-top:22px}
+.score .cl{font-family:var(--choc);font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);font-size:16px}
+.score .compte{font-family:var(--choc);font-weight:900;color:var(--jaune);font-size:clamp(76px,13vw,168px);line-height:.92;text-shadow:5px 5px 0 var(--magenta);font-variant-numeric:tabular-nums;white-space:nowrap}
+.score .giant{font-family:var(--choc);font-weight:900;color:var(--jaune);font-size:clamp(130px,20vw,240px);line-height:.85;text-shadow:6px 6px 0 var(--magenta);white-space:nowrap}
+.score .giant small{font-size:.2em;margin-left:10px;color:#fff;text-shadow:none;vertical-align:top;display:inline-block;margin-top:.6em}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.fact{background:rgba(11,6,24,.72);padding:12px 14px}
+.fact .v{font-family:var(--choc);font-weight:900;font-size:36px;line-height:1.05;color:#fff}
+.fact .l{font-size:13px;color:var(--brume);margin-top:2px}
+.fact.mag .v{color:var(--magenta)}.fact.cy .v{color:var(--cyan)}.fact.ja .v{color:var(--jaune)}
+.ticker{background:var(--neon);color:#fff;overflow:hidden;white-space:nowrap;position:relative}
+.ticker .lab{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 18px;background:var(--nuit);color:var(--jaune);font-family:var(--choc);font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:3px;z-index:2}
+.ticker .rail{display:inline-flex;gap:46px;padding:14px 0 14px 200px;animation:defile var(--duree,40s) linear infinite}
 .ticker:hover .rail{animation-play-state:paused}
-.ticker .it{font-size:16px}.ticker .it b{font-weight:600;color:var(--lime)}.ticker .it .p{color:var(--blanc);font-weight:600;margin-left:6px}
+.ticker .it{font-family:var(--choc);font-weight:900;font-size:17px;letter-spacing:2px;text-transform:uppercase}.ticker .it b{color:var(--jaune)}.ticker .it .p{color:var(--nuit);margin-left:6px}
 @keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:end;margin-top:10px}
-.step{display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;overflow:hidden;position:relative;padding:18px 18px 16px}
-.step .r{font-weight:600;line-height:.8;letter-spacing:-.05em;position:absolute;right:-6px;bottom:-14px;opacity:1}
-.step .d{font-weight:600;font-size:20px;line-height:1.15;position:relative}
-.step .t{font-size:14px;position:relative}
-.step .pts{font-weight:600;font-size:44px;line-height:1;margin-top:10px;position:relative}
-.step .ev{font-size:14px;font-weight:600;margin-top:4px;position:relative}
-.step.s1{background:var(--lime);height:330px}.step.s1 .r{font-size:300px;color:rgba(14,14,16,.12)}
-.step.s2{background:var(--anthracite);color:var(--blanc);height:270px}.step.s2 .r{font-size:240px;color:rgba(255,255,255,.1)}
-.step.s3{background:var(--ink100);height:225px}.step.s3 .r{font-size:200px;color:rgba(14,14,16,.08)}
-.step.vide .d{color:inherit;opacity:.7}
-.step .go{position:relative;font-size:14px;font-weight:600;text-decoration:underline;margin-top:8px}
-.race{margin-top:6px;border-top:3px solid var(--anthracite)}
-.lane{display:grid;grid-template-columns:64px minmax(0,1.6fr) minmax(0,2.4fr) 130px 120px;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid var(--ink300);text-decoration:none;position:relative;background:var(--blanc)}
-.lane:hover{background:var(--ink100)}
-.lane .rk{font-weight:600;font-size:40px;line-height:1;letter-spacing:-.03em}
-.lane .nm b{font-weight:600;font-size:18px;display:block}.lane .nm span{font-size:14px;color:var(--ink600)}
-.br{display:block}.bar{display:block;height:14px;background:var(--ink100);position:relative}
-.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--anthracite);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
-.lane.first .bar i{background:var(--lime)}
-.gap{font-size:13px;color:var(--ink600);margin-top:6px}
-.lane .pt{text-align:right}.lane .pt b{font-weight:600;font-size:30px;line-height:1;display:block}
-.lane .pt .td{color:var(--magenta);font-weight:600;font-size:14px}
-.lane .sp svg{width:120px;height:36px;display:block}
-.lane .mv{font-size:13px;font-weight:600}
-.lane .mv.up{color:var(--anthracite)}.lane .mv.down{color:var(--magenta)}
-.lane .lk{font-size:13px;font-weight:600;text-decoration:underline;display:block;margin-top:4px}
-.defis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--anthracite)}
-.defi{padding:16px 16px 18px 0;border-bottom:1px solid var(--ink300)}
-.defi .k{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;color:var(--ink600)}
-.defi .v{font-weight:600;font-size:22px;line-height:1.2;margin-top:6px}
-.defi .v.libre{color:var(--magenta)}
-.defi .x{font-size:14px;margin-top:4px}
-.engines{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.eng{border:1px solid var(--ink300);padding:16px}
-.eng .n{font-weight:600;font-size:20px}.eng .w{font-weight:600;font-size:56px;line-height:1;letter-spacing:-.03em;margin-top:8px}
-.eng .w small{display:block;font-size:15px;letter-spacing:0;margin-top:6px}
-.eng .c{font-size:14px;margin-top:6px}.eng .s{font-size:14px;margin-top:8px;font-weight:600}
-.eng.today{background:var(--lime);border-color:var(--lime)}
-.fact .v.cd{font-variant-numeric:tabular-nums;font-size:28px}
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:10px;align-items:end;margin-top:10px}
+.step{display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;overflow:hidden;position:relative;padding:18px 18px 16px;background:var(--panneau2)}
+.step .r{font-family:var(--choc);font-weight:900;line-height:.8;position:absolute;right:8px;bottom:-4px;text-shadow:5px 5px 0 var(--nuit)}
+.step .d{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:22px;line-height:1.1;position:relative}
+.step .t{font-size:14px;position:relative;color:var(--brume)}
+.step .pts{font-family:var(--choc);font-weight:900;font-size:50px;line-height:1;margin-top:10px;position:relative}
+.step .ev{font-size:14px;font-weight:700;margin-top:4px;position:relative}
+.step.s1{height:330px;border-top:6px solid var(--jaune)}.step.s1 .r{font-size:280px;color:var(--jaune)}
+.step.s2{height:270px;border-top:6px solid var(--cyan)}.step.s2 .r{font-size:220px;color:var(--cyan)}
+.step.s3{height:225px;border-top:6px solid var(--magenta)}.step.s3 .r{font-size:190px;color:var(--magenta)}
+.step .go{position:relative;font-size:14px;font-weight:700;color:var(--cyan);text-decoration:underline;margin-top:8px}
+.jeu{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.jeu aside img{width:100%;height:auto;display:block}
+.jeu aside p{font-size:13px;color:var(--brume);margin-top:8px}
+.lane{display:grid;grid-template-columns:56px minmax(0,1.4fr) minmax(0,1.6fr) 100px 110px;gap:14px;align-items:center;padding:12px 14px;margin-bottom:6px;text-decoration:none;position:relative;background:var(--panneau2)}
+.lane:hover{background:var(--ombre)}
+.lane .rk{font-family:var(--choc);font-weight:900;font-size:42px;line-height:1;color:#fff}
+.lane:nth-child(1) .rk{color:var(--jaune)}.lane:nth-child(2) .rk{color:var(--cyan)}.lane:nth-child(3) .rk{color:var(--magenta)}
+.lane .nm b{font-weight:700;font-size:17px;display:block}.lane .nm span{font-size:13px;color:var(--brume)}
+.niv{display:flex;align-items:center;gap:10px}
+.niv img{width:40px;height:40px;display:block}
+.niv .nn{font-family:var(--choc);font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase}
+.niv .jauge{margin-top:5px}
+.gap{display:block;font-size:12px;color:var(--brume);margin-top:4px}
+.lane .pt{text-align:right}.lane .pt b{font-family:var(--choc);font-weight:900;font-size:38px;line-height:1;display:block}
+.lane .pt .td{color:var(--magenta);font-weight:700;font-size:13px}
+.lane .sp svg{width:110px;height:32px;display:block}
+.lane .mv{font-size:12px;font-weight:700;color:var(--brume)}
+.lane .mv.up{color:var(--cyan)}.lane .mv.down{color:var(--magenta)}
+.lane .lk{font-size:12px;font-weight:700;color:var(--cyan);text-decoration:underline;display:block;margin-top:3px}
+.niveaux{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.niveaux div{background:var(--panneau);text-align:center;padding:12px 8px}
+.niveaux img{width:110px;height:110px;display:block;margin:0 auto}
+.niveaux b{display:block;font-family:var(--choc);font-weight:900;color:var(--jaune);font-size:18px;letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.niveaux span{font-size:13px;color:var(--brume)}
+.missions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mi{background:var(--panneau);padding:16px;display:flex;flex-direction:column;gap:8px}
+.mi h3{margin:0;font-size:22px;line-height:1.05}
+.mi .mission{padding:10px 12px}
+.mi .mission p{margin:2px 0 0;font-size:14px}
+.mi .st{font-family:var(--choc);font-weight:900;letter-spacing:2px;text-transform:uppercase;font-size:15px;color:var(--jaune);margin-top:auto}
+.mi .st.ouv{color:var(--cyan)}
+.engines{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.eng{background:var(--panneau);padding:16px;border-top:4px solid var(--ombre)}
+.eng .n{font-family:var(--choc);font-weight:900;text-transform:uppercase;letter-spacing:1px;font-size:22px}
+.eng .w{font-family:var(--choc);font-weight:900;font-size:64px;line-height:1;color:var(--jaune);margin-top:6px}
+.eng .w small{display:block;font-family:var(--texte);font-weight:700;font-size:14px;color:#fff;margin-top:6px}
+.eng .c{font-size:14px;margin-top:6px;color:var(--brume)}.eng .s{font-size:14px;margin-top:8px;font-weight:700;color:var(--cyan)}
+.eng.today{border-top-color:var(--jaune);background:var(--panneau2)}
+.cta{margin:22px 0 4px}
+svg.chart{background:var(--panneau);padding:10px}
 .chart polyline{stroke-dasharray:var(--len,3000);stroke-dashoffset:var(--len,3000);animation:trace 1.8s ease-out forwards}
 @keyframes trace{to{stroke-dashoffset:0}}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.ticker .rail{animation:none}.chart polyline{animation:none;stroke-dashoffset:0}.reveal{opacity:1;transform:none;transition:none}.bar i{transition:none}}
+@media (prefers-reduced-motion:reduce){.ticker .rail{animation:none}.chart polyline{animation:none;stroke-dashoffset:0}.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:980px){.jeu{grid-template-columns:1fr}.jeu aside{max-width:360px}.missions{grid-template-columns:1fr 1fr}}
 @media (max-width:900px){
- .score{grid-template-columns:1fr}.score .giant{margin-bottom:-38px}
- .podium{grid-template-columns:1fr;gap:10px}.step.s1,.step.s2,.step.s3{height:auto;min-height:150px}
- .step.s1 .r,.step.s2 .r,.step.s3 .r{font-size:170px}
- .podium .step.s1{order:1}.podium .step.s2{order:2}.podium .step.s3{order:3}
- .lane{grid-template-columns:48px minmax(0,1fr) auto;grid-template-areas:"rk nm pt" "rk br br" "rk sp mv";gap:8px 12px}
- .lane .rk{grid-area:rk;font-size:30px}.lane .nm{grid-area:nm}.lane .pt{grid-area:pt}.lane .br{grid-area:br}.lane .sp{grid-area:sp}.lane .mvw{grid-area:mv;text-align:right}
- .defis,.engines{grid-template-columns:1fr 1fr}
- .ticker .rail{padding-left:180px}
+ .score{grid-template-columns:1fr}
+ .podium{grid-template-columns:1fr;gap:8px}.step.s1,.step.s2,.step.s3{height:auto;min-height:150px}
+ .step.s1 .r,.step.s2 .r,.step.s3 .r{font-size:150px}
+ .lane{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"rk nm pt" "rk nv nv" "rk sp mv";gap:8px 12px}
+ .lane .rk{grid-area:rk;font-size:32px}.lane .nm{grid-area:nm}.lane .pt{grid-area:pt}.lane .nvw{grid-area:nv}.lane .sp{grid-area:sp}.lane .mvw{grid-area:mv;text-align:right}
+ .engines{grid-template-columns:1fr 1fr}.niveaux{grid-template-columns:repeat(3,1fr)}.niveaux img{width:80px;height:80px}
+ .ticker .rail{padding-left:150px}
+ .lane .sp{display:none}.lane{grid-template-areas:"rk nm pt" "rk nv nv" "rk mv mv"}
 }
+@media (max-width:560px){.missions{grid-template-columns:1fr}}
 
 @media (max-width:760px){
- h1{font-size:44px}.sub{font-size:18px}
- .lead{grid-template-columns:1fr}.lead .big{font-size:120px;margin-bottom:-34px}
+ .sub{font-size:17px}
  .grid2{grid-template-columns:1fr}
  .wrap{padding:0 16px}
  .top nav a{margin:0 14px 0 0}
  th,td{font-size:14px}
+ header.band .ville{height:70px;margin-top:-20px}
 }
 </style></head><body>
-<header class="band"><div class="wrap"><div class="top"><svg role="img" aria-label="Influa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.7 65.6"><g fill="#0E0E10"><polygon points="52.5 0 52.5 34 26 0 23.5 0 23.5 38 26 38 26 4 52.5 38 54.9 38 54.9 0 52.5 0"/><polygon points="213 0 197.3 38 199.8 38 213 6.4 226.2 38 228.7 38 213 0"/><polygon fill="#0E0E10" points="105.6 0 79.1 0 79.1 0 76.6 0 74.2 0 74.2 16.5 79.1 16.5 79.1 4.9 101.5 4.9 105.6 0"/><polygon fill="#0E0E10" points="74.2 21.5 74.2 38 76.6 38 79.1 38 79.1 21.5 74.2 21.5"/><path d="M186.3,21.2V0h-2.5v23.4c-.5,6.8-6.2,12.2-13.2,12.2s-13.1-5.8-13.2-12.9h0V0h-2.5v22.7h0c.2,8.5,7.1,15.4,15.7,15.4s15.1-6.4,15.7-14.6h0v-2.4h0v.1Z"/><path d="M1.8,38.1V0h2.7v38.1H1.8Z"/><polygon points="119.1 35.6 119.1 0 116.6 0 116.6 35.6 116.6 38 119.1 38 143.9 38 143.9 35.6 119.1 35.6"/></g><g fill="#0E0E10"><path d="M9.7,65.5h-.6l-2.4-8.4c-.2-.7-.3-1.300-.4-1.7,0,.4-.2.9-.3,1.5s-.9,3.4-2.4,8.6h-.6l-3-10.9h.8l1.9,7c0,.3,0,.5.2.8,0,.2,0,.5.2.7v1.2c0-.7.4-1.7.8-3.1l1.9-6.6h.8l2.2,7.6c.3.9.4,1.6.5,2.1,0-.4,0-.7.2-1.1,0-.4.9-3.3,2.3-8.6h.8l-3,10.9h.1Z"/><path d="M32.9,65.5h-6v-10.9h6v.7h-5.2v4.1h4.9v.7h-4.9v4.7h5.2v.7h0Z"/><path d="M47.7,54.6h3c1.3,0,2.3.2,3,.7.6.5.9,1.1.9,2.1s-.2,1.2-.6,1.6-.9.7-1.7.8h0c.9.2,1.5.4,1.9.9.4.4.6,1,.6,1.8s-.3,1.8-1,2.3-1.6.8-2.8.8h-3.3v-10.9h0v-.1ZM48.5,59.4h2.4c1,0,1.8-.2,2.2-.5.5-.3.7-.9.7-1.6s-.3-1.3-.8-1.6c-.5-.3-1.3-.5-2.3-.5h-2.2s0,4.2,0,4.2ZM48.5,60.1v4.7h2.6c2,0,3-.8,3-2.5s-1.1-2.2-3.2-2.2h-2.4Z"/><path d="M90.5,55.1c-1.4,0-2.4.4-3.2,1.3s-1.2,2.1-1.2,3.6.4,2.8,1.1,3.6c.7.9,1.8,1.3,3.2,1.3s1.8,0,2.5-.4v.7c-.7.3-1.6.4-2.7.4s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.2-2.1.6-2.9,1-1.5,1.8-2,1.7-.7,2.7-.7,2,.2,2.9.6l-.3.7c-.8-.4-1.6-.6-2.5-.6Z"/><path d="M116.8,60c0,1.7-.4,3.1-1.3,4.1-.9,1-2.1,1.5-3.6,1.5s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.4-3.1,1.3-4.1c.9-1,2.1-1.5,3.6-1.5s2.7.5,3.6,1.5c.9,1,1.3,2.4,1.3,4.1ZM107.9,60c0,1.6.3,2.8,1,3.6.7.9,1.7,1.3,3,1.3s2.300-.4,3-1.3c.7-.8,1-2.1,1-3.6s-.3-2.8-1-3.6c-.7-.8-1.7-1.3-3-1.3s-2.3.4-3,1.3c-.7.8-1.1,2-1.1,3.6h.1Z"/><path d="M136.4,65.5l-4.1-10.1h0v10.1h-.7v-10.9h1.2l3.9,9.6h0l3.9-9.6h1.1v10.9h-.8v-10.1h0l-4.1,10.1h-.5.1Z"/><path d="M163.7,57.7c0,1.1-.4,1.9-1.1,2.4-.7.6-1.7.8-3,.8h-1.7v4.5h-.8v-10.9h2.7c2.6,0,3.9,1,3.9,3.1h0v.1ZM157.9,60.3h1.5c1.2,0,2.1-.2,2.7-.6.5-.4.8-1.1.8-2s-.3-1.5-.8-1.9-1.3-.6-2.4-.6h-1.8v5.1Z"/><path d="M183.6,61.6h-4.4l-1.5,3.8h-.8l4.4-11h.5l4.3,11h-.9l-1.5-3.8h-.1ZM179.5,61h3.9l-1.5-3.9c-.1-.3-.3-.7-.4-1.3-.1.5-.3.9-.4,1.3l-1.5,3.9h-.1Z"/><path d="M207.8,65.5h-.8l-6.5-9.7h0v9.7h-.7v-10.9h.8l6.5,9.7h0v-9.7h.7v10.9Z"/><path d="M225.7,60.5l3.2-6h.8l-3.6,6.7v4.2h-.8v-4.2l-3.6-6.8h.9l3.2,6h-.1v.1Z"/></g></svg>
+<header class="band"><div class="wrap"><div class="top"><svg role="img" aria-label="Influa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.7 65.6"><g fill="#FFFFFF"><polygon points="52.5 0 52.5 34 26 0 23.5 0 23.5 38 26 38 26 4 52.5 38 54.9 38 54.9 0 52.5 0"/><polygon points="213 0 197.3 38 199.8 38 213 6.4 226.2 38 228.7 38 213 0"/><polygon fill="#FFFFFF" points="105.6 0 79.1 0 79.1 0 76.6 0 74.2 0 74.2 16.5 79.1 16.5 79.1 4.9 101.5 4.9 105.6 0"/><polygon fill="#FFFFFF" points="74.2 21.5 74.2 38 76.6 38 79.1 38 79.1 21.5 74.2 21.5"/><path d="M186.3,21.2V0h-2.5v23.4c-.5,6.8-6.2,12.2-13.2,12.2s-13.1-5.8-13.2-12.9h0V0h-2.5v22.7h0c.2,8.5,7.1,15.4,15.7,15.4s15.1-6.4,15.7-14.6h0v-2.4h0v.1Z"/><path d="M1.8,38.1V0h2.7v38.1H1.8Z"/><polygon points="119.1 35.6 119.1 0 116.6 0 116.6 35.6 116.6 38 119.1 38 143.9 38 143.9 35.6 119.1 35.6"/></g><g fill="#FFFFFF"><path d="M9.7,65.5h-.6l-2.4-8.4c-.2-.7-.3-1.300-.4-1.7,0,.4-.2.9-.3,1.5s-.9,3.4-2.4,8.6h-.6l-3-10.9h.8l1.9,7c0,.3,0,.5.2.8,0,.2,0,.5.2.7v1.2c0-.7.4-1.7.8-3.1l1.9-6.6h.8l2.2,7.6c.3.9.4,1.6.5,2.1,0-.4,0-.7.2-1.1,0-.4.9-3.3,2.3-8.6h.8l-3,10.9h.1Z"/><path d="M32.9,65.5h-6v-10.9h6v.7h-5.2v4.1h4.9v.7h-4.9v4.7h5.2v.7h0Z"/><path d="M47.7,54.6h3c1.3,0,2.3.2,3,.7.6.5.9,1.1.9,2.1s-.2,1.2-.6,1.6-.9.7-1.7.8h0c.9.2,1.5.4,1.9.9.4.4.6,1,.6,1.8s-.3,1.8-1,2.3-1.6.8-2.8.8h-3.3v-10.9h0v-.1ZM48.5,59.4h2.4c1,0,1.8-.2,2.2-.5.5-.3.7-.9.7-1.6s-.3-1.3-.8-1.6c-.5-.3-1.3-.5-2.3-.5h-2.2s0,4.2,0,4.2ZM48.5,60.1v4.7h2.6c2,0,3-.8,3-2.5s-1.1-2.2-3.2-2.2h-2.4Z"/><path d="M90.5,55.1c-1.4,0-2.4.4-3.2,1.3s-1.2,2.1-1.2,3.6.4,2.8,1.1,3.6c.7.9,1.8,1.3,3.2,1.3s1.8,0,2.5-.4v.7c-.7.3-1.6.4-2.7.4s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.2-2.1.6-2.9,1-1.5,1.8-2,1.7-.7,2.7-.7,2,.2,2.9.6l-.3.7c-.8-.4-1.6-.6-2.5-.6Z"/><path d="M116.8,60c0,1.7-.4,3.1-1.3,4.1-.9,1-2.1,1.5-3.6,1.5s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.4-3.1,1.3-4.1c.9-1,2.1-1.5,3.6-1.5s2.7.5,3.6,1.5c.9,1,1.3,2.4,1.3,4.1ZM107.9,60c0,1.6.3,2.8,1,3.6.7.9,1.7,1.3,3,1.3s2.300-.4,3-1.3c.7-.8,1-2.1,1-3.6s-.3-2.8-1-3.6c-.7-.8-1.7-1.3-3-1.3s-2.3.4-3,1.3c-.7.8-1.1,2-1.1,3.6h.1Z"/><path d="M136.4,65.5l-4.1-10.1h0v10.1h-.7v-10.9h1.2l3.9,9.6h0l3.9-9.6h1.1v10.9h-.8v-10.1h0l-4.1,10.1h-.5.1Z"/><path d="M163.7,57.7c0,1.1-.4,1.9-1.1,2.4-.7.6-1.7.8-3,.8h-1.7v4.5h-.8v-10.9h2.7c2.6,0,3.9,1,3.9,3.1h0v.1ZM157.9,60.3h1.5c1.2,0,2.1-.2,2.7-.6.5-.4.8-1.1.8-2s-.3-1.5-.8-1.9-1.3-.6-2.4-.6h-1.8v5.1Z"/><path d="M183.6,61.6h-4.4l-1.5,3.8h-.8l4.4-11h.5l4.3,11h-.9l-1.5-3.8h-.1ZM179.5,61h3.9l-1.5-3.9c-.1-.3-.3-.7-.4-1.3-.1.5-.3.9-.4,1.3l-1.5,3.9h-.1Z"/><path d="M207.8,65.5h-.8l-6.5-9.7h0v9.7h-.7v-10.9h.8l6.5,9.7h0v-9.7h.7v10.9Z"/><path d="M225.7,60.5l3.2-6h.8l-3.6,6.7v4.2h-.8v-4.2l-3.6-6.8h.9l3.2,6h-.1v.1Z"/></g></svg>
 <nav><a href="../index.html">Classement</a><a href="../jours.html">Journées</a><a href="../regles.html">Règles</a></nav></div>
-<p class="kicker">Santé et prévention des yeux</p><h1>prendresoindesesyeux.fr</h1><p class="sub">Rang 1 sur 9, 0 points, 0 questions citées sur 20.</p><p class="stamp">Une seule citation suffit pour prendre la tête du classement.</p><div class="score"><div class="giant">1<small>er sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="0">0</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="0">0</span></div><div class="l">points ce matin</div></div><div class="fact"><div class="v">0/20</div><div class="l">questions citées</div></div><div class="fact"><div class="v">20</div><div class="l">questions encore à prendre</div></div></div></div></div></header><main><div class="wrap"><h2>Les questions encore à prendre</h2>
+<p class="kicker">Santé et prévention des yeux</p><h1>prendresoindesesyeux.fr</h1><p class="sub">Rang 1 sur 9, 0 points, 0 questions citées sur 20.</p><p class="stamp">Une seule citation suffit pour prendre la tête du classement.</p><div class="score"><div class="giant">1<small>er sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="0">0</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="0">0</span></div><div class="l">points ce matin</div></div><div class="fact"><div class="v">0/20</div><div class="l">questions citées</div></div><div class="fact"><div class="v">20</div><div class="l">questions encore à prendre</div></div><div class="fact ja" style="grid-column:1/-1;display:flex;align-items:center;gap:14px"><img src="../kit/rang-1.png" alt="" width="64" height="64"><div><div class="v">Niveau 1 Éclaireur</div><span class="jauge" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div></div></div></div></div><svg class="ville" viewBox="0 0 1075 260" preserveAspectRatio="none" aria-hidden="true"><path fill="#0B0618" d="M0 260V170h40v-30h30v50h40V90h20V60h30v130h40v-60h50v40h30V40h15V20h15v20h15v150h40v-70h60v80h30V100h50v90h40v-50h30v-40h20v90h40V70h25V50h20v20h25v120h40v-60h50v70h30V110h40v80h40v-40h60v40h40V80h30v110h40v70z"/></svg></header><main><div class="wrap"><h2>Les questions encore à prendre</h2>
 <p>Une page par question, la réponse en 40 à 50 mots en tête, une source officielle : ce sont les pages que les moteurs citent.</p>
 <ol class="todo"><li>Tous les combien faire contrôler sa vue ? <span class='muted'>(question nationale)</span></li><li>Quelle différence entre un ophtalmologiste et un opticien ? <span class='muted'>(question nationale)</span></li><li>Pourquoi ai-je les yeux secs ? <span class='muted'>(question nationale)</span></li><li>Que faire en cas d'oeil rouge ? <span class='muted'>(question nationale)</span></li><li>Quels aliments sont bons pour la vue ? <span class='muted'>(question nationale)</span></li><li>Quand faut-il consulter en urgence pour un oeil ? <span class='muted'>(question nationale)</span></li><li>Que faire si on voit des mouches volantes ? <span class='muted'>(question nationale)</span></li><li>Le diabète peut-il abîmer les yeux ? <span class='muted'>(question nationale)</span></li><li>Peut-on prévenir le glaucome ? <span class='muted'>(question nationale)</span></li><li>Que faire après un produit chimique dans l'oeil ? <span class='muted'>(question nationale)</span></li><li>Où faire un contrôle de la vue à Bordeaux sans attendre ? <span class='muted'>(question locale)</span></li><li>Quel opticien à Bordeaux fait un examen de vue ? <span class='muted'>(question locale)</span></li><li>Où trouver un opticien ouvert jusqu'à 20 h à Bordeaux ? <span class='muted'>(question locale)</span></li><li>Quel opticien à Bordeaux Lac pour renouveler mes lunettes sans ophtalmologiste ? <span class='muted'>(question locale)</span></li><li>Où acheter des lunettes de protection à Bordeaux ? <span class='muted'>(question locale)</span></li><li>Quel opticien à Bordeaux Nord accepte ma mutuelle ? <span class='muted'>(question locale)</span></li><li>Où faire un dépistage de la vue gratuit à Bordeaux ? <span class='muted'>(question locale)</span></li><li>Quel opticien près du tram C à Bordeaux Lac ? <span class='muted'>(question locale)</span></li><li>Où faire remplacer un verre de lunettes cassé à Bordeaux ? <span class='muted'>(question locale)</span></li><li>Quel opticien à Bordeaux conseille pour la sécheresse oculaire ? <span class='muted'>(question locale)</span></li></ol>
 <h2>Où en sont vos 20 questions ?</h2>
@@ -143,7 +184,7 @@ footer svg{height:26px;width:auto}
 <h2>Distinctions</h2><p>Aucune pour l'instant.</p>
 <h2>Les captures de vos citations</h2><p>Aucune citation relevée pour le moment.</p></div></main>
 <footer><div class="wrap"><div><svg role="img" aria-label="Influa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 229.7 65.6"><g fill="#FFFFFF"><polygon points="52.5 0 52.5 34 26 0 23.5 0 23.5 38 26 38 26 4 52.5 38 54.9 38 54.9 0 52.5 0"/><polygon points="213 0 197.3 38 199.8 38 213 6.4 226.2 38 228.7 38 213 0"/><polygon fill="#FFFFFF" points="105.6 0 79.1 0 79.1 0 76.6 0 74.2 0 74.2 16.5 79.1 16.5 79.1 4.9 101.5 4.9 105.6 0"/><polygon fill="#FFFFFF" points="74.2 21.5 74.2 38 76.6 38 79.1 38 79.1 21.5 74.2 21.5"/><path d="M186.3,21.2V0h-2.5v23.4c-.5,6.8-6.2,12.2-13.2,12.2s-13.1-5.8-13.2-12.9h0V0h-2.5v22.7h0c.2,8.5,7.1,15.4,15.7,15.4s15.1-6.4,15.7-14.6h0v-2.4h0v.1Z"/><path d="M1.8,38.1V0h2.7v38.1H1.8Z"/><polygon points="119.1 35.6 119.1 0 116.6 0 116.6 35.6 116.6 38 119.1 38 143.9 38 143.9 35.6 119.1 35.6"/></g><g fill="#FFFFFF"><path d="M9.7,65.5h-.6l-2.4-8.4c-.2-.7-.3-1.300-.4-1.7,0,.4-.2.9-.3,1.5s-.9,3.4-2.4,8.6h-.6l-3-10.9h.8l1.9,7c0,.3,0,.5.2.8,0,.2,0,.5.2.7v1.2c0-.7.4-1.7.8-3.1l1.9-6.6h.8l2.2,7.6c.3.9.4,1.6.5,2.1,0-.4,0-.7.2-1.1,0-.4.9-3.3,2.3-8.6h.8l-3,10.9h.1Z"/><path d="M32.9,65.5h-6v-10.9h6v.7h-5.2v4.1h4.9v.7h-4.9v4.7h5.2v.7h0Z"/><path d="M47.7,54.6h3c1.3,0,2.3.2,3,.7.6.5.9,1.1.9,2.1s-.2,1.2-.6,1.6-.9.7-1.7.8h0c.9.2,1.5.4,1.9.9.4.4.6,1,.6,1.8s-.3,1.8-1,2.3-1.6.8-2.8.8h-3.3v-10.9h0v-.1ZM48.5,59.4h2.4c1,0,1.8-.2,2.2-.5.5-.3.7-.9.7-1.6s-.3-1.3-.8-1.6c-.5-.3-1.3-.5-2.3-.5h-2.2s0,4.2,0,4.2ZM48.5,60.1v4.7h2.6c2,0,3-.8,3-2.5s-1.1-2.2-3.2-2.2h-2.4Z"/><path d="M90.5,55.1c-1.4,0-2.4.4-3.2,1.3s-1.2,2.1-1.2,3.6.4,2.8,1.1,3.6c.7.9,1.8,1.3,3.2,1.3s1.8,0,2.5-.4v.7c-.7.3-1.6.4-2.7.4s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.2-2.1.6-2.9,1-1.5,1.8-2,1.7-.7,2.7-.7,2,.2,2.9.6l-.3.7c-.8-.4-1.6-.6-2.5-.6Z"/><path d="M116.8,60c0,1.7-.4,3.1-1.3,4.1-.9,1-2.1,1.5-3.6,1.5s-2.7-.5-3.6-1.5c-.9-1-1.3-2.4-1.3-4.1s.4-3.1,1.3-4.1c.9-1,2.1-1.5,3.6-1.5s2.7.5,3.6,1.5c.9,1,1.3,2.4,1.3,4.1ZM107.9,60c0,1.6.3,2.8,1,3.6.7.9,1.7,1.3,3,1.3s2.300-.4,3-1.3c.7-.8,1-2.1,1-3.6s-.3-2.8-1-3.6c-.7-.8-1.7-1.3-3-1.3s-2.3.4-3,1.3c-.7.8-1.1,2-1.1,3.6h.1Z"/><path d="M136.4,65.5l-4.1-10.1h0v10.1h-.7v-10.9h1.2l3.9,9.6h0l3.9-9.6h1.1v10.9h-.8v-10.1h0l-4.1,10.1h-.5.1Z"/><path d="M163.7,57.7c0,1.1-.4,1.9-1.1,2.4-.7.6-1.7.8-3,.8h-1.7v4.5h-.8v-10.9h2.7c2.6,0,3.9,1,3.9,3.1h0v.1ZM157.9,60.3h1.5c1.2,0,2.1-.2,2.7-.6.5-.4.8-1.1.8-2s-.3-1.5-.8-1.9-1.3-.6-2.4-.6h-1.8v5.1Z"/><path d="M183.6,61.6h-4.4l-1.5,3.8h-.8l4.4-11h.5l4.3,11h-.9l-1.5-3.8h-.1ZM179.5,61h3.9l-1.5-3.9c-.1-.3-.3-.7-.4-1.3-.1.5-.3.9-.4,1.3l-1.5,3.9h-.1Z"/><path d="M207.8,65.5h-.8l-6.5-9.7h0v9.7h-.7v-10.9h.8l6.5,9.7h0v-9.7h.7v10.9Z"/><path d="M225.7,60.5l3.2-6h.8l-3.6,6.7v4.2h-.8v-4.2l-3.6-6.8h.9l3.2,6h-.1v.1Z"/></g></svg>
-</div><div>Radar GEO Influa pour le challenge GEO Inseec 2026-2027. INFLUA, marque d'IA GROUP. Web company.</div></div></footer>
+</div><div>Radar GEO du Challenge GEO Inseec MSC M1 Marketing Digital et Big Data, 2026-2027. Influa, marque du groupe IA GROUP.</div></div></footer>
 <script>
 (function(){
 var calme=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -161,9 +202,10 @@ document.querySelectorAll('.chart polyline').forEach(function(p){try{p.style.set
 var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{threshold:.12}):null;
 document.querySelectorAll('.reveal').forEach(function(r){if(io&&!calme)io.observe(r);else r.classList.add('on');});
 var rail=document.querySelector('.ticker .rail');if(rail){rail.innerHTML+=rail.innerHTML;rail.style.setProperty('--duree',Math.max(25,rail.children.length*4)+'s');}
+function d2(x){return (x<10?'0':'')+x;}
 function cd(){document.querySelectorAll('[data-cible]').forEach(function(el){var ms=new Date(el.getAttribute('data-cible'))-new Date();
  if(ms<=0){el.textContent=el.getAttribute('data-fin');return;}var s=Math.floor(ms/1000),hh=Math.floor(s/3600),mm=Math.floor(s%3600/60),ss=s%60;
- var j=Math.floor(hh/24);el.textContent=(j>0?j+'\u00a0j ':'')+(hh%24)+'\u00a0h '+(mm<10?'0':'')+mm+'\u00a0min '+(ss<10?'0':'')+ss+'\u00a0s';});}
+ el.textContent=el.classList.contains('compte')?(d2(hh)+':'+d2(mm)+':'+d2(ss)):(hh+'\u00a0h '+d2(mm)+'\u00a0min');});}
 cd();setInterval(cd,1000);
 })();
 </script></body></html>

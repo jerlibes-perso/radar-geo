@@ -3,7 +3,7 @@ et les captures de preuve de chaque citation (PNG)."""
 import os, re, json, html, shutil, datetime as dt
 from .common import CFG, GROUPES, DATA, DOCS, RACINE, NB, date_fr, heure_fr, maintenant, moteurs_du_jour, prochain_releve, hote, charger
 from .score import calculer
-from .vitrine import vitrine, CSS_JEU, JS
+from .vitrine import vitrine, CSS_JEU, JS, niveau, jauge
 
 MNOM = {m["id"]: m["nom"] for m in CFG["moteurs"]}
 MORDRE = [m["id"] for m in CFG["moteurs"]]
@@ -32,86 +32,86 @@ def police(base_fonts, n):
     return f"{base_fonts}Hellix-{n}.woff2"
 
 
-def css(base_fonts):
-    f = "".join(f"@font-face{{font-family:Hellix;font-weight:{w};font-display:swap;src:url({police(base_fonts, n)}) format('woff2')}}"
-                for w, n in [(300, "Light"), (400, "Regular"), (500, "Medium"), (600, "SemiBold")])
-    return f + """
-:root{--anthracite:#0E0E10;--blanc:#FFFFFF;--lime:#C1C600;--magenta:#DE007E;--ink900:#1C1C1F;--ink700:#34343A;--ink600:#5E5E66;--ink500:#76767E;--ink300:#C8C8CC;--ink100:#EFEFF1;color-scheme:light}
+def css(base_fonts=None):
+    return open(os.path.join(RACINE, "kit", "theme.css"), encoding="utf-8").read() + """
+:root{--choc:Impact,Anton,"HelveticaNeue-CondensedBlack","Arial Narrow Bold","Arial Black",sans-serif;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--blanc);color:var(--anthracite)}
-body{font-family:Hellix,Arial,sans-serif;font-size:16px;line-height:1.5}
+html,body{background:var(--nuit);color:var(--blanc)}
+body{font-family:var(--texte);font-size:16px;line-height:1.5}
 a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-header.band{background:var(--lime);overflow:hidden}
-header.band .wrap{padding-top:28px;padding-bottom:36px;position:relative}
+header.band{background:var(--couchant);overflow:hidden;position:relative}
+header.band .wrap{padding-top:24px;padding-bottom:0;position:relative;z-index:2}
+header.band .ville{display:block;width:100%;height:120px;margin-top:-40px;position:relative;z-index:1}
 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.top svg{height:34px;width:auto}
-.top nav a{font-weight:600;text-decoration:none;margin-left:20px;border-bottom:2px solid var(--anthracite)}
-.kicker{font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin-top:34px}
-h1{font-weight:600;font-size:64px;line-height:1;margin-top:10px;letter-spacing:-.01em}
-.sub{font-size:22px;font-weight:500;margin-top:14px}
-.stamp{margin-top:10px;font-size:14px}
-.lead{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-top:30px}
-.lead .big{font-weight:600;font-size:200px;line-height:.78;letter-spacing:-.04em;margin-bottom:-58px}
-.lead .who{font-size:18px}
-.lead .who b{display:block;font-size:30px;font-weight:600}
-main .wrap{padding-top:40px;padding-bottom:60px}
-h2{font-weight:600;font-size:28px;line-height:1.15;margin:44px 0 14px}
-h3{font-weight:600;font-size:18px;margin:22px 0 8px}
+.top svg{height:30px;width:auto}
+.top nav a{font-family:var(--choc);font-weight:900;letter-spacing:2px;text-transform:uppercase;text-decoration:none;margin-left:20px;color:var(--cyan)}
+.top nav a:hover{color:var(--jaune)}
+.kicker{font-family:var(--choc);font-weight:900;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);margin-top:30px}
+h1{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:clamp(40px,6vw,72px);line-height:.98;margin-top:10px;text-shadow:4px 4px 0 var(--magenta)}
+.sub{font-size:20px;font-weight:700;margin-top:12px}
+.stamp{margin-top:8px;font-size:14px;color:var(--brume)}
+main{background:var(--nuit)}
+main .wrap{padding-top:34px;padding-bottom:60px}
+h2{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:clamp(26px,3.4vw,36px);line-height:1.05;margin:46px 0 16px;letter-spacing:.5px}
+h3{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:20px;margin:22px 0 8px}
 p{margin-bottom:10px}
-.muted{color:var(--ink600);font-size:14px}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th{text-align:left;font-weight:600;padding:10px 10px 10px 0;border-bottom:3px solid var(--anthracite);vertical-align:bottom;white-space:nowrap}
-td{padding:11px 10px 11px 0;border-bottom:1px solid var(--ink300);vertical-align:top}
+.muted{color:var(--brume);font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--panneau)}
+th{text-align:left;font-family:var(--choc);font-weight:900;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);padding:12px 10px;border-bottom:3px solid var(--cyan);vertical-align:bottom;white-space:nowrap}
+td{padding:11px 10px;border-bottom:1px solid var(--ombre);vertical-align:top}
 td.n,th.n{text-align:right}
-tr.hl td{background:var(--lime)}
-td.rank{font-weight:600;font-size:22px;width:52px}
-.up{font-weight:600}
-.down{color:var(--magenta);font-weight:600}
+tr.hl td{background:var(--panneau2)}
+td.rank{font-family:var(--choc);font-weight:900;font-size:26px;width:52px;color:var(--jaune)}
+.up{font-weight:700;color:var(--cyan)}
+.down{color:var(--magenta);font-weight:700}
 .scroll{overflow-x:auto}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
-.card{display:block;text-decoration:none;border:1px solid var(--ink300)}
-.card img{width:100%;display:block;border-bottom:1px solid var(--ink300)}
-.card .t{padding:10px 12px;font-size:14px}
-.card .t b{font-weight:600}
-.card .go{display:block;margin-top:6px;font-weight:600;text-decoration:underline}
-.cell-ok{background:var(--lime);font-weight:600}
-.cell-no{color:var(--ink600)}
-.cell-wait{color:var(--ink500)}
-.flag{display:inline-block;background:var(--magenta);color:var(--blanc);font-weight:600;font-size:12px;padding:2px 8px}
-svg.chart text{font-family:Hellix,Arial,sans-serif;font-size:12px;fill:var(--ink700)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:block;text-decoration:none;background:var(--panneau2)}
+.card img{width:100%;display:block}
+.card .t{padding:12px 14px;font-size:14px}
+.card .t b{font-weight:700;color:var(--jaune)}
+.card .go{display:block;margin-top:6px;font-weight:700;color:var(--cyan);text-decoration:underline}
+.cell-ok{background:var(--jaune);color:var(--nuit);font-weight:700}
+.cell-no{color:var(--brume)}
+.cell-wait{color:var(--ombre)}
+.flag{display:inline-block;background:var(--magenta);color:var(--blanc);font-weight:700;font-size:12px;padding:2px 8px}
+svg.chart text{font-family:var(--texte);font-size:12px;fill:var(--brume)}
+.rules{background:var(--panneau);padding:22px 26px}
 .rules ol,ol.todo{padding-left:22px}ol.todo li{margin-bottom:6px}
 .rules li{margin-bottom:8px}
-footer{background:var(--anthracite);color:var(--blanc)}
+footer{background:#06030D;color:var(--brume)}
 footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
-footer svg{height:26px;width:auto}
+footer svg{height:24px;width:auto}
 """ + CSS_JEU + """
 @media (max-width:760px){
- h1{font-size:44px}.sub{font-size:18px}
- .lead{grid-template-columns:1fr}.lead .big{font-size:120px;margin-bottom:-34px}
+ .sub{font-size:17px}
  .grid2{grid-template-columns:1fr}
  .wrap{padding:0 16px}
  .top nav a{margin:0 14px 0 0}
  th,td{font-size:14px}
+ header.band .ville{height:70px;margin-top:-20px}
 }
 """
 
 
 def page(titre, corps, chemin_racine="", desc="", js=False):
+    desc = re.sub(r" ([:;?!])", NB + r"\1", desc)
     nav = f'<nav><a href="{chemin_racine}index.html">Classement</a><a href="{chemin_racine}jours.html">Journées</a><a href="{chemin_racine}regles.html">Règles</a></nav>'
     return f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <title>{fr(titre)}</title><meta name="description" content="{html.escape(desc)}">
+<meta property="og:title" content="{html.escape(titre)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:image" content="https://radar.influa.com/kit/hero.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0B0618">
 <link rel="icon" href="{chemin_racine}assets/favicon.ico"><link rel="apple-touch-icon" href="{chemin_racine}assets/favicon-180.png">
 <style>{css(FONTS)}</style></head><body>
 {corps.replace('%%NAV%%', nav)}
-<footer><div class="wrap"><div>{logo('#FFFFFF')}</div><div>{fr("Radar GEO Influa pour le challenge GEO Inseec 2026-2027. INFLUA, marque d'IA GROUP. Web company.")}</div></div></footer>
+<footer><div class="wrap"><div>{logo('#FFFFFF')}</div><div>{fr("Radar GEO du Challenge GEO Inseec MSC M1 Marketing Digital et Big Data, 2026-2027. Influa, marque du groupe IA GROUP.")}</div></div></footer>
 {('<script>' + JS + '</script>') if js else ''}</body></html>"""
 
 
 def entete(kicker, titre, sous, stamp, lead=""):
-    return f"""<header class="band"><div class="wrap"><div class="top">{logo()}%%NAV%%</div>
-<p class="kicker">{fr(kicker)}</p><h1>{fr(titre)}</h1><p class="sub">{fr(sous)}</p><p class="stamp">{fr(stamp)}</p>{lead}</div></header>"""
+    return f"""<header class="band"><div class="wrap"><div class="top">{logo("#FFFFFF")}%%NAV%%</div>
+<p class="kicker">{fr(kicker)}</p><h1>{fr(titre)}</h1><p class="sub">{fr(sous)}</p><p class="stamp">{fr(stamp)}</p>{lead}</div><svg class="ville" viewBox="0 0 1075 260" preserveAspectRatio="none" aria-hidden="true"><path fill="#0B0618" d="M0 260V170h40v-30h30v50h40V90h20V60h30v130h40v-60h50v40h30V40h15V20h15v20h15v150h40v-70h60v80h30V100h50v90h40v-50h30v-40h20v90h40V70h25V50h20v20h25v120h40v-60h50v70h30V110h40v80h40v-40h60v40h40V80h30v110h40v70z"/></svg></header>"""
 
 
 def evo(v):
@@ -134,12 +134,12 @@ def chart(hist, us):
     out = [f'<svg class="chart" viewBox="0 0 {W} {H}" width="100%" role="img" aria-label="Cumul des points par site">']
     for k in range(5):
         v = mx * k / 4
-        out.append(f'<line x1="{L}" x2="{W-R}" y1="{Y(v):.1f}" y2="{Y(v):.1f}" stroke="#EFEFF1"/><text x="{L-6}" y="{Y(v)+4:.1f}" text-anchor="end">{int(v)}</text>')
+        out.append(f'<line x1="{L}" x2="{W-R}" y1="{Y(v):.1f}" y2="{Y(v):.1f}" stroke="#3A2A5E"/><text x="{L-6}" y="{Y(v)+4:.1f}" text-anchor="end">{int(v)}</text>')
     out.append(f'<text x="{L}" y="{H-8}">{fr(date_fr(hist[0]["date"]))}</text><text x="{W-R}" y="{H-8}" text-anchor="end">{fr(date_fr(hist[-1]["date"]))}</text>')
     ys = []
     for u in sorted(us, key=lambda u: u == tete):
         pts = " ".join(f"{X(i):.1f},{Y(h['cumul'][u]):.1f}" for i, h in enumerate(hist))
-        col, w = ("#0E0E10", 3.5) if u == tete else ("#76767E", 1.6)
+        col, w = ("#FFD23F", 3.5) if u == tete else ("#B9AED6", 1.4)
         out.append(f'<polyline fill="none" stroke="{col}" stroke-width="{w}" points="{pts}"/>')
         ys.append((Y(hist[-1]["cumul"][u]), u))
     ys.sort()
@@ -187,13 +187,13 @@ def preuves(s, base_fonts):
                 srcs += f'<li class="{"m" if ok else ""}">{html.escape(h)}<span>{html.escape((so.get("titre") or "")[:90])}</span></li>'
             heure = dt.datetime.fromisoformat(r["heure"])
             doc = f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>{css(base_fonts)}
-body{{width:1200px}}.h{{background:var(--lime);padding:26px 40px;display:flex;justify-content:space-between;align-items:center}}.h svg{{height:30px}}
-.h .p{{font-weight:600;font-size:44px;line-height:1}}.b{{padding:28px 40px 34px}}.q{{font-size:30px;font-weight:600;line-height:1.2}}
-.meta{{margin-top:10px;font-size:16px}}.meta b{{font-weight:600}}.ans{{margin-top:20px;font-size:16px;line-height:1.55;color:#1C1C1F;border-top:3px solid #0E0E10;padding-top:16px}}
-mark{{background:var(--lime);color:#0E0E10;font-weight:600;padding:0 3px}}ul{{list-style:none;margin-top:18px;border-top:1px solid #C8C8CC}}
-li{{padding:6px 0;border-bottom:1px solid #EFEFF1;font-weight:600;font-size:15px}}li span{{font-weight:400;color:#5E5E66;margin-left:12px}}li.m{{background:var(--lime)}}
-.ft{{padding:14px 40px;background:#0E0E10;color:#fff;font-size:14px}}</style></head><body>
-<div class="h">{logo()}<div class="p">+{c['points']}{NB}point{'s' if c['points'] > 1 else ''}</div></div>
+body{{width:1200px}}.h{{background:var(--neon);padding:26px 40px;display:flex;justify-content:space-between;align-items:center}}.h svg{{height:30px}}
+.h .p{{font-family:var(--choc);font-weight:900;font-size:48px;line-height:1;color:var(--jaune);text-shadow:3px 3px 0 var(--nuit)}}.b{{padding:28px 40px 34px}}.q{{font-family:var(--choc);font-weight:900;text-transform:uppercase;font-size:32px;line-height:1.1}}
+.meta{{margin-top:10px;font-size:16px}}.meta{{color:var(--brume)}}.meta b{{font-weight:700;color:var(--cyan)}}.ans{{margin-top:20px;font-size:16px;line-height:1.55;color:#fff;border-top:3px solid var(--cyan);padding-top:16px}}
+mark{{background:var(--jaune);color:var(--nuit);font-weight:600;padding:0 3px}}ul{{list-style:none;margin-top:18px;border-top:1px solid var(--ombre)}}
+li{{padding:6px 0;border-bottom:1px solid var(--ombre);font-weight:700;font-size:15px}}li span{{font-weight:400;color:var(--brume);margin-left:12px}}li.m{{background:var(--jaune);color:var(--nuit)}}li.m span{{color:var(--nuit)}}
+.b{{background:var(--panneau)}}.ft{{padding:14px 40px;background:#06030D;color:var(--brume);font-size:14px}}</style></head><body>
+<div class="h">{logo("#FFFFFF")}<div class="p">+{c['points']}{NB}point{'s' if c['points'] > 1 else ''}</div></div>
 <div class="b"><div class="q">{fr(r['question'])}</div>
 <div class="meta"><b>{fr(MNOM[c['moteur']])}</b> ({html.escape(r.get('modele', ''))}, recherche web), {fr(date_fr(c['date']))} à {fr(heure_fr(heure))}. Question de {html.escape(dom)}. Preuve : {fr(', '.join(sorted({pr['type'] for pr in c['preuves']})))}.</div>
 <div class="ans">{txt}</div><ul>{srcs}</ul></div>
@@ -212,6 +212,7 @@ def construire(base_fonts_preuves=FONTS):
     s = calculer()
     os.makedirs(DOCS, exist_ok=True)
     shutil.copytree(os.path.join(RACINE, "assets"), os.path.join(DOCS, "assets"), dirs_exist_ok=True)
+    shutil.copytree(os.path.join(RACINE, "kit"), os.path.join(DOCS, "kit"), dirs_exist_ok=True)
     n = preuves(s, base_fonts_preuves)
     hist = s["historique"]
     us = [g["u"] for g in GROUPES]
@@ -248,7 +249,7 @@ def construire(base_fonts_preuves=FONTS):
         else:
             obj = "Une seule citation suffit pour prendre la tête du classement."
         libres = [q for q in g["questions"] if q["id"] not in s["questions"][u]]
-        lead_g = f'<div class="score"><div class="giant">{h["rang"][u]}<small>{"er" if h["rang"][u] == 1 else "e"} sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="{h["cumul"][u]}">{h["cumul"][u]}</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="{h["points"][u]}">{h["points"][u]}</span></div><div class="l">{fr("points ce matin")}</div></div><div class="fact"><div class="v">{len(s["questions"][u])}/20</div><div class="l">{fr("questions citées")}</div></div><div class="fact"><div class="v">{len(libres)}</div><div class="l">{fr("questions encore à prendre")}</div></div></div></div>'
+        lead_g = f'<div class="score"><div class="giant">{h["rang"][u]}<small>{"er" if h["rang"][u] == 1 else "e"} sur 9</small></div><div class="facts"><div class="fact"><div class="v"><span data-n="{h["cumul"][u]}">{h["cumul"][u]}</span></div><div class="l">points</div></div><div class="fact mag"><div class="v">+<span data-n="{h["points"][u]}">{h["points"][u]}</span></div><div class="l">{fr("points ce matin")}</div></div><div class="fact"><div class="v">{len(s["questions"][u])}/20</div><div class="l">{fr("questions citées")}</div></div><div class="fact"><div class="v">{len(libres)}</div><div class="l">{fr("questions encore à prendre")}</div></div><div class="fact ja" style="grid-column:1/-1;display:flex;align-items:center;gap:14px"><img src="../kit/rang-{niveau(h["cumul"][u])[0]}.png" alt="" width="64" height="64"><div><div class="v">{fr("Niveau " + str(niveau(h["cumul"][u])[0]) + " " + niveau(h["cumul"][u])[1])}</div>{jauge(niveau(h["cumul"][u])[0])}</div></div></div></div>'
         b = entete(g["theme"], g["domaine"], st, obj, lead_g)
         b += f"""<main><div class="wrap"><h2>{fr("Les questions encore à prendre")}</h2>
 <p>{fr("Une page par question, la réponse en 40 à 50 mots en tête, une source officielle : ce sont les pages que les moteurs citent.")}</p>
