@@ -35,7 +35,7 @@ CSS_JEU = """
 .step.s2{height:270px;border-top:6px solid var(--cyan)}.step.s2 .r{font-size:220px;color:var(--cyan)}
 .step.s3{height:225px;border-top:6px solid var(--magenta)}.step.s3 .r{font-size:190px;color:var(--magenta)}
 .step .go{position:relative;font-size:14px;font-weight:700;color:var(--cyan);text-decoration:underline;margin-top:8px}
-.jeu{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.jeu{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:18px;align-items:start}
 .jeu aside img{width:100%;height:auto;display:block}
 .jeu aside p{font-size:13px;color:var(--brume);margin-top:8px}
 .lane{display:grid;grid-template-columns:56px minmax(0,1.4fr) minmax(0,1.6fr) 100px 110px;gap:14px;align-items:center;padding:12px 14px;margin-bottom:6px;text-decoration:none;position:relative;background:var(--panneau2)}
@@ -80,7 +80,7 @@ svg.chart{background:var(--panneau);padding:10px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.ticker .rail{animation:none}.chart polyline{animation:none;stroke-dashoffset:0}.reveal{opacity:1;transform:none;transition:none}}
-@media (max-width:980px){.jeu{grid-template-columns:1fr}.jeu aside{max-width:360px}.missions{grid-template-columns:1fr 1fr}}
+@media (max-width:980px){.jeu{grid-template-columns:1fr}.jeu aside{max-width:520px}.missions{grid-template-columns:1fr 1fr}}
 @media (max-width:900px){
  .score{grid-template-columns:1fr}
  .podium{grid-template-columns:1fr;gap:8px}.step.s1,.step.s2,.step.s3{height:auto;min-height:150px}
