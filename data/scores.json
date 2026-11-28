@@ -1,5 +1,5 @@
 {
- "calcule_le": "2026-11-27T22:10+01:00",
+ "calcule_le": "2026-11-28T04:53+01:00",
  "debut": "2026-11-24",
  "fin": "2027-06-01",
  "historique": [
@@ -110,6 +110,41 @@
   },
   {
    "date": "2026-11-27",
+   "points": {
+    "sport": 0,
+    "enfants": 0,
+    "style": 0,
+    "soins": 0,
+    "lentilles": 0,
+    "soleil": 0
+   },
+   "cumul": {
+    "sport": 0,
+    "enfants": 0,
+    "style": 0,
+    "soins": 0,
+    "lentilles": 0,
+    "soleil": 0
+   },
+   "rang": {
+    "enfants": 1,
+    "lentilles": 1,
+    "soins": 1,
+    "soleil": 1,
+    "sport": 1,
+    "style": 1
+   },
+   "evolution": {
+    "sport": 0,
+    "enfants": 0,
+    "style": 0,
+    "soins": 0,
+    "lentilles": 0,
+    "soleil": 0
+   }
+  },
+  {
+   "date": "2026-11-28",
    "points": {
     "sport": 0,
     "enfants": 0,
@@ -942,6 +977,11 @@
    },
    {
     "date": "2026-11-27",
+    "points": 0,
+    "cumul": 0
+   },
+   {
+    "date": "2026-11-28",
     "points": 0,
     "cumul": 0
    }
